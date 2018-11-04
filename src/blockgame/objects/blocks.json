@@ -7,7 +7,8 @@
     "dropId": 0,
     "type": "block",
     "name": "noTexture",
-    "visible": false
+    "visible": false,
+    "maxStackSize": 100
   },
   {
     "texture": "blockgame/textures/blocks/dirt.png",
@@ -17,7 +18,8 @@
     "dropId": 1,
     "type": "block",
     "name": "dirt",
-    "visible": false
+    "visible": false,
+    "maxStackSize": 100
   },
   {
     "texture": "blockgame/textures/blocks/grass.png",
@@ -27,7 +29,8 @@
     "dropId": 2,
     "type": "block",
     "name": "grass",
-    "visible": false
+    "visible": false,
+    "maxStackSize": 100
   },
   {
     "texture": "blockgame/textures/blocks/stone.png",
@@ -37,7 +40,8 @@
     "dropId": 3,
     "type": "block",
     "name": "stone",
-    "visible": false
+    "visible": false,
+    "maxStackSize": 100
   },
   {
     "texture": "blockgame/textures/blocks/pink.png",
@@ -47,7 +51,8 @@
     "dropId": 4,
     "type": "block",
     "name": "pink",
-    "visible": false
+    "visible": false,
+    "maxStackSize": 100
   },
   null,
   null,
