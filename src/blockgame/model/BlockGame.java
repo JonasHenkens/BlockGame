@@ -64,7 +64,7 @@ public class BlockGame {
         if(x <= guiTop.getWidth() && y <= guiTop.getHeight()){
             
         }
-        else if(x <= world.getWidth() && (y + guiTop.getHeight()) <= world.getHeight()){
+        else if(x <= world.getWidth() && (y - guiTop.getHeight()) <= world.getHeight()){
             world.rightClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock());
         }
         else{
