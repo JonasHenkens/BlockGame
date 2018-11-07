@@ -11,17 +11,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
 /**
- *
+ * View of the person.
  * @author Jonas
  */
 public class PersonView extends Region{
     private Person model;
 
+    /**
+     * Constructor of the PersonView.
+     * @param model The person to be displayed.
+     */
     public PersonView(Person model) {
         this.model = model;
         update();
     }
     
+    /**
+     * Updates the view.
+     */
     public void update(){
         getChildren().clear();
         

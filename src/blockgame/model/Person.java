@@ -8,7 +8,7 @@ package blockgame.model;
 import javafx.scene.image.Image;
 
 /**
- *
+ * A person can move around the wirld and iteract with it.
  * @author Jonas
  */
 public class Person {
@@ -23,7 +23,15 @@ public class Person {
     private double height;
     private String texture;
     private int experience;
+    private double vx;
+    private double vy;
 
+    /**
+     * Constructor of a standard person.
+     * @param spawnX The x coordinate the person will originally be spawned at or after death.
+     * @param spawnY The y coordinate the person will originally be spawned at or after death.
+     * @param texture The texture of the person.
+     */
     public Person(double spawnX, double spawnY, String texture) {
         // hotbar 10 slots: 0-9
         // inventort 40 slots: 10-49
@@ -41,8 +49,22 @@ public class Person {
         height = i.getHeight();
         this.texture = texture;
         experience = 0;
+        vx = 0;
+        vy = 0;
     }
-
+    
+    /**
+     * Full constructor of a person.
+     * @param inventory The inventory of the person.
+     * @param x The x coordinate of the person.
+     * @param y The y coordinate of the person.
+     * @param spawnX The x coordinate the person will originally be spawned at or after death.
+     * @param spawnY The y coordinate the person will originally be spawned at or after death.
+     * @param health The health of the person.
+     * @param maxHealth The maximum amount of health the person can have.
+     * @param texture The texture of the person.
+     * @param experience The amount of experience the person has.
+     */
     public Person(ItemStack[] inventory, double x, double y, double spawnX, double spawnY, double health, double maxHealth, String texture, int experience) {
         this.inventory = inventory;
         this.x = x;
@@ -59,7 +81,7 @@ public class Person {
     }
     
     /**
-     * resets the x and y coordinate to the spawn coordinates
+     * Resets the x and y coordinate to the spawn coordinates.
      */
     public void respawn(){
         x = spawnX;
@@ -68,25 +90,22 @@ public class Person {
     
     /**
      * 
-     * @param dx the amount moved in the x direction
-     * @param dy the amount moved in the y direction 
+     * @param dx The change in the x direction. Right is positive.
+     * @param dy The change in the y direction. Down is positive.
      */
     public void move(double dx, double dy){
         x = x + dx;
         y = y + dy;
+        System.out.println(x + " a  " + y);
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /**
+     * Makes the person jump
+     * @param speed The speed of the person's jump upwards.
+     */
+    public void jump(double speed){
+        vy = vy - speed;
+    }
     
     
     

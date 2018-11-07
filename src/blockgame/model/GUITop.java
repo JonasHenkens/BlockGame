@@ -7,7 +7,7 @@ package blockgame.model;
 
 
 /**
- *
+ * The GUI at the top of the screen.
  * @author Jonas
  */
 public class GUITop{
@@ -16,6 +16,9 @@ public class GUITop{
     private Block[] blocks;
     private Block selectedBlock;
 
+    /**
+     * Constructor of GUITop.
+     */
     public GUITop() {
         height = 32;
         width = 1536;
@@ -37,27 +40,32 @@ public class GUITop{
     }
 
     /**
-     * @return the height of the interface
+     * @return The height of the interface.
      */
     public int getHeight() {
         return height;
     }
 
     /**
-     * @return the width of the interface
+     * @return The width of the interface.
      */
     public int getWidth() {
         return width;
     }
     
     /**
-     * @param n the index
-     * @return the block on index n
+     * @param n The index of the requested block.
+     * @return The block on index n.
      */
-    public Block getBlocks(int n){
+    public Block getBlock(int n){
         return blocks[n];
     }
     
+    /**
+     * Selects block if clicked on one.
+     * @param x The x coordinate of the click.
+     * @param y The y coordinate of the click.
+     */
     public void leftClick(double x, double y){
         boolean done = false;
         for(int i=0; i<10 && !done; i++){
@@ -70,7 +78,7 @@ public class GUITop{
     }
 
     /**
-     * @return the selectedBlock
+     * @return The currently selected block.
      */
     public Block getSelectedBlock() {
         return selectedBlock;

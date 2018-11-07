@@ -12,42 +12,44 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- *
+ * In BlockGame all the big views get put together.
  * @author Jonas
  */
 public class BlockGame {
     private World world;
     private GUITop guiTop;
+    private Person person;
 
     public BlockGame() {
-        Person person = new Person(0, 0, "blockgame/textures/person.png");
-        world = new World(96, 48, 16, person);
+        person = new Person(0, 0, "blockgame/textures/person.png");
+        world = new World(96, 48, 16);
         guiTop = new GUITop();
     }
 
     /**
-     * @return the currently loaded world
+     * @return The currently loaded world.
      */
     public World getWorld() {
         return world;
     }
     /**
-     * @return the guiTop
+     * @return The guiTop used.
      */
     public GUITop getGuiTop() {
         return guiTop;
     }
     
     /**
-     * @param x the x coordinate of the mouseclick
-     * @param y the y coordinate of the mouseclick
+     * Checks on which element has been clicked and runs its clicked function using relative coordinates.
+     * @param x The x coordinate of the mouseclick.
+     * @param y The y coordinate of the mouseclick.
      */
     public void leftClick(double x, double y){
         
         if(x <= guiTop.getWidth() && y <= guiTop.getHeight()){
             guiTop.leftClick(x, y);
         }
-        else if(x <= world.getWidth() && (y - guiTop.getHeight()) <= world.getHeight()){
+        else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
             world.leftClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock());
         }
         else{
@@ -57,14 +59,15 @@ public class BlockGame {
     }
     
     /**
-     * @param x the x coordinate of the mouseclick
-     * @param y the y coordinate of the mouseclick
+     * Checks on which element has been clicked and runs its clicked function using relative coordinates.
+     * @param x The x coordinate of the mouseclick.
+     * @param y The y coordinate of the mouseclick.
      */
     public void rightClick(double x, double y){
         if(x <= guiTop.getWidth() && y <= guiTop.getHeight()){
             
         }
-        else if(x <= world.getWidth() && (y - guiTop.getHeight()) <= world.getHeight()){
+        else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
             world.rightClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock());
         }
         else{
@@ -72,12 +75,9 @@ public class BlockGame {
         }
     }
     
-    
-    
-    
     /**
-     * exports the currently loaded world
-     * @param name the name the world will be called
+     * Exports the currently loaded world.
+     * @param name The name the world will be called.
      */
     public void exportWorld(String name){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -96,8 +96,8 @@ public class BlockGame {
     
     
     /**
-     * load the world with name
-     * @param name the name of the world that should be loaded
+     * Loads the world with name.
+     * @param name The name of the world that will be loaded.
      */
     public void loadWorld(String name){
         try {
@@ -111,9 +111,44 @@ public class BlockGame {
     }
     
     
+    /**
+     * @return The x coordinate of the person.
+     */
+    public double getPersonX(){
+        return person.getX();
+    }
     
+    /**
+     * 
+     * @return The y coordinate of the person.
+     */
+    public double getPersonY(){
+        return person.getY();
+    }
     
+    /**
+     * @return The texture of the person.
+     */
+    public String getPersonTexture(){
+        return person.getTexture();
+    }
     
+    /**
+     * Moves the person.
+     * @param dx The change in the x direction. Right is positive.
+     * @param dy The change in the y direction. Down is positive.
+     */
+    public void movePerson(double dx, double dy){
+        person.move(dx, dy);
+    }
+    
+    /**
+     * Makes the person jump
+     * @param speed The speed of the person's jump upwards.
+     */
+    public void jump(double speed){
+        person.jump(speed);
+    }
     
     
     

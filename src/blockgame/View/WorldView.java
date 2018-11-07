@@ -8,28 +8,30 @@ package blockgame.View;
 import blockgame.model.Block;
 import blockgame.model.ImageInterface;
 import blockgame.model.World;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
 /**
- *
+ * View of the world.
  * @author Jonas
  */
 public class WorldView extends Region{
     private World model;
 
+    /**
+     * Constructor of the WorldView.
+     * @param model The world to be displayed.
+     */
     public WorldView(World model) {
         this.model = model;
         update();
     }
     
-    
+    /**
+     * Updates the WorldView.
+     */
     public void update(){
         getChildren().clear();
         ImageInterface ii = new ImageInterface();
-        
-        // draw the world
         for(int i=0; i<model.getSizeX(); i++){
             for(int j=0; j<model.getSizeY(); j++){
                 try{
@@ -43,16 +45,9 @@ public class WorldView extends Region{
                 }
             }
         }
-        
-        // draw the person
-        
-        double personX = model.getPersonX();
-        double personY = model.getPersonY();
-        String personTexture = model.getPersonTexture();
-        
-        ImageView personView = new ImageView(personTexture);
-        personView.setTranslateX(personX);
-        personView.setTranslateX(personY);
-        getChildren().add(personView);
     }
+    
+    
+    
+    
 }

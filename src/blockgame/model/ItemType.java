@@ -6,9 +6,9 @@
 package blockgame.model;
 
 /**
- * Items can be stored in an inventory
+ * The types of items in the game.
  * @author Jonas
  */
-public class Inventory {
-    // Not yet implementd.
+public enum ItemType {
+    block
 }

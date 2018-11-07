@@ -13,7 +13,7 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
- *
+ * Used to deserialize Person.
  * @author Jonas
  */
 public class PersonDeserializer implements JsonDeserializer<Person>{

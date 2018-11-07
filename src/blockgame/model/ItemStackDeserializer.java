@@ -13,7 +13,7 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
- *
+ * Used to deserialize ItemStack.
  * @author Jonas
  */
 public class ItemStackDeserializer implements JsonDeserializer<ItemStack>{

@@ -13,17 +13,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 /**
- *
+ * View of the GUI at the top of the game.
  * @author Jonas
  */
 public class GUITopView extends Region{
     private GUITop model;
 
+    /**
+     * Constructor for the GUITopView.
+     * @param model The GUI to be displayed.
+     */
     public GUITopView(GUITop model) {
         this.model = model;
         update();
     }
     
+    /**
+     * Updates the GUITopView.
+     */
     public void update(){
         getChildren().clear();
         
@@ -33,7 +40,7 @@ public class GUITopView extends Region{
         ImageInterface ii = new ImageInterface();
         
         for(int i=0; i<10; i++){
-            Block b = model.getBlocks(i);
+            Block b = model.getBlock(i);
             BlockView bv = new BlockView(b, ii);
             bv.setTranslateY(8);
             bv.setTranslateX(8 + 24*i);

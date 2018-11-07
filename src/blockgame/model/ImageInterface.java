@@ -10,12 +10,15 @@ import java.util.ArrayList;
 import javafx.scene.image.Image;
 
 /**
- * The ImageInterface is used to request blockImages by id
+ * The ImageInterface is used to request images by id.
  * @author Jonas
  */
 public class ImageInterface {
     private ArrayList<Image> blockImages;
     
+    /**
+     * Constructor for ImageInterface.
+     */
     public ImageInterface() {
         blockImages = new ArrayList<>();
         ItemInterface ii = new ItemInterface();
@@ -28,14 +31,17 @@ public class ImageInterface {
                 blockImages.add(i);
             }
             catch(NullPointerException e){
-                
             }
         }
-        
-        
     }
     
     
+    /**
+     * 
+     * @param id The id of the item.
+     * @param type The type of the item.
+     * @return Returns the image of an item. Returns null if it doesn't exist.
+     */
     public Image getImage(int id, String type){
         if(type.equals("block")){
             return blockImages.get(id);

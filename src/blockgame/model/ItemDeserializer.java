@@ -14,7 +14,7 @@ import com.google.gson.JsonParseException;
 import java.lang.reflect.Type;
 
 /**
- *
+ * Used to deserialize items.
  * @author Jonas
  */
 public class ItemDeserializer implements JsonDeserializer<Item>{
@@ -31,11 +31,10 @@ public class ItemDeserializer implements JsonDeserializer<Item>{
         JsonElement jType = jObject.get("type");
         JsonElement jName = jObject.get("name");
         JsonElement jVisible = jObject.get("visible");
-        JsonElement jMaxStackSize = jObject.get("maxStackSize");
         
         
         if (jType.getAsString().equals("blocks")) {
-            Block b = new Block(jTexture.getAsString(), jHealth.getAsDouble(), jHardness.getAsDouble(), jId.getAsInt(), jDropId.getAsInt(), jName.getAsString(), jMaxStackSize.getAsInt());
+            Block b = new Block(jTexture.getAsString(), jHealth.getAsDouble(), jHardness.getAsDouble(), jId.getAsInt(), jDropId.getAsInt(), jName.getAsString());
             b.setVisible(jVisible.getAsBoolean());
             return b;
         }

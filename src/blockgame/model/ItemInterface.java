@@ -12,12 +12,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 /**
- * ItemInterface is used to request items by id and type
+ * ItemInterface is used to request items by id and type.
  * @author Jonas
  */
 public class ItemInterface {
     private Block[] blocks;
     
+    /**
+     * Constructor of ItemInterface.
+     */
     public ItemInterface() {
         try {
             GsonBuilder gsonBouwer = new GsonBuilder();
@@ -41,20 +44,36 @@ public class ItemInterface {
     }
     
     /**
-     * @param n index of block also called the "id"
-     * @return block located at index n
+     * @param id Id of the block.
+     * @return The block with the id. Returns block with id 0 if it doesn't exist.
      */
-    public Block getBlock(int n){
+    public Block getBlock(int id){
         try{
-            return new Block(blocks[n].getTexture(), blocks[n].getHealth(), blocks[n].getHardness(), blocks[n].getId(), blocks[n].getDropId(), blocks[n].getName(), blocks[n].getMaxStackSize());
+            return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getName());
         }
         catch(NullPointerException e){
-            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getName(), blocks[0].getMaxStackSize());
+            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getName());
         }
     }
     
+    /**
+     * @return The amount of blocks that exist.
+     */
     public int getBlocksLength(){
         return blocks.length;
     }
     
+    /**
+     * @param itemId The id of the item.
+     * @param type The type of the item.
+     * @return The Item with the id and type. Returns null if it doesn't exist.
+     */
+    public Item getItem(int itemId, ItemType type){
+        if(type.equals(ItemType.block)){
+            return blocks[itemId];
+        }
+        else{
+            return null;
+        }
+    }
 }

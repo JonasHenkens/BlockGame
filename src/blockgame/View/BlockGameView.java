@@ -6,31 +6,58 @@
 package blockgame.View;
 
 import blockgame.model.BlockGame;
-import blockgame.View.GUITopView;
-import blockgame.View.WorldView;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
 /**
- *
+ * Complete worldView of blockgame.
  * @author Jonas
  */
 public class BlockGameView extends Region{
     private BlockGame model;
-    private WorldView view;
-    private GUITopView view2;
+    private WorldView worldView;
+    private GUITopView topView;
+    private ImageView personView;
     
+    /**
+     * Constructor of the BlockGameView.
+     * @param model This is the BlockGame used for the view.
+     */
     public BlockGameView(BlockGame model) {
         this.model = model;
-        view = new WorldView(model.getWorld());
-        view.setTranslateY(model.getGuiTop().getHeight());
-        view2 = new GUITopView(model.getGuiTop());
-        getChildren().addAll(view, view2);
+        worldView = new WorldView(model.getWorld());
+        worldView.setTranslateY(model.getGuiTop().getHeight());
+        topView = new GUITopView(model.getGuiTop());
+        getChildren().addAll(worldView, topView);
+        
+        String personTexture = model.getPersonTexture();
+        personView = new ImageView(personTexture);
+        getChildren().add(personView);
+        
         update();
     }
     
+    /**
+     * Updates the BlockGameView.
+     */
     public void update(){
-        view.update();
-        view2.update();
+        worldView.update();
+        topView.update();
+        updatePerson();
+    }
+    
+    /**
+     * Updates the personView.
+     */
+    public void updatePerson(){
+        
+        double personX = model.getPersonX();
+        double personY = model.getPersonY();
+        personView.setTranslateX(personX);
+        personView.setTranslateY(personY);
+        
+        
+        
     }
     
 }

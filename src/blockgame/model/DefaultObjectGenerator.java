@@ -13,20 +13,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- *
+ * Used to generate the default object files.
  * @author Jonas
  */
 public class DefaultObjectGenerator {
     private Block[] blocks;
     
+    /**
+     * Constructor of the DefaultObjectGenerator.
+     */
     public DefaultObjectGenerator() {
     }
     
-    
+    /**
+     * Generates all files, overwrites existing files.
+     */
     public void generateAllOverwrite(){
         generateBlocks();
     }
     
+    /**
+     * Generates all files that do not exist yet.
+     */
     public void generateAllNoOverwrite(){
         // Bron voor controleren of bestand al bestaat: https://stackoverflow.com/questions/6824987/how-to-check-if-a-file-exists
         File b = new File("src/blockgame/objects/blocks.json");
@@ -35,13 +43,22 @@ public class DefaultObjectGenerator {
         }
     }
     
+    /**
+     * Generates the "blocks.json" file.
+     */
     public void generateBlocks(){
+        File directory = new File("src/blockgame/objects");
+        
+        if(!directory.exists()){
+            directory.mkdir();
+        }
+        
         blocks = new Block[1024];
-        blocks[0] = new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, "noTexture", 100);
-        blocks[1] = new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, "dirt", 100);
-        blocks[2] = new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, "grass", 100);
-        blocks[3] = new Block("blockgame/textures/blocks/stone.png", 10, 12, 3, 3, "stone", 100);
-        blocks[4] = new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, "pink", 100);
+        addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, "noTexture"));
+        addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, "dirt"));
+        addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, "grass"));
+        addBlock(new Block("blockgame/textures/blocks/stone.png", 10, 12, 3, 3, "stone"));
+        addBlock(new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, "pink"));
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(blocks);
@@ -56,7 +73,16 @@ public class DefaultObjectGenerator {
         }
     }
     
-    public void generateWorlds(){
+    /**
+     * Adds a block to the blocks list. This replaces an already existing block if the same id is used.
+     * @param block The block that will be added.
+     */
+    public void addBlock(Block block){
+        
+        if(blocks[block.getId()] != null){
+            System.err.println("WARNING: Block with id " + block.getId() + "has been replaced");
+        }
+        blocks[block.getId()] = block;
         
     }
     

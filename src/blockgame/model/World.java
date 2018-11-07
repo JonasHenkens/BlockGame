@@ -7,7 +7,7 @@ package blockgame.model;
 
 
 /**
- *
+ * A world is made of blocks.
  * @author Jonas
  */
 public class World {
@@ -15,101 +15,68 @@ public class World {
     private int sizeX;
     private int sizeY;
     private int textureResolution;
-    private Person person;
 
-    public World(int sizeX, int sizeY, int textureResolution, Person person) {
+    /**
+     * Constructor of World.
+     * @param sizeX The amount of blocks in the x direction.
+     * @param sizeY The amount of blocks in the y direction.
+     * @param textureResolution The rib of the block's texture in amount of pixels.
+     */
+    public World(int sizeX, int sizeY, int textureResolution) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
         this.textureResolution = textureResolution;
         blocks = new Block[sizeX][sizeY];
-        this.person = person;
         loadDefaultWorld();
         
     }
     
-    /**
-     * 
-     * @return the x coordinate of the person
-     */
-    public double getPersonX(){
-        return person.getX();
-    }
+    
     
     /**
-     * 
-     * @return the y coordinate of the person 
-     */
-    public double getPersonY(){
-        return person.getY();
-    }
-    
-    /**
-     * 
-     * @return the texture of the person 
-     */
-    public String getPersonTexture(){
-        return person.getTexture();
-    }
-    
-    /**
-     * @return the horizontal size of the world in amount of blocks
+     * @return The horizontal size of the world in amount of blocks.
      */
     public int getSizeX() {
         return sizeX;
     }
 
     /**
-     * @return the vertical size of the world in amount of blocks
+     * @return The vertical size of the world in amount of blocks.
      */
     public int getSizeY() {
         return sizeY;
     }
     
     /**
-     * @return the width of the world in pixels
-     */
-    public int getWidth(){
-        return sizeX*16;
-    }
-    
-    /**
-     * @return the height of the world in pixels
-     */
-    public int getHeight(){
-        return sizeY*16;
-    }
-    
-    /**
-     * @return the width and height of each block
+     * @return The rib of the block's texture in amount of pixels.
      */
     public int getTextureResolution() {
         return textureResolution;
     }
     
     /**
-     * @param x the x coordinate of the block
-     * @param y the y coordinate of the block
-     * 
-     * @return the block located on the given coordinates
+     * @param x The x coordinate of the block.
+     * @param y The y coordinate of the block.
+     * @return The block located on the given coordinates.
      */
     public Block getBlock(int x, int y){
         return blocks[x][y];
     }
     
     /**
-     * @param x the x coordinate of the mouseclick
-     * @param y the y coordinate of the mouseclick
+     * @param x The x coordinate of the mouseclick.
+     * @param y The y coordinate of the mouseclick.
      * 
-     * @return the block located on the given coordinates
+     * @return The block located on the given coordinates.
      */
     public Block getBlockMouse(double x, double y){
         return blocks[(int)(x/16)][(int)(y/16)];
     }
     
     /**
-     * @param x the x coordinate of the mouseclick
-     * @param y the y coordinate of the mouseclick
-     * @param block the block that has been used to click
+     * @param x The x coordinate of the mouseclick.
+     * @param y The y coordinate of the mouseclick.
+     * @param block The block that has been used to click.
      */
     public void leftClick(double x, double y, Block block){
         blocks[(int)(x/16)][(int)(y/16)] = null;
@@ -117,9 +84,9 @@ public class World {
     }
     
     /**
-     * @param x the x coordinate of the mouseclick
-     * @param y the y coordinate of the mouseclick
-     * @param block the block that has been used to click
+     * @param x The x coordinate of the mouseclick.
+     * @param y The y coordinate of the mouseclick.
+     * @param block The block that has been used to click.
      */
     public void rightClick(double x, double y, Block block){
         int bX = (int)(x/16);
@@ -133,8 +100,8 @@ public class World {
     }
     
     /**
-     * tries to load default world from "objects/defaultWorld.json"
-     * if fails: generate standard world
+     * Tries to load default world from "objects/defaultWorld.json".
+     * If fails: generate standard world.
      */
     public void loadDefaultWorld(){
         try {
@@ -143,7 +110,7 @@ public class World {
             renew(newWorld);
         } 
         catch (NullPointerException e) {
-            System.out.println("Error: Default world not found. Generating standard world.");
+            System.out.println("INFO: Default world not found. Generating standard world.");
             
             ItemInterface ii = new ItemInterface();
             
@@ -183,8 +150,6 @@ public class World {
         
     }
     
-    public void movePerson(double dx, double dy){
-        person.move(dx, dy);
-    }
+    
     
 }

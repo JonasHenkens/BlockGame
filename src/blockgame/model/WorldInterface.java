@@ -16,9 +16,14 @@ import java.io.FileReader;
  */
 public class WorldInterface {
 
+    /**
+     * Constructor of the WorldInterface.
+     */
     public WorldInterface() {
     }
-    
+    /**
+     * @return The default world. Returns null if world doesn't exist.
+     */
     public World getDefaultWorld(){
         try {
             
@@ -37,6 +42,10 @@ public class WorldInterface {
         }
     }
     
+    /**
+     * @param name The name of the world that will be loaded.
+     * @return The world connected to the name. Returns null if it doesn't exist.
+     */
     public World getWorld(String name){
         try {
             GsonBuilder gsonBouwer = new GsonBuilder();

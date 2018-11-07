@@ -8,7 +8,8 @@
     "type": "block",
     "name": "noTexture",
     "visible": false,
-    "maxStackSize": 100
+    "maxStackSize": 100,
+    "strength": 1.0
   },
   {
     "texture": "blockgame/textures/blocks/dirt.png",
@@ -19,7 +20,8 @@
     "type": "block",
     "name": "dirt",
     "visible": false,
-    "maxStackSize": 100
+    "maxStackSize": 100,
+    "strength": 1.0
   },
   {
     "texture": "blockgame/textures/blocks/grass.png",
@@ -30,7 +32,8 @@
     "type": "block",
     "name": "grass",
     "visible": false,
-    "maxStackSize": 100
+    "maxStackSize": 100,
+    "strength": 1.0
   },
   {
     "texture": "blockgame/textures/blocks/stone.png",
@@ -41,7 +44,8 @@
     "type": "block",
     "name": "stone",
     "visible": false,
-    "maxStackSize": 100
+    "maxStackSize": 100,
+    "strength": 1.0
   },
   {
     "texture": "blockgame/textures/blocks/pink.png",
@@ -52,7 +56,8 @@
     "type": "block",
     "name": "pink",
     "visible": false,
-    "maxStackSize": 100
+    "maxStackSize": 100,
+    "strength": 1.0
   },
   null,
   null,

@@ -9,6 +9,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -48,6 +49,7 @@ public class FXMLBlockGameController {
         grafischPaneel.setBackground(new Background(new BackgroundFill(Color.SKYBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         loadWorld.setOnMouseClicked(e -> loadWorld(worldName.getText()));
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
+        grafischPaneel.setOnKeyPressed(this::movePerson);
 
     }
     
@@ -61,12 +63,12 @@ public class FXMLBlockGameController {
         grafischPaneel.getChildren().add(view);
         grafischPaneel.setPrefWidth(model.getWorld().getSizeX()*model.getWorld().getTextureResolution());
         grafischPaneel.setPrefHeight(model.getGuiTop().getHeight() + model.getWorld().getSizeY()*model.getWorld().getTextureResolution());
-        
         update();
+        
     }
     
     /**
-     * 
+     * Sends the coordinates of the left/right click to the model
      * @param e the mousevent of the click
      */
     public void geklikt(MouseEvent e){
@@ -88,6 +90,7 @@ public class FXMLBlockGameController {
      * @param name the name the world will be called
      */
     public void exportWorld(String name){
+        grafischPaneel.requestFocus();
         label.setText("");
         if(name.equals("")){
             label.setText("Geef een naam in!");
@@ -103,6 +106,7 @@ public class FXMLBlockGameController {
      * @param name the name of the world that should be loaded
      */
     public void loadWorld(String name){
+        grafischPaneel.requestFocus();
         label.setText("");
         if(name.equals("")){
             label.setText("Geef een naam in!");
@@ -120,5 +124,32 @@ public class FXMLBlockGameController {
     public void update(){
         view.update();
     }
+    
+    /**
+     * moves the person according to the key pressed
+     * @param e 
+     */
+    public void movePerson(KeyEvent e){
+        switch (e.getCode()){
+            case LEFT:
+            case Q:
+                System.out.println("a");
+                model.movePerson(-1, 0);
+                break;
+            case RIGHT:
+            case D:
+                System.out.println("b");
+                model.movePerson(1, 0);
+                break;
+            case UP:
+            case Z:
+            case SPACE:
+                model.jump(1);
+                break;
+            
+        }
+        view.updatePerson();
+    }
+    
     
 }

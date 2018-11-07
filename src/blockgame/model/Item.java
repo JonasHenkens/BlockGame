@@ -6,11 +6,12 @@
 package blockgame.model;
 
 /**
- *
+ * 
  * @author Jonas
  */
 public interface Item {
     int getId();
-    String getItemType();
+    ItemType getItemType();
     int getMaxStackSize();
+    double getStrength();
 }
