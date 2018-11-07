@@ -53,8 +53,8 @@ public class BlockGameView extends Region{
         
         double personX = model.getPersonX();
         double personY = model.getPersonY();
-        personView.setTranslateX(personX);
-        personView.setTranslateY(personY);
+        personView.setTranslateX(personX*model.getTextureResolution());
+        personView.setTranslateY(personY*model.getTextureResolution() + model.getGuiTop().getHeight());
         
         
         

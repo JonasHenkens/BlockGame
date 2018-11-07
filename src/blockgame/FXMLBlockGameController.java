@@ -133,18 +133,16 @@ public class FXMLBlockGameController {
         switch (e.getCode()){
             case LEFT:
             case Q:
-                System.out.println("a");
-                model.movePerson(-1, 0);
+                model.movePerson(-0.3, 0);
                 break;
             case RIGHT:
             case D:
-                System.out.println("b");
-                model.movePerson(1, 0);
+                model.movePerson(0.3, 0);
                 break;
             case UP:
             case Z:
             case SPACE:
-                model.jump(1);
+                model.changeSpeed(0, 1);
                 break;
             
         }

@@ -25,19 +25,6 @@ public class BlockGame {
         world = new World(96, 48, 16);
         guiTop = new GUITop();
     }
-
-    /**
-     * @return The currently loaded world.
-     */
-    public World getWorld() {
-        return world;
-    }
-    /**
-     * @return The guiTop used.
-     */
-    public GUITop getGuiTop() {
-        return guiTop;
-    }
     
     /**
      * Checks on which element has been clicked and runs its clicked function using relative coordinates.
@@ -55,7 +42,6 @@ public class BlockGame {
         else{
             System.out.println("Clicked out of bounds.");
         }
-        
     }
     
     /**
@@ -93,8 +79,6 @@ public class BlockGame {
         }
     }
     
-    
-    
     /**
      * Loads the world with name.
      * @param name The name of the world that will be loaded.
@@ -112,7 +96,47 @@ public class BlockGame {
     
     
     /**
-     * @return The x coordinate of the person.
+     * Moves the person.
+     * @param dx The change in the x direction in blocks. Right is positive.
+     * @param dy The change in the y direction in blocks. Down is positive.
+     */
+    public void movePerson(double dx, double dy){
+        person.move(dx, dy);
+    }
+    
+    /**
+     * Changes the speed of the person.
+     * @param dvx The change in speed in the x direction in blocks/s.
+     * @param dvy The change in speed in the y direction in blocks/s.
+     */
+    public void changeSpeed(double dvx, double dvy){
+        person.changeSpeed(dvx, dvy);
+    }
+    
+    // getters
+    
+    /**
+     * @return The rib of the block's texture in amount of pixels.
+     */
+    public int getTextureResolution() {
+        return world.getTextureResolution();
+    }
+    
+    /**
+     * @return The currently loaded world.
+     */
+    public World getWorld() {
+        return world;
+    }
+    /**
+     * @return The guiTop used.
+     */
+    public GUITop getGuiTop() {
+        return guiTop;
+    }
+    
+    /**
+     * @return The x coordinate of the person in blocks.
      */
     public double getPersonX(){
         return person.getX();
@@ -120,7 +144,7 @@ public class BlockGame {
     
     /**
      * 
-     * @return The y coordinate of the person.
+     * @return The y coordinate of the person in blocks.
      */
     public double getPersonY(){
         return person.getY();
@@ -132,30 +156,6 @@ public class BlockGame {
     public String getPersonTexture(){
         return person.getTexture();
     }
-    
-    /**
-     * Moves the person.
-     * @param dx The change in the x direction. Right is positive.
-     * @param dy The change in the y direction. Down is positive.
-     */
-    public void movePerson(double dx, double dy){
-        person.move(dx, dy);
-    }
-    
-    /**
-     * Makes the person jump
-     * @param speed The speed of the person's jump upwards.
-     */
-    public void jump(double speed){
-        person.jump(speed);
-    }
-    
-    
-    
-    
-    
-    
-    
     
     
 }

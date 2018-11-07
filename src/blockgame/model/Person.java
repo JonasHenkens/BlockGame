@@ -8,7 +8,7 @@ package blockgame.model;
 import javafx.scene.image.Image;
 
 /**
- * A person can move around the wirld and iteract with it.
+ * A person can move around the world and interact with it.
  * @author Jonas
  */
 public class Person {
@@ -25,11 +25,13 @@ public class Person {
     private int experience;
     private double vx;
     private double vy;
+    private double maxVX;
+    private double maxVY;
 
     /**
      * Constructor of a standard person.
-     * @param spawnX The x coordinate the person will originally be spawned at or after death.
-     * @param spawnY The y coordinate the person will originally be spawned at or after death.
+     * @param spawnX The x coordinate the person will originally be spawned at or after death in blocks.
+     * @param spawnY The y coordinate the person will originally be spawned at or after death in blocks.
      * @param texture The texture of the person.
      */
     public Person(double spawnX, double spawnY, String texture) {
@@ -51,15 +53,17 @@ public class Person {
         experience = 0;
         vx = 0;
         vy = 0;
+        maxVX = 20;
+        maxVY = 20;
     }
     
     /**
      * Full constructor of a person.
      * @param inventory The inventory of the person.
-     * @param x The x coordinate of the person.
-     * @param y The y coordinate of the person.
-     * @param spawnX The x coordinate the person will originally be spawned at or after death.
-     * @param spawnY The y coordinate the person will originally be spawned at or after death.
+     * @param x The x coordinate of the person in blocks.
+     * @param y The y coordinate of the person in blocks.
+     * @param spawnX The x coordinate the person will originally be spawned at or after death in blocks.
+     * @param spawnY The y coordinate the person will originally be spawned at or after death in blocks.
      * @param health The health of the person.
      * @param maxHealth The maximum amount of health the person can have.
      * @param texture The texture of the person.
@@ -78,6 +82,10 @@ public class Person {
         Image i = new Image(texture);
         width = i.getWidth();
         height = i.getHeight();
+        vx = 0;
+        vy = 0;
+        maxVX = 20;
+        maxVY = 20;
     }
     
     /**
@@ -90,102 +98,34 @@ public class Person {
     
     /**
      * 
-     * @param dx The change in the x direction. Right is positive.
-     * @param dy The change in the y direction. Down is positive.
+     * @param dx The change in the x direction in blocks. Right is positive.
+     * @param dy The change in the y direction in blocks. Down is positive.
      */
     public void move(double dx, double dy){
         x = x + dx;
         y = y + dy;
-        System.out.println(x + " a  " + y);
     }
     
     /**
-     * Makes the person jump
-     * @param speed The speed of the person's jump upwards.
+     * Changes the speed of the person.
+     * @param dvx The change in speed in the x direction in blocks/s.
+     * @param dvy The change in speed in the y direction in blocks/s.
      */
-    public void jump(double speed){
-        vy = vy - speed;
+    public void changeSpeed(double dvx, double dvy){
+        vx = vx + dvx;
+        vy = vy + dvy;
+        
+        if(vx > maxVX){
+            vx = maxVX;
+        }
+        if(vy > maxVY){
+            vy = maxVY;
+        }
     }
     
-    
-    
-    
-    
-    
-    
     /**
-     * @return the x
-     */
-    public double getX() {
-        return x;
-    }
-
-    /**
-     * @return the y
-     */
-    public double getY() {
-        return y;
-    }
-
-    /**
-     * @return the spawnX
-     */
-    public double getSpawnX() {
-        return spawnX;
-    }
-
-    /**
-     * @return the spawnY
-     */
-    public double getSpawnY() {
-        return spawnY;
-    }
-
-    /**
-     * @return the health
-     */
-    public double getHealth() {
-        return health;
-    }
-
-    /**
-     * @return the maxHealth
-     */
-    public double getMaxHealth() {
-        return maxHealth;
-    }
-
-    /**
-     * @return the width
-     */
-    public double getWidth() {
-        return width;
-    }
-
-    /**
-     * @return the height
-     */
-    public double getHeight() {
-        return height;
-    }
-
-    /**
-     * @return the texture
-     */
-    public String getTexture() {
-        return texture;
-    }
-
-    /**
-     * @return the experience
-     */
-    public int getExperience() {
-        return experience;
-    }
-
-    /**
-     * @param x the new x coordinate
-     * @param y the new y coordinate
+     * @param x The new x coordinate in blocks.
+     * @param y The new y coordinate in blocks.
      */
     public void setCoordinates(double x, double y) {
         this.x = x;
@@ -193,12 +133,100 @@ public class Person {
     }
 
     /**
-     * @param spawnX the new spawn x coordinate
-     * @param spawnY the new spawn y coordinate
+     * @param spawnX Yhe new spawn x coordinate in blocks.
+     * @param spawnY Yhe new spawn y coordinate in blocks.
      */
     public void setSpawn(double spawnX, double spawnY) {
         this.spawnX = spawnX;
         this.spawnY = spawnY;
     }
+
     
+    
+    
+    // getters
+    
+    /**
+     * @return The x coordinate of the person in blocks.
+     */
+    public double getX() {
+        return x;
+    }
+
+    /**
+     * @return The y coordinate of the person in blocks.
+     */
+    public double getY() {
+        return y;
+    }
+
+    /**
+     * @return The x coordinate the person will originally be spawned at or after death in blocks.
+     */
+    public double getSpawnX() {
+        return spawnX;
+    }
+
+    /**
+     * @return The y coordinate the person will originally be spawned at or after death in blocks.
+     */
+    public double getSpawnY() {
+        return spawnY;
+    }
+
+    /**
+     * @return The health of the person.
+     */
+    public double getHealth() {
+        return health;
+    }
+
+    /**
+     * @return The maximum amount of health the person can have.
+     */
+    public double getMaxHealth() {
+        return maxHealth;
+    }
+
+    /**
+     * @return The width of the person in pixels.
+     */
+    public double getWidth() {
+        return width;
+    }
+
+    /**
+     * @return The heigth of the person in pixels.
+     */
+    public double getHeight() {
+        return height;
+    }
+
+    /**
+     * @return The texture of the person.
+     */
+    public String getTexture() {
+        return texture;
+    }
+
+    /**
+     * @return The amount of experience the person has.
+     */
+    public int getExperience() {
+        return experience;
+    }
+    
+    /**
+     * @return The velocity in the x direction in blocks/s.
+     */
+    public double getVx() {
+        return vx;
+    }
+
+    /**
+     * @return The velocity in the y direction in blocks/s.
+     */
+    public double getVy() {
+        return vy;
+    }
 }

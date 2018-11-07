@@ -31,48 +31,6 @@ public class World {
         
     }
     
-    
-    
-    /**
-     * @return The horizontal size of the world in amount of blocks.
-     */
-    public int getSizeX() {
-        return sizeX;
-    }
-
-    /**
-     * @return The vertical size of the world in amount of blocks.
-     */
-    public int getSizeY() {
-        return sizeY;
-    }
-    
-    /**
-     * @return The rib of the block's texture in amount of pixels.
-     */
-    public int getTextureResolution() {
-        return textureResolution;
-    }
-    
-    /**
-     * @param x The x coordinate of the block.
-     * @param y The y coordinate of the block.
-     * @return The block located on the given coordinates.
-     */
-    public Block getBlock(int x, int y){
-        return blocks[x][y];
-    }
-    
-    /**
-     * @param x The x coordinate of the mouseclick.
-     * @param y The y coordinate of the mouseclick.
-     * 
-     * @return The block located on the given coordinates.
-     */
-    public Block getBlockMouse(double x, double y){
-        return blocks[(int)(x/16)][(int)(y/16)];
-    }
-    
     /**
      * @param x The x coordinate of the mouseclick.
      * @param y The y coordinate of the mouseclick.
@@ -151,5 +109,64 @@ public class World {
     }
     
     
+    //getters
+    
+    
+    /**
+     * @return The horizontal size of the world in amount of blocks.
+     */
+    public int getSizeX() {
+        return sizeX;
+    }
+
+    /**
+     * @return The vertical size of the world in amount of blocks.
+     */
+    public int getSizeY() {
+        return sizeY;
+    }
+    
+    /**
+     * @return The rib of the block's texture in amount of pixels.
+     */
+    public int getTextureResolution() {
+        return textureResolution;
+    }
+    
+    /**
+     * @param x The x coordinate of the block in blocks.
+     * @param y The y coordinate of the block in blocks.
+     * @return The block located on the given coordinates.
+     */
+    public Block getBlock(double x, double y){
+        int x2 = 0;
+        int y2 = 0;
+        
+        if(x < 0){
+            x2 = (int)Math.ceil(x);
+        }
+        else{
+            x2 = (int)Math.floor(x);
+        }
+        
+        if(y < 0){
+            y2 = (int)Math.ceil(y);
+        }
+        else{
+            y2 = (int)Math.floor(y);
+        }
+        
+        return blocks[x2][y2];
+    }
+    
+    /**
+     * @param x The x coordinate of the mouseclick.
+     * @param y The y coordinate of the mouseclick.
+     * 
+     * @return The block located on the given coordinates.
+     */
+    public Block getBlockMouse(double x, double y){
+        return blocks[(int)(x/16)][(int)(y/16)];
+    }
     
 }
