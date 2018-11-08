@@ -2,6 +2,9 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
+import blockgame.model.Person;
+import blockgame.thread.PersonMovement;
+import blockgame.thread.PersonMovement;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -19,6 +22,9 @@ import javafx.scene.paint.Color;
 
 public class FXMLBlockGameController {
     private BlockGame model;
+    
+    @FXML
+    private AnchorPane hoofdGrafischPaneel;
     
     @FXML
     private ResourceBundle resources;
@@ -45,11 +51,15 @@ public class FXMLBlockGameController {
     @FXML
     void initialize() {
         worldName.setFocusTraversable(false);
+        loadWorld.setFocusTraversable(false);
+        saveWorld.setFocusTraversable(false);
+        
+        
         grafischPaneel.setOnMouseClicked(this::geklikt);
         grafischPaneel.setBackground(new Background(new BackgroundFill(Color.SKYBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         loadWorld.setOnMouseClicked(e -> loadWorld(worldName.getText()));
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
-        grafischPaneel.setOnKeyPressed(this::movePerson);
+        hoofdGrafischPaneel.setOnKeyPressed(this::movePerson);
 
     }
     
@@ -63,6 +73,13 @@ public class FXMLBlockGameController {
         grafischPaneel.getChildren().add(view);
         grafischPaneel.setPrefWidth(model.getWorld().getSizeX()*model.getWorld().getTextureResolution());
         grafischPaneel.setPrefHeight(model.getGuiTop().getHeight() + model.getWorld().getSizeY()*model.getWorld().getTextureResolution());
+        
+        
+        PersonMovement pm = new PersonMovement(model.getPerson(), view, model);
+        Thread t = new Thread(pm);
+        t.setDaemon(true);
+        t.start();
+        
         update();
         
     }
@@ -90,7 +107,6 @@ public class FXMLBlockGameController {
      * @param name the name the world will be called
      */
     public void exportWorld(String name){
-        grafischPaneel.requestFocus();
         label.setText("");
         if(name.equals("")){
             label.setText("Geef een naam in!");
@@ -98,6 +114,7 @@ public class FXMLBlockGameController {
         else{
             model.exportWorld(name);
         }
+        grafischPaneel.requestFocus();
         
     }
     
@@ -106,7 +123,6 @@ public class FXMLBlockGameController {
      * @param name the name of the world that should be loaded
      */
     public void loadWorld(String name){
-        grafischPaneel.requestFocus();
         label.setText("");
         if(name.equals("")){
             label.setText("Geef een naam in!");
@@ -114,8 +130,8 @@ public class FXMLBlockGameController {
         else{
             model.loadWorld(name);
             update();
-            System.out.println("hmm");
         }
+        grafischPaneel.requestFocus();
     }
     
     /**
@@ -123,6 +139,8 @@ public class FXMLBlockGameController {
      */
     public void update(){
         view.update();
+        
+        grafischPaneel.requestFocus();
     }
     
     /**
@@ -133,16 +151,18 @@ public class FXMLBlockGameController {
         switch (e.getCode()){
             case LEFT:
             case Q:
-                model.movePerson(-0.3, 0);
+                model.changeSpeed(-16 - model.getPerson().getVx(), 0);
                 break;
             case RIGHT:
             case D:
-                model.movePerson(0.3, 0);
+                model.changeSpeed(16 - model.getPerson().getVx(), 0);
                 break;
             case UP:
             case Z:
             case SPACE:
-                model.changeSpeed(0, 1);
+                if(model.getPerson().getVy() == 0.0){
+                    model.changeSpeed(0, -10);
+                }
                 break;
             
         }

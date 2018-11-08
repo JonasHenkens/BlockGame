@@ -84,7 +84,7 @@ public class Person {
         height = i.getHeight();
         vx = 0;
         vy = 0;
-        maxVX = 20;
+        maxVX = 10;
         maxVY = 20;
     }
     

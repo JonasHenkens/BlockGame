@@ -7,6 +7,8 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.model.DefaultObjectGenerator;
+import blockgame.model.Person;
+import blockgame.model.World;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +29,9 @@ public class BlockGameMain extends Application {
         
         
         // model
-        BlockGame model = new BlockGame();
+        Person person = new Person(0, 0, "blockgame/textures/person.png");
+        World world = new World(96, 48, 16);
+        BlockGame model = new BlockGame(world, person);
         // view
         FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLBlockGame.fxml"));
         Parent root = loader.load();

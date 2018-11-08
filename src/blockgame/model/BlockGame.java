@@ -20,9 +20,14 @@ public class BlockGame {
     private GUITop guiTop;
     private Person person;
 
-    public BlockGame() {
-        person = new Person(0, 0, "blockgame/textures/person.png");
-        world = new World(96, 48, 16);
+    /**
+     * Constructor for BlockGame.
+     * @param world The world that will be loaded.
+     * @param person The person that will be loaded.
+     */
+    public BlockGame(World world, Person person) {
+        this.person = person;
+        this.world = world;
         guiTop = new GUITop();
     }
     
@@ -155,6 +160,13 @@ public class BlockGame {
      */
     public String getPersonTexture(){
         return person.getTexture();
+    }
+
+    /**
+     * @return The person used.
+     */
+    public Person getPerson() {
+        return person;
     }
     
     

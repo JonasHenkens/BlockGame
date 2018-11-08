@@ -6,6 +6,7 @@
 package blockgame.thread;
 
 import blockgame.View.BlockGameView;
+import blockgame.model.Block;
 import blockgame.model.BlockGame;
 import blockgame.model.Person;
 import blockgame.model.World;
@@ -23,6 +24,7 @@ public class PersonMovement implements Runnable{
     public PersonMovement(Person model, BlockGameView view, BlockGame blockGame) {
         this.model = model;
         this.view = view;
+        this.blockGame = blockGame;
     }
     
     
@@ -30,82 +32,109 @@ public class PersonMovement implements Runnable{
     @Override
     public void run() {
         while(true){
+            // t = 20ms = 0.02s
+            double t = 0.02;
+            // x and y in blocks
+            double x = model.getX();
+            double y = model.getY();
+            // gravity: ay = 10 blocks/s^2
+            double ay = 10;
+            double vy = model.getVy();
+            double vx = model.getVx();
+            double dy = 0;
+            double dvy = 0;
+            double dx = 0;
+            double dvx = 0;
+            // person heigth in blocks
+            double personHeigth = model.getHeight()/blockGame.getTextureResolution();
+            // person width in blocks
+            double personWidth = model.getWidth()/blockGame.getTextureResolution();
+            
+            
+            
             /*
-            move person in x and y direction
+            TODO:
+            when move person in x and y direction
             limit player inside world:
             x: 0 => worldWidth - personWidth
             y: 0 => worldHeight - PersonHeigth
-            
-            
-            
-            t = 20ms = 0.02s
             */
-            double t = 0.02;
-            double x = model.getX();
-            double y = model.getY();
+            
+            // new x coordinate of top left corner
+            double xNew = x + vx*t;
+            // new y coordinate of top left corner
+            double yNew = y + vy*t;
+            
+            
+            
             /*
+            check block top: left and right
+                if no block at new coords       => dy = vy*t                        => dvy = ay*t
+                if a block exists at new coords => dy = -(distance top to block)    => dvy = - vy
             
-            y direction: 
-            down is positive
-            gravity: ay = 10 blocks/s^2
+            check block bottom: left and right
+                if no block at new coords       => dy = vy*t                        => dvy = ay*t
+                if a block exists at new coords => dy = (distance bottom to block)  => dvy = ay*t - vy
             */
-            double ay = 10;
-            double vy = model.getVy();
-            double dy = 0;
-            double dvy = 0;
-            /*
+            boolean standingOnBlock = false;
             
-            if vy = 0   => dy = 0   => dvy = ay*t
-            */
-            if(vy == 0){
-                // no speed in y direction so no need to move
+            try{
+                if(vy < 0){
+                    // check top: left, middle, right
+                    Block btl = blockGame.getWorld().getBlock(x, yNew);
+                    Block btm = blockGame.getWorld().getBlock(x + personWidth/2, yNew);
+                    Block btr = blockGame.getWorld().getBlock(x + personWidth*0.99, yNew);
+                    if(btl == null && btm == null && btr == null){
+                        // can move no problem
+                        dy = vy*t;
+                        dvy = ay*t;
+                    }
+                    else{
+                        // can only move to right below block
+                        // new y = yblock + 1
+                        // dy = (yblock + 1) - 1
+                        dy = ((int)Math.floor(yNew) + 1) - y;
+                        dvy =  - vy;
+                        standingOnBlock = true;
+                    }
+                }
+
+                
+                
+                if(vy >= 0){
+                    // check bottom: left, middle, right
+                    Block bbl = blockGame.getWorld().getBlock(x, yNew + personHeigth);
+                    Block bbm = blockGame.getWorld().getBlock(x + personWidth/2, yNew + personHeigth);
+                    Block bbr = blockGame.getWorld().getBlock(x + personWidth*0.99, yNew + personHeigth);
+                    if(bbl == null && bbm == null && bbr == null){
+                        // can move no problem
+                        dy = vy*t;
+                        dvy = ay*t;
+
+                    }
+                    else{
+                        // can only move to right above block
+                        // new y = yblock - playerheight
+                        // dy = yblock - (playerheight + y)
+                        dy = (int)Math.floor(yNew + personHeigth) - (personHeigth + y);
+                        dvy =  - vy;
+                        standingOnBlock = true;
+                    }
+                }
+            }
+            catch(ArrayIndexOutOfBoundsException e){
                 dy = 0;
-                dvy = ay*t;
+                dvy = 0;
             }
-            /*
             
-            if vy is positive => block underneath (check block below:  left and right)
-                if vy*t < distance bottom to block  => dy = (distance bottom to block)  => dvy = ay*t - vy
-                if vy*t > distance bottom to block  => dy = vy*t                        => dvy = ay*t
-            */
-            else if(vy > 0){
-                // get the block below left
-                // for example: block bottom left corner is at (4.1, 7.8) => block below is at (4.1, 8.7)
-                
-                
-                // new x coordinate of bottom left corner
-                double xbl = x;
-                // new y coordinate of bottom left corner
-                double ybl = y + model.getHeight()/blockGame.getTextureResolution() + vy*t;
-                
-                
-                if(blockGame.getWorld().getBlock(xbl, ybl) == null && blockGame.getWorld().getBlock(xbl + 1, ybl) == null){
-                    // can move no problem
-                    // TODO
-                }
-                else{
-                    // can only move to right above block
-                    // TODO
-                }
-                 
-            }
-            else if(vy < 0){
-                //TODO
-            }
+            
+            
+            
+            
+            
             
             
             /*
-            
-            
-            if vy is negative => block above (check block above:  left and right)
-                if vy*t < distance top to block     => dy = -(distance top to block)    => dvy = ay*t - vy
-                if vy*t > distance top to block     => dy = vy*t                        => dvy = ay*t
-            
-            
-            
-            
-            
-            
             x direction:
             right is positive
             ax = 0
@@ -118,15 +147,82 @@ public class PersonMovement implements Runnable{
                 if vx*t < distance left to block    => dx = -(distance left to block)   => dvx = -vx
                 if vx*t > distance left to block    => dx = vx*t                        => dvx = -vx
             
-            person.move(dx, dy);
-            person.changespeed(dvy, dvx);
             
             */
+            try{
+                if(vx == 0.0){
+                    dx = 0;
+                    dvx = 0;
+                }
+                if(vx < 0){
+                    // moving to the left
+                    // check left: top, middle, bottom
+                    Block blt = blockGame.getWorld().getBlock(xNew, yNew);
+                    Block blm = blockGame.getWorld().getBlock(xNew, yNew + personHeigth/2);
+                    Block blb = blockGame.getWorld().getBlock(xNew, yNew + personHeigth - (double)1/blockGame.getTextureResolution());
+                    
+                    /*
+                    can also check different way: amount of checks  n = Math.ceil(personHeigth) + 1
+                    for(int i = 0, i <= n; i++)
+                    y = yNew + (personHeigth - (double)1/blockGame.getTextureResolution())*i/n
+                    */
+                    
+                    
+                    if(blt == null && blm == null && blb == null){
+                        // can move no problem
+                        if(standingOnBlock){
+                            dx = vx*t;
+                            dvx = -vx;
+                        }
+                        else{
+                            dx = vx*t/2;
+                            dvx = 0;
+                        }
+                    }
+                    else{
+                        // can only move to right of block
+                        // new x = xblock + 1
+                        // dx = (xblock + 1) - x
+                        dx = ((int)Math.floor(xNew + 1)) - x;
+                        dvx =  - vx;
+                    }
+                }
+                else if(vx > 0){
+                    // moving to the right
+                    // check right: top, middle, bottom
+                    Block brt = blockGame.getWorld().getBlock(xNew + personWidth, yNew);
+                    Block brm = blockGame.getWorld().getBlock(xNew + personWidth, yNew + personHeigth/2);
+                    Block brb = blockGame.getWorld().getBlock(xNew + personWidth, yNew + personHeigth - (double)1/blockGame.getTextureResolution());
+                    if(brt == null && brm == null && brb == null){
+                        // can move no problem
+                        if(standingOnBlock){
+                            dx = vx*t;
+                            dvx = -vx;
+                        }
+                        else{
+                            dx = vx*t/2;
+                            dvx = 0;
+                        }
+                    }
+                    else{
+                        // can only move to left of block
+                        // new x = xblock - personWidth
+                        // dx = (xblock - personWidth) - x
+                        dx = ((int)Math.floor(xNew + personWidth) - personWidth) - x;
+                        dvx =  - vx;
+                    }
+                }
+            }
+            catch(ArrayIndexOutOfBoundsException e){
+                dx = 0;
+                dvx = 0;
+            }
             
             
+            model.move(dx, dy);
+            model.changeSpeed(dvx, dvy);
             
             
-            view.updatePerson();
             Platform.runLater( () -> view.updatePerson() );
             try{
                 Thread.sleep(20);
