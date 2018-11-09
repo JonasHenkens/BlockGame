@@ -42,7 +42,7 @@ public class BlockGame {
             guiTop.leftClick(x, y);
         }
         else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
-            world.leftClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock());
+            world.leftClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock().getId(), guiTop.getSelectedBlock().getItemType());
         }
         else{
             System.out.println("Clicked out of bounds.");

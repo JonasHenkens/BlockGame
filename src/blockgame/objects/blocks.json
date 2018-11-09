@@ -37,8 +37,8 @@
   },
   {
     "texture": "blockgame/textures/blocks/stone.png",
-    "health": 10.0,
-    "hardness": 12.0,
+    "health": 5.0,
+    "hardness": 3.0,
     "id": 3,
     "dropId": 3,
     "type": "block",

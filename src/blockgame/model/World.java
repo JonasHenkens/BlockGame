@@ -34,17 +34,20 @@ public class World {
     /**
      * @param x The x coordinate of the mouseclick.
      * @param y The y coordinate of the mouseclick.
-     * @param block The block that has been used to click.
+     * @param id The id of the block that has been used to click.
+     * @param type The type of the block that has been used to click
      */
-    public void leftClick(double x, double y, Block block){
+    public void leftClick(double x, double y, int id, ItemType type){
         Block b = blocks[(int)(x/16)][(int)(y/16)];
-        boolean isBroken = b.hitBlock(block.getId(), block.getItemType());
-        if(isBroken){
-            //remove block from world
-            b = null;
-            // TODO: add item to inventory
-        }
-        else{
+        if(b != null){
+            boolean isBroken = b.hitBlock(id, type);
+            if(isBroken){
+                //remove block from world
+                blocks[(int)(x/16)][(int)(y/16)] = null;
+                // TODO: add item to inventory
+            }
+            else{
+            }
         }
     }
     

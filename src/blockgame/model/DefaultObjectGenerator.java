@@ -57,7 +57,7 @@ public class DefaultObjectGenerator {
         addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, "noTexture"));
         addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, "dirt"));
         addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, "grass"));
-        addBlock(new Block("blockgame/textures/blocks/stone.png", 10, 12, 3, 3, "stone"));
+        addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, "stone"));
         addBlock(new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, "pink"));
         
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
