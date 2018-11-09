@@ -53,6 +53,7 @@ public class FXMLBlockGameController {
         worldName.setFocusTraversable(false);
         loadWorld.setFocusTraversable(false);
         saveWorld.setFocusTraversable(false);
+        grafischPaneel.setFocusTraversable(true);
         
         
         grafischPaneel.setOnMouseClicked(this::geklikt);
