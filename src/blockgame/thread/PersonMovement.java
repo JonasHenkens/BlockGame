@@ -123,8 +123,15 @@ public class PersonMovement implements Runnable{
                 }
             }
             catch(ArrayIndexOutOfBoundsException e){
-                dy = 0;
-                dvy = 0;
+                if(vy > 0){
+                    dy = blockGame.getWorld().getSizeY() - y - personHeigth;
+                    dvy = -vy;
+                }
+                else if(vy < 0){
+                    dy = -y;
+                    dvy = -vy;
+                    
+                }
             }
             
             
@@ -138,14 +145,14 @@ public class PersonMovement implements Runnable{
             x direction:
             right is positive
             ax = 0
-            
+            if vx = 0 => dx = dvx = 0
             if vx is positive => block right (check block right:  top, middle and bottom)
-                if vx*t < distance right to block   => dx = (distance right to block)   => dvx = -vx
-                if vx*t > distance right to block   => dx = vx*t                        => dvx = -vx
+                if no block at new coords         => dx = (distance right to block)   => dvx = -vx
+                if a block exists at new coords   => dx = vx*t                        => dvx = -vx
             
             if vx is negative => block left (check block left:  top, middle and bottom)
-                if vx*t < distance left to block    => dx = -(distance left to block)   => dvx = -vx
-                if vx*t > distance left to block    => dx = vx*t                        => dvx = -vx
+                if no block at new coords          => dx = -(distance left to block)   => dvx = -vx
+                if a block exists at new coords    => dx = vx*t                        => dvx = -vx
             
             
             */
@@ -214,8 +221,14 @@ public class PersonMovement implements Runnable{
                 }
             }
             catch(ArrayIndexOutOfBoundsException e){
-                dx = 0;
-                dvx = 0;
+                if(vx < 0){
+                    dx = -x;
+                    dvx = -vx;
+                }
+                else if(vx > 0){
+                    dx = blockGame.getWorld().getSizeX() - x - personWidth;
+                    dvx = -vx;
+                }
             }
             
             

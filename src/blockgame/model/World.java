@@ -139,22 +139,8 @@ public class World {
      * @return The block located on the given coordinates.
      */
     public Block getBlock(double x, double y){
-        int x2 = 0;
-        int y2 = 0;
-        
-        if(x < 0){
-            x2 = (int)Math.ceil(x);
-        }
-        else{
-            x2 = (int)Math.floor(x);
-        }
-        
-        if(y < 0){
-            y2 = (int)Math.ceil(y);
-        }
-        else{
-            y2 = (int)Math.floor(y);
-        }
+        int x2 = (int)Math.floor(x);
+        int y2 = (int)Math.floor(y);
         
         return blocks[x2][y2];
     }
