@@ -37,8 +37,15 @@ public class World {
      * @param block The block that has been used to click.
      */
     public void leftClick(double x, double y, Block block){
-        blocks[(int)(x/16)][(int)(y/16)] = null;
-        
+        Block b = blocks[(int)(x/16)][(int)(y/16)];
+        boolean isBroken = b.hitBlock(block.getId(), block.getItemType());
+        if(isBroken){
+            //remove block from world
+            b = null;
+            // TODO: add item to inventory
+        }
+        else{
+        }
     }
     
     /**

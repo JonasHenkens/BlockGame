@@ -68,14 +68,16 @@ public class Block implements Item{
     /**
      * Hits the block with the current item.
      * @param itemId The id of the item used to hit the block; 
+     * @return True if block has been broken;
      */
-    public void hitBlock(int itemId, ItemType type){
+    public boolean hitBlock(int itemId, ItemType type){
         ItemInterface ii = new ItemInterface();
         strength = ii.getItem(itemId, type).getStrength();
         health = health - strength/hardness;
         if(health < 0){
             health = 0;
         }
+        return health == 0;
     }
 
     /**
