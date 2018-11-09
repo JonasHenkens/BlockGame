@@ -12,6 +12,7 @@ package blockgame.model;
 public class Inventory {
     private ItemStack[] inventory;
     private int maxAmount;
+    private int amount;
 
     public Inventory() { 
         inventory = new ItemStack[20];
@@ -20,10 +21,18 @@ public class Inventory {
         inventory[2]=new ItemStack((new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, "grass")),0);
         inventory[3]=new ItemStack((new Block("blockgame/textures/blocks/stone.png", 10, 12, 3, 3, "stone")),0);
         inventory[4]=new ItemStack((new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, "pink")),0);
-        
+        amount=0;
         maxAmount = 250;
     }
-
+    
+    /**
+     * @param i place of ItemStack in inventory
+     * @return id of the ItemStack
+     */
+    public int getIdItemStack(int i){
+        return inventory[i].getItem().getId();
+    }
+    
     /**
      * @param i place of ItemStack in inventory
      * @return the amount in this ItemStack
@@ -39,20 +48,28 @@ public class Inventory {
         return maxAmount;
     }
 
-    /**
-     * @param item the item to put in the inventory
-     */
-    public void addItemInInventory(Item item) {
-        if(inventory.length<maxAmount){
-            for(int i=0;i<25;i++){
-                
-            }
+    public int getAmountInventory(){
+        for(int i=0;i<20;i++){
+            amount=+inventory[i].getAmount();
         }
-        else{
-            System.out.println("ERROR: No place in inventory.");
-        }
+        return amount;
     }
     
-    
-    
+    /**
+     * @param item the item to put in the inventory
+     * @param much the amount 
+     */
+    public void addItemInInventory(Item item,int much) {
+        for(int i=0;i<20;i++){
+            if(getIdItemStack(i)==item.getId()){
+                if(getAmountInventory()<maxAmount){
+                    inventory[i].addItems(much);
+                }
+                else{
+                    System.out.println("ERROR: No place in inventory.");
+                }
+            }
+        }
+    }
 }
+    
