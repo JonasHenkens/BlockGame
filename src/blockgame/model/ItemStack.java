@@ -31,8 +31,8 @@ public class ItemStack {
      * @return True if items are added. False if items are not added.
      */
     public boolean addItems(int amount){
-        if(amount + this.getAmount() <= maxStackSize){
-            this.amount = this.getAmount() + amount;
+        if(amount + this.amount <= maxStackSize){
+            this.amount = this.amount + amount;
             return true;
         }
         else{
@@ -45,6 +45,13 @@ public class ItemStack {
      */
     public int getAmount() {
         return amount;
+    }
+
+    /**
+     * @return the item
+     */
+    public Item getItem() {
+        return item;
     }
     
 }
