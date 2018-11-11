@@ -48,6 +48,9 @@ public class Inventory {
         return maxAmount;
     }
 
+    /**
+     * @return amount
+     */
     public int getAmountInventory(){
         for(int i=0;i<20;i++){
             amount=+inventory[i].getAmount();
@@ -67,6 +70,26 @@ public class Inventory {
                 }
                 else{
                     System.out.println("ERROR: No place in inventory.");
+                }
+            }
+        }
+    }
+    
+    /**
+     * @param item the item in the inventory that has to be used.
+     * @param much the amount 
+     */
+    public void useItemInInventory(Item item,int much){
+        for(int i=0;i<20;i++){
+            if(getIdItemStack(i)==item.getId()){
+                if(getAmountInventory()>=much){
+                    inventory[i].removeItems(much);
+                }
+                else if (getAmountInventory()!=0){
+                    System.out.println("ERROR: Inventory doesn't has so much of this item.");
+                }
+                else{
+                    System.out.println("ERROR: Inventory doesn't has this item.");
                 }
             }
         }

@@ -41,6 +41,20 @@ public class ItemStack {
     }
 
     /**
+     * @param amount The amount that has to be removed.
+     * @return True if items are removed. False if items aren't removed.
+     */
+    public boolean removeItems(int amount){
+        if(amount >= this.amount){
+            this.amount = this.amount - amount;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+    /**
      * @return the amount
      */
     public int getAmount() {
