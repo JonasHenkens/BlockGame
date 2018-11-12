@@ -7,7 +7,7 @@ package blockgame.model;
 
 /**
  * The types of items in the game.
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public enum ItemType {
     block

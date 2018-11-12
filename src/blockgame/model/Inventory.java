@@ -5,11 +5,9 @@
  */
 package blockgame.model;
 
-import javafx.application.Platform;
-
 /**
  * Items can be stored in an inventory
- * @author Jonas
+ * @author Souhaib
  */
 public class Inventory {
     private ItemStack[] inventory;
