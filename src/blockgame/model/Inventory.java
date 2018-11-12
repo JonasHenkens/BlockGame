@@ -50,8 +50,16 @@ public class Inventory {
         for(int i=0;i<getLenghtInventory();i++){
             try{
                 if(getIdItemStack(i)==item.getId()){
-                    inventory[i].addItems(much);
-                    break;
+                    if(item.getMaxStackSize()<=getAmountInItemStack(i)+much){
+                        inventory[i].addItems(much);
+                        break;
+                    }
+                    else if(item.getMaxStackSize()==getAmountInItemStack(i)){
+                        System.out.println("ERROR: Itemstack of this item is full.");
+                    }
+                    else{
+                        System.out.println("ERROR: Can't put so much of this item in the inventory.");
+                    }
                 } 
             }
             catch(NullPointerException e){
