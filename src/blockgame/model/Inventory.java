@@ -53,13 +53,13 @@ public class Inventory {
                     inventory[i].addItems(much);
                     break;
                 } 
-                else if(i==getLenghtInventory()-1){
-                    System.out.println("ERROR: Item is not in inventory & inventory is full.");
-                }
             }
             catch(NullPointerException e){
                 inventory[i]=new ItemStack(item, much);
                 break;
+            }
+            if(i==getLenghtInventory()-1){
+                System.out.println("ERROR: Item is not in inventory & inventory is full.");
             }
         }
     }
@@ -68,7 +68,7 @@ public class Inventory {
      * @param item the item in the inventory that has to be used.
      * @param much the amount 
      */
-    public void useItemInInventory(Item item,int much){
+    public void useItemInInventory(Item item, int much){
         for(int i=0;i<getLenghtInventory();i++){
             try{
                 if(getIdItemStack(i)==item.getId()){
