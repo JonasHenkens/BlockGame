@@ -40,7 +40,7 @@ public class Block implements Item{
         type = ItemType.block;
         this.name = name;
         visible = false;
-        maxStackSize = 100;
+        maxStackSize = 50;
         strength = 1;
     }
 
