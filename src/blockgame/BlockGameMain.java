@@ -6,6 +6,8 @@
 package blockgame;
 
 import blockgame.model.BlockGame;
+import blockgame.model.Inventory;
+import blockgame.model.ItemType;
 import blockgame.model.Person;
 import blockgame.model.World;
 import javafx.application.Application;
@@ -24,7 +26,12 @@ public class BlockGameMain extends Application {
     public void start(Stage stage) throws Exception {
         
         // model
-        Person person = new Person(0, 0, "blockgame/textures/person.png");
+        Inventory inventory = new Inventory(50);
+        inventory.addItemInInventory(1, ItemType.block, 10);
+        inventory.addItemInInventory(2, ItemType.block, 10);
+        inventory.addItemInInventory(3, ItemType.block, 10);
+        Person person = new Person(inventory, 0, 0, 0, 0, 20, 20, "blockgame/textures/person.png", 0);
+        
         World world = new World(96, 48, 16);
         BlockGame model = new BlockGame(world, person);
         // view

@@ -19,7 +19,7 @@ public class WorldView extends Region{
     // blocks die zijn weergegeven
     private Block[][] blocks;
     // views die bij de weergegeven blocks horen
-    private BlockView[][] blockViews;
+    private ItemView[][] blockViews;
     // imageinterface die gebruikt wordt
     private ImageInterface ii;
 
@@ -30,7 +30,7 @@ public class WorldView extends Region{
     public WorldView(World model) {
         this.model = model;
         blocks = new Block[model.getSizeX()][model.getSizeY()];
-        blockViews = new BlockView[model.getSizeX()][model.getSizeY()];
+        blockViews = new ItemView[model.getSizeX()][model.getSizeY()];
         ii = new ImageInterface();
         update();
     }
@@ -58,7 +58,7 @@ public class WorldView extends Region{
                     blocks[i][j] = b;
                     //als b = null: niet tekenen
                     if(b != null){
-                        BlockView bv = new BlockView(b, ii);
+                        ItemView bv = new ItemView(b.getId(), b.getItemType(), ii);
                         bv.setTranslateX(model.getTextureResolution()*i);
                         bv.setTranslateY(model.getTextureResolution()*j);
                         blockViews[i][j] = bv;

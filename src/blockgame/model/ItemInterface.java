@@ -60,15 +60,6 @@ public class ItemInterface {
         }
     }
     
-    public int getMaxStacksize(int id, ItemType type){
-         if(type.equals(ItemType.block)){
-            return blocks[id].getMaxStackSize();
-        }
-        else{
-            return -1;
-        }
-    }
-    
     /**
      * Adds a block to the blocks list. This replaces an already existing block if the same id is used.
      * @param block The block that will be added.
@@ -81,5 +72,21 @@ public class ItemInterface {
         blocks[block.getId()] = block;
         
     }
+    
+    /**
+     * @param id The id of the item.
+     * @param type The type of the item.
+     * @return The max stacksize of the item. Returns -1 if item does not exist.
+     */
+    public int getMaxStacksize(int id, ItemType type){
+         if(type.equals(ItemType.block)){
+            return blocks[id].getMaxStackSize();
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    
     
 }

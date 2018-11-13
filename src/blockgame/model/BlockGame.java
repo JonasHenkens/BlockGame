@@ -31,7 +31,7 @@ public class BlockGame {
     public BlockGame(World world, Person person) {
         this.person = person;
         this.world = world;
-        guiTop = new GUITop();
+        guiTop = new GUITop(person);
         
         view = new BlockGameView(this, world, guiTop);
         
@@ -55,7 +55,10 @@ public class BlockGame {
             guiTop.leftClick(x, y);
         }
         else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
-            world.leftClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock().getId(), guiTop.getSelectedBlock().getItemType());
+            int index = guiTop.getSelectedItem();
+            int id = guiTop.getItemId(index);
+            ItemType type = guiTop.getItemType(index);
+            world.leftClick(x, y-guiTop.getHeight(), id, type);
         }
         else{
             System.out.println("Clicked out of bounds.");
@@ -72,7 +75,10 @@ public class BlockGame {
             
         }
         else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
-            world.rightClick(x, y-guiTop.getHeight(), guiTop.getSelectedBlock());
+            int index = guiTop.getSelectedItem();
+            int id = guiTop.getItemId(index);
+            ItemType type = guiTop.getItemType(index);
+            world.rightClick(x, y-guiTop.getHeight(), id, type);
         }
         else{
             System.out.println("Clicked out of bounds.");

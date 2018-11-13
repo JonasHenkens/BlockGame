@@ -56,14 +56,23 @@ public class World {
      * @param y The y coordinate of the mouseclick.
      * @param block The block that has been used to click.
      */
-    public void rightClick(double x, double y, Block block){
-        int bX = (int)(x/16);
-        int bY = (int)(y/16);
-        if(blocks[bX][bY] == null){
-            blocks[bX][bY] = block;
+    public void rightClick(double x, double y, int id, ItemType type){
+        if(type == ItemType.block){
+            // item is a block => can place
+            System.out.println("TODO remove item from inventory");
+            ItemInterface ii = new ItemInterface();
+            Block block = ii.getBlock(id);
+            int bX = (int)(x/16);
+            int bY = (int)(y/16);
+            if(blocks[bX][bY] == null){
+                blocks[bX][bY] = block;
+            }
+            else{
+
+            }
         }
         else{
-            
+            // Not a block so can't be placed.
         }
     }
     

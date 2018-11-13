@@ -5,36 +5,39 @@
  */
 package blockgame.View;
 
-import blockgame.model.Block;
 import blockgame.model.ImageInterface;
+import blockgame.model.ItemType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
 /**
- * View of a single block
+ * View of a single item.
  * @author Jonas
  */
-public class BlockView extends Region{
-    private Block model;
+public class ItemView extends Region{
+    private int id;
+    private ItemType type;
     private ImageInterface imageInterface;
 
     /**
-     * Constructor of the BlockView.
-     * @param model The block to be displayed.
-     * @param imageInterface The imageinterfaced used to request images.
+     * Constructor of the ItemView.
+     * @param id The id of the item.
+     * @param type The type of the item.
+     * @param imageInterface The image interface used to request images.
      */
-    public BlockView(Block model, ImageInterface imageInterface) {
-        this.model = model;
+    public ItemView(int id, ItemType type, ImageInterface imageInterface) {
+        this.id = id;
+        this.type = type;
         this.imageInterface = imageInterface;
         update();
     }
     
     /**
-     * Updates the BlockView.
+     * Updates the ItemView.
      */
     public void update(){
         getChildren().clear();
-        ImageView c = new ImageView(imageInterface.getImage(model.getId(), "block"));
+        ImageView c = new ImageView(imageInterface.getImage(id, type));
         getChildren().add(c);
         
     }

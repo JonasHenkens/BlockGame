@@ -36,9 +36,10 @@ public class PersonDeserializer implements JsonDeserializer<Person>{
         String texture = jObject.get("texture").getAsString();
         int experience = jObject.get("experience").getAsInt();
         
-        Person person = new Person(inventory, x, y, spawnX, spawnY, health, maxHealth, texture, experience);
-        return person;
-        
+        //Person person = new Person(inventory, x, y, spawnX, spawnY, health, maxHealth, texture, experience);
+        //return person;
+        System.out.println("TODO persondeserializer");
+        return null;
         
     }
     

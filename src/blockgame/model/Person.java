@@ -12,7 +12,7 @@ import javafx.scene.image.Image;
  * @author Jonas
  */
 public class Person {
-    private ItemStack[] inventory;
+    private Inventory inventory;
     private double x;
     private double y;
     private double spawnX;
@@ -38,7 +38,7 @@ public class Person {
         // hotbar 10 slots: 0-9
         // inventor 40 slots: 10-49
         // total 50 slots
-        inventory = new ItemStack[50];
+        inventory = new Inventory(50);
         
         x = spawnX;
         y = spawnY;
@@ -68,7 +68,7 @@ public class Person {
      * @param texture The texture of the person.
      * @param experience The amount of experience the person has.
      */
-    public Person(ItemStack[] inventory, double x, double y, double spawnX, double spawnY, double health, double maxHealth, String texture, int experience) {
+    public Person(Inventory inventory, double x, double y, double spawnX, double spawnY, double health, double maxHealth, String texture, int experience) {
         this.inventory = inventory;
         this.x = x;
         this.y = y;
@@ -227,5 +227,21 @@ public class Person {
      */
     public double getVy() {
         return vy;
+    }
+    
+    /**
+     * @param index The place of the item stack in the inventory.
+     * @return The id of the item.
+     */
+    public int getInventoryItemId(int index){
+        return inventory.getIdItemStack(index);
+    }
+    
+    /**
+     * @param index The place of the item stack in the inventory.
+     * @return The type of the item.
+     */
+    public ItemType getInventoryItemType(int index){
+        return inventory.getTypeItemStack(index);
     }
 }

@@ -43,8 +43,8 @@ public class ImageInterface {
      * @param type The type of the item.
      * @return Returns the image of an item. Returns null if it doesn't exist.
      */
-    public Image getImage(int id, String type){
-        if(type.equals("block")){
+    public Image getImage(int id, ItemType type){
+        if(type == ItemType.block){
             return blockImages.get(id);
         }
         else{
