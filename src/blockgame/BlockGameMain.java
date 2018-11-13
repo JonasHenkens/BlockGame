@@ -6,7 +6,6 @@
 package blockgame;
 
 import blockgame.model.BlockGame;
-import blockgame.model.DefaultObjectGenerator;
 import blockgame.model.Person;
 import blockgame.model.World;
 import javafx.application.Application;
@@ -23,10 +22,6 @@ public class BlockGameMain extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        
-        DefaultObjectGenerator dog = new DefaultObjectGenerator();
-        dog.generateAllOverwrite();
-        
         
         // model
         Person person = new Person(0, 0, "blockgame/textures/person.png");

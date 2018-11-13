@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 
 /**
  * The ImageInterface is used to request images by id.
+ * Usefull to avoid loading the same image multiple times.
  * @author Jonas
  */
 public class ImageInterface {

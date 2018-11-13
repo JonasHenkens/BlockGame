@@ -6,10 +6,6 @@
 package blockgame.model;
 
 import blockgame.model.Block;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 
 /**
  * ItemInterface is used to request items by id and type.
@@ -22,25 +18,12 @@ public class ItemInterface {
      * Constructor of ItemInterface.
      */
     public ItemInterface() {
-        try {
-            GsonBuilder gsonBouwer = new GsonBuilder();
-            gsonBouwer.registerTypeAdapter(Item.class, new ItemDeserializer());
-            Gson gson2 = gsonBouwer.create();
-            blocks = gson2.fromJson(new FileReader("src/blockgame/objects/blocks.json"),Block[].class);
-        } 
-        catch (FileNotFoundException e) {
-            DefaultObjectGenerator dog = new DefaultObjectGenerator();
-            dog.generateAllNoOverwrite();
-            try {
-                GsonBuilder gsonBouwer = new GsonBuilder();
-                gsonBouwer.registerTypeAdapter(Item.class, new ItemDeserializer());
-                Gson gson2 = gsonBouwer.create();
-                blocks = gson2.fromJson(new FileReader("src/blockgame/objects/blocks.json"),Block[].class);
-            } 
-            catch (FileNotFoundException ex) {
-                System.out.println("ERROR: This shouldn't happen.");
-            }
-        }
+        blocks = new Block[1024];
+        addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, "noTexture"));
+        addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, "dirt"));
+        addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, "grass"));
+        addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, "stone"));
+        addBlock(new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, "pink"));
     }
     
     /**
@@ -85,4 +68,18 @@ public class ItemInterface {
             return -1;
         }
     }
+    
+    /**
+     * Adds a block to the blocks list. This replaces an already existing block if the same id is used.
+     * @param block The block that will be added.
+     */
+    public void addBlock(Block block){
+        
+        if(blocks[block.getId()] != null){
+            System.err.println("WARNING: Block with id " + block.getId() + "has been replaced");
+        }
+        blocks[block.getId()] = block;
+        
+    }
+    
 }

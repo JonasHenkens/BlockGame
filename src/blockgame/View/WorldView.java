@@ -16,6 +16,12 @@ import javafx.scene.layout.Region;
  */
 public class WorldView extends Region{
     private World model;
+    // blocks die zijn weergegeven
+    private Block[][] blocks;
+    // views die bij de weergegeven blocks horen
+    private BlockView[][] blockViews;
+    // imageinterface die gebruikt wordt
+    private ImageInterface ii;
 
     /**
      * Constructor of the WorldView.
@@ -23,6 +29,9 @@ public class WorldView extends Region{
      */
     public WorldView(World model) {
         this.model = model;
+        blocks = new Block[model.getSizeX()][model.getSizeY()];
+        blockViews = new BlockView[model.getSizeX()][model.getSizeY()];
+        ii = new ImageInterface();
         update();
     }
     
@@ -30,19 +39,36 @@ public class WorldView extends Region{
      * Updates the WorldView.
      */
     public void update(){
-        getChildren().clear();
-        ImageInterface ii = new ImageInterface();
+        
+        // gaat elke blok af
         for(int i=0; i<model.getSizeX(); i++){
             for(int j=0; j<model.getSizeY(); j++){
-                try{
-                    Block b = model.getBlock(i, j);
-                    BlockView bv = new BlockView(b, ii);
-                    bv.setTranslateX(model.getTextureResolution()*i);
-                    bv.setTranslateY(model.getTextureResolution()*j);
-                    getChildren().add(bv);
+                Block b = model.getBlock(i, j);
+
+                // als block veranderd is: verwijder oude view en maak nieuwe aan
+                // anders doe niets
+                if(blocks[i][j] != b){
+                    try{
+                        getChildren().remove(blockViews[i][j]);
+                    }
+                    catch(NullPointerException e){
+                        // view bestaat niet dus moet niet verwijderd worden
+                    }
+                    
+                    blocks[i][j] = b;
+                    //als b = null: niet tekenen
+                    if(b != null){
+                        BlockView bv = new BlockView(b, ii);
+                        bv.setTranslateX(model.getTextureResolution()*i);
+                        bv.setTranslateY(model.getTextureResolution()*j);
+                        blockViews[i][j] = bv;
+                        getChildren().add(bv);
+                    }
+                } 
+                else {
                 }
-                catch(NullPointerException e){
-                }
+                    
+                
             }
         }
     }
