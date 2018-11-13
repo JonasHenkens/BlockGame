@@ -58,6 +58,14 @@ public class BlockGame {
             int index = guiTop.getSelectedItem();
             int id = guiTop.getItemId(index);
             ItemType type = guiTop.getItemType(index);
+            if(id == -1){
+                // no block in spot: use "noTexture" block
+                id = 0;
+                type = ItemType.block;
+            }
+            else{
+                // id and type are correct, nothing needs to change
+            }
             world.leftClick(x, y-guiTop.getHeight(), id, type);
         }
         else{
