@@ -76,4 +76,13 @@ public class ItemInterface {
             return null;
         }
     }
+    
+    public int getMaxStacksize(int id, ItemType type){
+         if(type.equals(ItemType.block)){
+            return blocks[id].getMaxStackSize();
+        }
+        else{
+            return -1;
+        }
+    }
 }

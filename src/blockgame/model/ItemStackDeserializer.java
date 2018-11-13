@@ -26,7 +26,9 @@ public class ItemStackDeserializer implements JsonDeserializer<ItemStack>{
         Item item = context.deserialize(jObject.get("item"), Item.class);
         int amount = jObject.get("amount").getAsInt();
         
-        return new ItemStack(item, amount);
+        //return new ItemStack(item, amount);
+        System.out.println("Fiks Dit!");
+        return null;
     }
     
     

@@ -10,19 +10,24 @@ package blockgame.model;
  * @author Jonas and Souhaib
  */
 public class ItemStack {
-    private Item item;
+    private int id;
+    private ItemType type;
     private int amount;
     private int maxStackSize;
 
     /**
-     * Constructor for ItemStack.
-     * @param item The item that will be stored in this item stack.
-     * @param amount The amount that the item stack starts with
+     *
+     * @param id
+     * @param type
+     * @param amount
+     * @param maxStackSize
      */
-    public ItemStack(Item item, int amount) {
-        this.item = item;
+    public ItemStack(int id, ItemType type, int amount) {
+        this.id = id;
+        this.type = type;
         this.amount = amount;
-        maxStackSize = item.getMaxStackSize();
+        ItemInterface i=new ItemInterface();
+        maxStackSize = i.getMaxStacksize(id, type);
     }
     
     /**
@@ -31,7 +36,7 @@ public class ItemStack {
      * @return True if items are added. False if items are not added.
      */
     public boolean addItems(int amount){
-        if(amount + this.amount <= maxStackSize){
+        if(amount + this.amount <= getMaxStackSize()){
             this.amount = this.amount + amount;
             return true;
         }
@@ -62,10 +67,24 @@ public class ItemStack {
     }
 
     /**
-     * @return the item
+     * @return the id
      */
-    public Item getItem() {
-        return item;
+    public int getId() {
+        return id;
     }
-    
+
+    /**
+     * @return the type
+     */
+    public ItemType getType() {
+        return type;
+    }
+
+    /**
+     * @return the maxStackSize
+     */
+    public int getMaxStackSize() {
+        return maxStackSize;
+    }
+
 }
