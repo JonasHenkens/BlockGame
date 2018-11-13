@@ -19,12 +19,12 @@ import javafx.application.Platform;
 public class PersonMovement implements Runnable{
     private Person model;
     private BlockGameView view;
-    private BlockGame blockGame;
+    private World world;
 
-    public PersonMovement(Person model, BlockGameView view, BlockGame blockGame) {
+    public PersonMovement(Person model, BlockGameView view, World world) {
         this.model = model;
         this.view = view;
-        this.blockGame = blockGame;
+        this.world = world;
     }
     
     
@@ -46,14 +46,14 @@ public class PersonMovement implements Runnable{
             double dx = 0;
             double dvx = 0;
             // person heigth in blocks
-            double personHeigth = model.getHeight()/blockGame.getTextureResolution();
+            double personHeigth = model.getHeight()/world.getTextureResolution();
             // person width in blocks
-            double personWidth = model.getWidth()/blockGame.getTextureResolution();
+            double personWidth = model.getWidth()/world.getTextureResolution();
             
             
             
             /*
-            TODO:
+            TODO?: (only top of world not working currently)
             when move person in x and y direction
             limit player inside world:
             x: 0 => worldWidth - personWidth
@@ -81,9 +81,9 @@ public class PersonMovement implements Runnable{
             try{
                 if(vy < 0){
                     // check top: left, middle, right
-                    Block btl = blockGame.getWorld().getBlock(x, yNew);
-                    Block btm = blockGame.getWorld().getBlock(x + personWidth/2, yNew);
-                    Block btr = blockGame.getWorld().getBlock(x + personWidth*0.99, yNew);
+                    Block btl = world.getBlock(x, yNew);
+                    Block btm = world.getBlock(x + personWidth/2, yNew);
+                    Block btr = world.getBlock(x + personWidth*0.99, yNew);
                     if(btl == null && btm == null && btr == null){
                         // can move no problem
                         dy = vy*t;
@@ -103,9 +103,9 @@ public class PersonMovement implements Runnable{
                 
                 if(vy >= 0){
                     // check bottom: left, middle, right
-                    Block bbl = blockGame.getWorld().getBlock(x, yNew + personHeigth);
-                    Block bbm = blockGame.getWorld().getBlock(x + personWidth/2, yNew + personHeigth);
-                    Block bbr = blockGame.getWorld().getBlock(x + personWidth*0.99, yNew + personHeigth);
+                    Block bbl = world.getBlock(x, yNew + personHeigth);
+                    Block bbm = world.getBlock(x + personWidth/2, yNew + personHeigth);
+                    Block bbr = world.getBlock(x + personWidth*0.99, yNew + personHeigth);
                     if(bbl == null && bbm == null && bbr == null){
                         // can move no problem
                         dy = vy*t;
@@ -124,7 +124,7 @@ public class PersonMovement implements Runnable{
             }
             catch(ArrayIndexOutOfBoundsException e){
                 if(vy > 0){
-                    dy = blockGame.getWorld().getSizeY() - y - personHeigth;
+                    dy = world.getSizeY() - y - personHeigth;
                     dvy = -vy;
                 }
                 else if(vy < 0){
@@ -163,19 +163,24 @@ public class PersonMovement implements Runnable{
                 }
                 if(vx < 0){
                     // moving to the left
-                    // check left: top, middle, bottom
-                    Block blt = blockGame.getWorld().getBlock(xNew, yNew);
-                    Block blm = blockGame.getWorld().getBlock(xNew, yNew + personHeigth/2);
-                    Block blb = blockGame.getWorld().getBlock(xNew, yNew + personHeigth - (double)1/blockGame.getTextureResolution());
                     
                     /*
-                    can also check different way: amount of checks  n = Math.ceil(personHeigth) + 1
-                    for(int i = 0, i <= n; i++)
-                    y = yNew + (personHeigth - (double)1/blockGame.getTextureResolution())*i/n
+                    Check if moving is possible
                     */
+                    boolean move = true;
+                    // amount of checks depends on heigth of the person
+                    int n = (int)Math.ceil(personHeigth) + 1;
                     
+                    for(int i = 0; i <= n; i++){
+                        double yc = yNew + (personHeigth - (double)1/world.getTextureResolution())*i/n;
+                        Block block = world.getBlock(xNew, yc);
+                        if(block != null){
+                            // A block is in the way: can't move
+                            move = false;
+                        }
+                    }
                     
-                    if(blt == null && blm == null && blb == null){
+                    if(move){
                         // can move no problem
                         if(standingOnBlock){
                             dx = vx*t;
@@ -196,11 +201,24 @@ public class PersonMovement implements Runnable{
                 }
                 else if(vx > 0){
                     // moving to the right
-                    // check right: top, middle, bottom
-                    Block brt = blockGame.getWorld().getBlock(xNew + personWidth, yNew);
-                    Block brm = blockGame.getWorld().getBlock(xNew + personWidth, yNew + personHeigth/2);
-                    Block brb = blockGame.getWorld().getBlock(xNew + personWidth, yNew + personHeigth - (double)1/blockGame.getTextureResolution());
-                    if(brt == null && brm == null && brb == null){
+                    
+                    /*
+                    Check if moving is possible
+                    */
+                    boolean move = true;
+                    // amount of checks depends on heigth of the person
+                    int n = (int)Math.ceil(personHeigth) + 1;
+                    
+                    for(int i = 0; i <= n; i++){
+                        double yc = yNew + (personHeigth - (double)1/world.getTextureResolution())*i/n;
+                        Block block = world.getBlock(xNew + personWidth, yc);
+                        if(block != null){
+                            // A block is in the way: can't move
+                            move = false;
+                        }
+                    }
+                    
+                    if(move){
                         // can move no problem
                         if(standingOnBlock){
                             dx = vx*t;
@@ -226,7 +244,7 @@ public class PersonMovement implements Runnable{
                     dvx = -vx;
                 }
                 else if(vx > 0){
-                    dx = blockGame.getWorld().getSizeX() - x - personWidth;
+                    dx = world.getSizeX() - x - personWidth;
                     dvx = -vx;
                 }
             }

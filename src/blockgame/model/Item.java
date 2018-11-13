@@ -12,6 +12,8 @@ package blockgame.model;
 public interface Item {
     int getId();
     ItemType getItemType();
+    String getName();
+    String getTexture();
     int getMaxStackSize();
     double getStrength();
 }

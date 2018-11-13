@@ -36,10 +36,9 @@ public class Person {
      */
     public Person(double spawnX, double spawnY, String texture) {
         // hotbar 10 slots: 0-9
-        // inventort 40 slots: 10-49
-        // armor 4 slots: 50-53
-        // total 54 slots
-        inventory = new ItemStack[54];
+        // inventor 40 slots: 10-49
+        // total 50 slots
+        inventory = new ItemStack[50];
         
         x = spawnX;
         y = spawnY;

@@ -6,6 +6,8 @@
 package blockgame.View;
 
 import blockgame.model.BlockGame;
+import blockgame.model.GUITop;
+import blockgame.model.World;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
@@ -15,6 +17,10 @@ import javafx.scene.layout.Region;
  */
 public class BlockGameView extends Region{
     private BlockGame model;
+    private World world;
+    private GUITop guiTop;
+    
+    
     private WorldView worldView;
     private GUITopView topView;
     private ImageView personView;
@@ -23,16 +29,20 @@ public class BlockGameView extends Region{
      * Constructor of the BlockGameView.
      * @param model This is the BlockGame used for the view.
      */
-    public BlockGameView(BlockGame model) {
+    public BlockGameView(BlockGame model, World world, GUITop guiTop) {
         this.model = model;
-        worldView = new WorldView(model.getWorld());
-        worldView.setTranslateY(model.getGuiTop().getHeight());
-        topView = new GUITopView(model.getGuiTop());
-        getChildren().addAll(worldView, topView);
-        
+        this.world = world;
+        this.guiTop = guiTop;
+        // Make world view
+        worldView = new WorldView(world);
+        worldView.setTranslateY(guiTop.getHeight());
+        // Make gui top view
+        topView = new GUITopView(guiTop);
+        // Make person view
         String personTexture = model.getPersonTexture();
         personView = new ImageView(personTexture);
-        getChildren().add(personView);
+        // add all views
+        getChildren().addAll(worldView, topView, personView);
         
         update();
     }
@@ -54,7 +64,7 @@ public class BlockGameView extends Region{
         double personX = model.getPersonX();
         double personY = model.getPersonY();
         personView.setTranslateX(personX*model.getTextureResolution());
-        personView.setTranslateY(personY*model.getTextureResolution() + model.getGuiTop().getHeight());
+        personView.setTranslateY(personY*model.getTextureResolution() + guiTop.getHeight());
         
         
         

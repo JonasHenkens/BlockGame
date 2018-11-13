@@ -43,27 +43,6 @@ public class Block implements Item{
         maxStackSize = 50;
         strength = 1;
     }
-
-    /**
-     * @return The texture used for this block.
-     */
-    public String getTexture() {
-        return texture;
-    }
-
-    /**
-     * @return The health of the block.
-     */
-    public double getHealth() {
-        return health;
-    }
-
-    /**
-     * @return The hardness of the block.
-     */
-    public double getHardness() {
-        return hardness;
-    }
     
     /**
      * Hits the block with the current item.
@@ -82,6 +61,33 @@ public class Block implements Item{
         return health == 0.0;
     }
 
+    /**
+     * @param visible True for block is visible.
+     */
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    
+
+    // getters
+    
+    /**
+     * @return The maximum stack size.
+     */
+    @Override
+    public int getMaxStackSize() {
+        return maxStackSize;
+    }
+
+    /**
+     * @return The strength.
+     */
+    @Override
+    public double getStrength() {
+        return strength;
+    }
+    
     /**
      * @return The type ItemType.block.
      */
@@ -109,38 +115,37 @@ public class Block implements Item{
     /**
      * @return The name of the block.
      */
+    @Override
     public String getName() {
         return name;
     }
 
+    /**
+     * @return The texture used for this block.
+     */
+    @Override
+    public String getTexture() {
+        return texture;
+    }
+
+    /**
+     * @return The health of the block.
+     */
+    public double getHealth() {
+        return health;
+    }
+
+    /**
+     * @return The hardness of the block.
+     */
+    public double getHardness() {
+        return hardness;
+    }
+    
     /**
      * @return This returns true if the block is visible.
      */
     public boolean isVisible() {
         return visible;
     }
-
-    /**
-     * @param visible True for block is visible.
-     */
-    public void setVisible(boolean visible) {
-        this.visible = visible;
-    }
-
-    /**
-     * @return The maximum stack size.
-     */
-    public int getMaxStackSize() {
-        return maxStackSize;
-    }
-
-    /**
-     * @return The strength.
-     */
-    @Override
-    public double getStrength() {
-        return strength;
-    }
-
-    
 }

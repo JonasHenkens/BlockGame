@@ -70,16 +70,13 @@ public class FXMLBlockGameController {
      */
     public void setModel(BlockGame model){
         this.model = model;
-        view = new BlockGameView(model);
+        view = model.getView();
         grafischPaneel.getChildren().add(view);
-        grafischPaneel.setPrefWidth(model.getWorld().getSizeX()*model.getWorld().getTextureResolution());
-        grafischPaneel.setPrefHeight(model.getGuiTop().getHeight() + model.getWorld().getSizeY()*model.getWorld().getTextureResolution());
+        grafischPaneel.setPrefWidth(model.getWorldSizeX()*model.getTextureResolution());
+        grafischPaneel.setPrefHeight(model.getGUITopHeight() + model.getWorldSizeY()*model.getTextureResolution());
         
         
-        PersonMovement pm = new PersonMovement(model.getPerson(), view, model);
-        Thread t = new Thread(pm);
-        t.setDaemon(true);
-        t.start();
+        
         
         update();
         
@@ -152,17 +149,17 @@ public class FXMLBlockGameController {
         switch (e.getCode()){
             case LEFT:
             case Q:
-                model.changeSpeed(-16 - model.getPerson().getVx(), 0);
+                model.changePersonSpeed(-16 - model.getPersonVx(), 0);
                 break;
             case RIGHT:
             case D:
-                model.changeSpeed(16 - model.getPerson().getVx(), 0);
+                model.changePersonSpeed(16 - model.getPersonVx(), 0);
                 break;
             case UP:
             case Z:
             case SPACE:
-                if(model.getPerson().getVy() == 0.0){
-                    model.changeSpeed(0, -10);
+                if(model.getPersonVy() == 0.0){
+                    model.changePersonSpeed(0, -10);
                 }
                 break;
             

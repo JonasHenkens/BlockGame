@@ -5,6 +5,8 @@
  */
 package blockgame.model;
 
+import blockgame.View.BlockGameView;
+import blockgame.thread.PersonMovement;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonWriter;
@@ -19,6 +21,7 @@ public class BlockGame {
     private World world;
     private GUITop guiTop;
     private Person person;
+    private BlockGameView view;
 
     /**
      * Constructor for BlockGame.
@@ -29,6 +32,16 @@ public class BlockGame {
         this.person = person;
         this.world = world;
         guiTop = new GUITop();
+        
+        view = new BlockGameView(this, world, guiTop);
+        
+        // Start the thread that manages the person's movement
+        PersonMovement pm = new PersonMovement(person, view, world);
+        Thread t = new Thread(pm);
+        t.setDaemon(true);
+        t.start();
+        
+        
     }
     
     /**
@@ -71,6 +84,7 @@ public class BlockGame {
      * @param name The name the world will be called.
      */
     public void exportWorld(String name){
+        System.out.println("Currently not working anymore");
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(world);
         
@@ -89,6 +103,7 @@ public class BlockGame {
      * @param name The name of the world that will be loaded.
      */
     public void loadWorld(String name){
+        System.out.println("Currently not working anymore");
         try {
             WorldInterface wi = new WorldInterface();
             World newWorld = wi.getWorld(name);
@@ -114,7 +129,7 @@ public class BlockGame {
      * @param dvx The change in speed in the x direction in blocks/s.
      * @param dvy The change in speed in the y direction in blocks/s.
      */
-    public void changeSpeed(double dvx, double dvy){
+    public void changePersonSpeed(double dvx, double dvy){
         person.changeSpeed(dvx, dvy);
     }
     
@@ -128,19 +143,6 @@ public class BlockGame {
     }
     
     /**
-     * @return The currently loaded world.
-     */
-    public World getWorld() {
-        return world;
-    }
-    /**
-     * @return The guiTop used.
-     */
-    public GUITop getGuiTop() {
-        return guiTop;
-    }
-    
-    /**
      * @return The x coordinate of the person in blocks.
      */
     public double getPersonX(){
@@ -148,7 +150,6 @@ public class BlockGame {
     }
     
     /**
-     * 
      * @return The y coordinate of the person in blocks.
      */
     public double getPersonY(){
@@ -163,11 +164,47 @@ public class BlockGame {
     }
 
     /**
-     * @return The person used.
+     * @return The view of BlockGame.
      */
-    public Person getPerson() {
-        return person;
+    public BlockGameView getView() {
+        return view;
     }
+
+    /**
+     * @return The heigth of the GUITop.
+     */
+    public double getGUITopHeight() {
+        return guiTop.getHeight();
+    }
+
+    /**
+     * @return The size of the world in the x direction in blocks.
+     */
+    public int getWorldSizeX() {
+        return world.getSizeX();
+    }
+
+    /**
+     * @return The size of the world in the y direction in blocks.
+     */
+    public int getWorldSizeY() {
+        return world.getSizeY();
+    }
+
+    /**
+     * @return The speed of the person in the y direction in blocks/s.
+     */
+    public double getPersonVy() {
+        return person.getVy();
+    }
+
+    /**
+     * @return The speed of the person in the x direction in blocks/s.
+     */
+    public double getPersonVx() {
+        return person.getVx();
+    }
+    
     
     
 }
