@@ -47,6 +47,7 @@ public class Block implements Item{
     /**
      * Hits the block with the current item.
      * @param itemId The id of the item used to hit the block; 
+     * @param type 
      * @return True if block has been broken;
      */
     public boolean hitBlock(int itemId, ItemType type){

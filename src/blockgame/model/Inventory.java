@@ -60,7 +60,7 @@ public class Inventory {
         ItemInterface ii= new ItemInterface();
         for(int i=0;i<getLenghtInventory();i++){
             try{
-                if(getIdItemStack(i)==id){
+                if(getIdItemStack(i)==id && getTypeItemStack(i)==type){
                     if(ii.getMaxStacksize(id, type)<=getAmountInItemStack(i)+much){
                         inventory[i].addItems(much);
                         return true;

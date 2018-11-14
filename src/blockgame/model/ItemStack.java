@@ -20,7 +20,6 @@ public class ItemStack {
      * @param id
      * @param type
      * @param amount
-     * @param maxStackSize
      */
     public ItemStack(int id, ItemType type, int amount) {
         this.id = id;
