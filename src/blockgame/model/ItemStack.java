@@ -49,7 +49,7 @@ public class ItemStack {
      * @return True if items are removed. False if items aren't removed.
      */
     public boolean removeItems(int amount){
-        if(amount >= this.amount){
+        if(amount <= this.amount){
             this.amount = this.amount - amount;
             return true;
         }

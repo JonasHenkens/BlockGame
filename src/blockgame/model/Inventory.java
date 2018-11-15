@@ -51,6 +51,7 @@ public class Inventory {
     }
     
     /**
+     * TODO
      * @param id
      * @param type
      * @param much the amount 
@@ -61,7 +62,7 @@ public class Inventory {
         for(int i=0;i<getLenghtInventory();i++){
             try{
                 if(getIdItemStack(i)==id && getTypeItemStack(i)==type){
-                    if(ii.getMaxStacksize(id, type)<=getAmountInItemStack(i)+much){
+                    if(ii.getMaxStacksize(id, type)>=getAmountInItemStack(i)+much){
                         inventory[i].addItems(much);
                         return true;
                     }
@@ -95,28 +96,40 @@ public class Inventory {
     }
     
     /**
+     * TODO
      * @param id
      * @param type
      * @param much the amount 
      * @return  
      */
     public boolean removeItemInInventory(int id, ItemType type, int much){
+        int n = 0;
         if(getAantal(id, type)>=much){
             for(ItemStack is : inventory){
                 try{
                     if(is.getId()==id && is.getType()==type){
                         if(is.getAmount()>=much){ 
                             is.removeItems(much);
+                            
+                            if(is.getAmount() == 0){
+                                // itemstack is empty => remove it
+                                inventory[n] = null;
+                            }
                             return true;
                         }
                         else{
                             much=much-is.getAmount();
                             is.removeItems(is.getAmount());
+                            if(is.getAmount() == 0){
+                                // itemstack is empty => remove it
+                                inventory[n] = null;
+                            }
                         }
                     }
                 } 
                 catch(NullPointerException e){
                 }
+                n++;
             }
         }
         else{
@@ -125,13 +138,22 @@ public class Inventory {
     return false;
     }
     
+    /**
+     * TODO
+     * @param id
+     * @param type
+     * @return 
+     */
     public int getAantal(int id, ItemType type){
         int aantal=0;
         for(ItemStack is : inventory){
-            if(is.getId()==id && is.getType()==type){
-                aantal=aantal+is.getAmount();
+            if(is != null){
+                if(is.getId()==id && is.getType()==type){
+                    aantal=aantal+is.getAmount();
+                }
             }
         }
+        
         return aantal;
     }
 }

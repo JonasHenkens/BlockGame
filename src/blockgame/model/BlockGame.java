@@ -66,11 +66,20 @@ public class BlockGame {
             else{
                 // id and type are correct, nothing needs to change
             }
-            world.leftClick(x, y-guiTop.getHeight(), id, type);
+            Item item = world.hitBlock(x, y-guiTop.getHeight(), id, type);
+            if(item != null){
+                System.out.println("id to be added: " + id);
+                System.out.println("type to be added: " + type);
+                boolean b = person.addItem(item.getId(), item.getItemType(), 1);
+                System.out.println("amount in inventory: " + person.getInventoryAmount(item.getId(), item.getItemType()));
+                System.out.println(b);
+            }
         }
         else{
             System.out.println("Clicked out of bounds.");
         }
+        
+        updateGui();
     }
     
     /**
@@ -86,11 +95,24 @@ public class BlockGame {
             int index = guiTop.getSelectedItem();
             int id = guiTop.getItemId(index);
             ItemType type = guiTop.getItemType(index);
-            world.rightClick(x, y-guiTop.getHeight(), id, type);
+            if(type == ItemType.block){
+                // kan enkel blokken plaatsen
+                if(person.getInventoryAmount(id, type) >= 1){
+                    boolean geplaatst = world.placeBlock(x, y-guiTop.getHeight(), id, type);
+                    if(geplaatst){
+                        person.removeInventoryItem(id, type, 1);
+                    }
+                    System.out.println("amount in inventory: " + person.getInventoryAmount(id, type));
+                }
+                else{
+                    // block is niet uit inventory verwijderd => niet plaatsen
+                }
+            }
         }
         else{
             System.out.println("Clicked out of bounds.");
         }
+        updateGui();
     }
     
     /**
@@ -146,6 +168,11 @@ public class BlockGame {
     public void changePersonSpeed(double dvx, double dvy){
         person.changeSpeed(dvx, dvy);
     }
+    
+    public void updateGui(){
+        guiTop.updateItems();
+    }
+    
     
     // getters
     

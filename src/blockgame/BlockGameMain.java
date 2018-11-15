@@ -27,7 +27,7 @@ public class BlockGameMain extends Application {
         
         // model
         Inventory inventory = new Inventory(50);
-        inventory.addItemInInventory(1, ItemType.block, 10);
+        inventory.addItemInInventory(1, ItemType.block, 2);
         inventory.addItemInInventory(2, ItemType.block, 10);
         inventory.addItemInInventory(3, ItemType.block, 10);
         Person person = new Person(inventory, 0, 0, 0, 0, 20, 20, "blockgame/textures/person.png", 0);

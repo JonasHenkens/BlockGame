@@ -16,6 +16,7 @@ public class Block implements Item{
     private double hardness;
     private int id;
     private int dropId;
+    private ItemType dropType;
     private ItemType type;
     private String name;
     private boolean visible;
@@ -31,12 +32,13 @@ public class Block implements Item{
      * @param dropId Id of the block that will be dropped when broken.
      * @param name Name of the block.
      */
-    public Block(String texture, double health, double hardness, int id, int dropId, String name) {
+    public Block(String texture, double health, double hardness, int id, int dropId, ItemType dropType, String name) {
         this.texture = texture;
         this.health = health;
         this.hardness = hardness;
         this.id = id;
         this.dropId = dropId;
+        this.dropType = dropType;
         type = ItemType.block;
         this.name = name;
         visible = false;

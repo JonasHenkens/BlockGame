@@ -19,11 +19,11 @@ public class ItemInterface {
      */
     public ItemInterface() {
         blocks = new Block[1024];
-        addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, "noTexture"));
-        addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, "dirt"));
-        addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, "grass"));
-        addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, "stone"));
-        addBlock(new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, "pink"));
+        addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, ItemType.block, "noTexture"));
+        addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, ItemType.block, "dirt"));
+        addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, ItemType.block, "grass"));
+        addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, ItemType.block, "stone"));
+        addBlock(new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, ItemType.block, "pink"));
     }
     
     /**
@@ -32,10 +32,10 @@ public class ItemInterface {
      */
     public Block getBlock(int id){
         try{
-            return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getName());
+            return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getItemType(), blocks[id].getName());
         }
         catch(NullPointerException e){
-            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getName());
+            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getItemType(), blocks[0].getName());
         }
     }
     

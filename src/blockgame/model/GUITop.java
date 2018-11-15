@@ -76,6 +76,7 @@ public class GUITop{
             catch(NullPointerException e){
                 // no item stored
                 itemIds[i] = -1;
+                itemTypes[i] = null;
             }
         }
     }

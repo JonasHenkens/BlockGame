@@ -36,43 +36,54 @@ public class World {
      * @param y The y coordinate of the mouseclick.
      * @param id The id of the block that has been used to click.
      * @param type The type of the block that has been used to click
+     * @return The item that has been dropped, null if nothing was dropped
      */
-    public void leftClick(double x, double y, int id, ItemType type){
+    public Item hitBlock(double x, double y, int id, ItemType type){
         Block b = blocks[(int)(x/16)][(int)(y/16)];
         if(b != null){
             boolean isBroken = b.hitBlock(id, type);
             if(isBroken){
                 //remove block from world
                 blocks[(int)(x/16)][(int)(y/16)] = null;
-                // TODO: add item to inventory
+                // return item that has been dropped
+                ItemInterface ii = new ItemInterface();
+                return ii.getItem(b.getDropId(), b.getItemType());
+                
             }
             else{
+                return null;
             }
+        }
+        else{
+            //block doesn't exist
+            return null;
         }
     }
     
     /**
      * @param x The x coordinate of the mouseclick.
      * @param y The y coordinate of the mouseclick.
-     * @param block The block that has been used to click.
+     * @param id
+     * @param type
      */
-    public void rightClick(double x, double y, int id, ItemType type){
+    public boolean placeBlock(double x, double y, int id, ItemType type){
         if(type == ItemType.block){
             // item is a block => can place
-            System.out.println("TODO remove item from inventory");
             ItemInterface ii = new ItemInterface();
             Block block = ii.getBlock(id);
             int bX = (int)(x/16);
             int bY = (int)(y/16);
             if(blocks[bX][bY] == null){
                 blocks[bX][bY] = block;
+                return true;
             }
             else{
-
+                return false;
             }
         }
         else{
             // Not a block so can't be placed.
+            return false;
         }
     }
     

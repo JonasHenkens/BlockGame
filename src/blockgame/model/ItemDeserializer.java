@@ -34,9 +34,11 @@ public class ItemDeserializer implements JsonDeserializer<Item>{
         
         
         if (jType.getAsString().equals("blocks")) {
-            Block b = new Block(jTexture.getAsString(), jHealth.getAsDouble(), jHardness.getAsDouble(), jId.getAsInt(), jDropId.getAsInt(), jName.getAsString());
-            b.setVisible(jVisible.getAsBoolean());
-            return b;
+            //Block b = new Block(jTexture.getAsString(), jHealth.getAsDouble(), jHardness.getAsDouble(), jId.getAsInt(), jDropId.getAsInt(), jName.getAsString());
+            //b.setVisible(jVisible.getAsBoolean());
+            //return b;
+            System.out.println("TODO");
+            return null;
         }
         else return null;
     }

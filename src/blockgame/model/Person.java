@@ -139,7 +139,38 @@ public class Person {
         this.spawnX = spawnX;
         this.spawnY = spawnY;
     }
-
+    
+    /**
+     * TODO
+     * @param id
+     * @param type
+     * @param amount
+     * @return 
+     */
+    public boolean removeInventoryItem(int id, ItemType type, int amount){
+        boolean verwijderd = inventory.removeItemInInventory(id, type, amount);
+        return verwijderd;
+    }
+    
+    /**
+     * TODO 
+     * @param id
+     * @param type
+     * @return 
+     */
+    public int getInventoryAmount(int id, ItemType type){
+        return inventory.getAantal(id, type);
+    }
+    
+    /**
+     * TODO
+     * @param id
+     * @param type
+     * @param amount 
+     */
+    public boolean addItem(int id, ItemType type, int amount){
+        return inventory.addItemInInventory(id, type, amount);
+    }
     
     
     
