@@ -29,7 +29,8 @@ public class Block implements Item{
      * @param health Health of the block.
      * @param hardness Hardness of the block.
      * @param id Id of the block.
-     * @param dropId Id of the block that will be dropped when broken.
+     * @param dropId Id of the item that will be dropped when broken.
+     * @param dropType Type of the item that will be dropped when broken.
      * @param name Name of the block.
      */
     public Block(String texture, double health, double hardness, int id, int dropId, ItemType dropType, String name) {

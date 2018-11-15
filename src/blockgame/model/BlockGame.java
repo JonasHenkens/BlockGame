@@ -50,7 +50,6 @@ public class BlockGame {
      * @param y The y coordinate of the mouseclick.
      */
     public void leftClick(double x, double y){
-        
         if(x <= guiTop.getWidth() && y <= guiTop.getHeight()){
             guiTop.leftClick(x, y);
         }
@@ -169,6 +168,9 @@ public class BlockGame {
         person.changeSpeed(dvx, dvy);
     }
     
+    /**
+     * Updates the Gui.
+     */
     public void updateGui(){
         guiTop.updateItems();
     }

@@ -141,11 +141,10 @@ public class Person {
     }
     
     /**
-     * TODO
-     * @param id
-     * @param type
-     * @param amount
-     * @return 
+     * @param id The id of the item to be removed.
+     * @param type The type of the item to be removed.
+     * @param amount The amount to be removed.
+     * @return True if items are removed.
      */
     public boolean removeInventoryItem(int id, ItemType type, int amount){
         boolean verwijderd = inventory.removeItemInInventory(id, type, amount);
@@ -153,20 +152,18 @@ public class Person {
     }
     
     /**
-     * TODO 
-     * @param id
-     * @param type
-     * @return 
+     * @param id The id of the item you want to get the amount of.
+     * @param type The type of the item you want to get the amount of.
+     * @return The amount of the item in the inventory.
      */
     public int getInventoryAmount(int id, ItemType type){
         return inventory.getAantal(id, type);
     }
     
     /**
-     * TODO
-     * @param id
-     * @param type
-     * @param amount 
+     * @param id The id of the item to be added.
+     * @param type The type of the item to be added.
+     * @param amount The amount of the item to be added.
      */
     public boolean addItem(int id, ItemType type, int amount){
         return inventory.addItemInInventory(id, type, amount);
