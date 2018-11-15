@@ -53,7 +53,7 @@ public class PersonMovement implements Runnable{
             
             
             /*
-            TODO?: (only top of world not working currently)
+            TODO?: (only top of world not working correctly(if hit top while moving left/right, you teleport))
             when move person in x and y direction
             limit player inside world:
             x: 0 => worldWidth - personWidth
@@ -188,7 +188,7 @@ public class PersonMovement implements Runnable{
                         }
                         else{
                             dx = vx*t/2;
-                            dvx = 0;
+                            dvx = -vx/64;
                         }
                     }
                     else{
@@ -226,7 +226,7 @@ public class PersonMovement implements Runnable{
                         }
                         else{
                             dx = vx*t/2;
-                            dvx = 0;
+                            dvx = -vx/64;
                         }
                     }
                     else{

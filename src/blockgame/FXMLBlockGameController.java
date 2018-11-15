@@ -161,7 +161,7 @@ public class FXMLBlockGameController {
             case Z:
             case SPACE:
                 if(model.getPersonVy() == 0.0){
-                    model.changePersonSpeed(0, -10);
+                    model.changePersonSpeed(0, -7);
                 }
                 break;
             

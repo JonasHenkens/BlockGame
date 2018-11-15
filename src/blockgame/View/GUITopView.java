@@ -43,8 +43,16 @@ public class GUITopView extends Region{
         ImageInterface imi = new ImageInterface();
         
         for(int i=0; i<10; i++){
-            Rectangle sq = new Rectangle(7 + 24*i, 7, 18, 18);
-            sq.setFill(Color.DARKGREY);
+            Rectangle sq;
+            if(model.getSelectedItem() == i){
+                sq = new Rectangle(6 + 24*i, 6, 20, 20);
+                sq.setFill(Color.WHITE);
+            }
+            else{
+                sq = new Rectangle(7 + 24*i, 7, 18, 18);
+                sq.setFill(Color.DARKGREY);
+            }
+            
             getChildren().add(sq);
             
             if(model.getItemId(i) == -1){
@@ -56,24 +64,6 @@ public class GUITopView extends Region{
                 getChildren().add(iv);
             }
         }
-        
-        
-        
-        // old method
-//        getChildren().clear();
-//        
-//        Rectangle rh = new Rectangle(model.getWidth(), model.getHeight(), Color.GREY);
-//        getChildren().add(rh);
-//        
-//        ImageInterface ii = new ImageInterface();
-//        
-//        for(int i=0; i<10; i++){
-//            Block b = model.getBlock(i);
-//            BlockView bv = new BlockView(b, ii);
-//            bv.setTranslateY(8);
-//            bv.setTranslateX(8 + 24*i);
-//            getChildren().add(bv);
-//        }
         
     }
     
