@@ -3,6 +3,7 @@ package blockgame;
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
 import blockgame.model.Person;
+import blockgame.thread.DayNight;
 import blockgame.thread.PersonMovement;
 import blockgame.thread.PersonMovement;
 import java.net.URL;
@@ -57,7 +58,6 @@ public class FXMLBlockGameController {
         
         
         grafischPaneel.setOnMouseClicked(this::geklikt);
-        grafischPaneel.setBackground(new Background(new BackgroundFill(Color.SKYBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
         loadWorld.setOnMouseClicked(e -> loadWorld(worldName.getText()));
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
         hoofdGrafischPaneel.setOnKeyPressed(this::movePerson);
@@ -75,8 +75,10 @@ public class FXMLBlockGameController {
         grafischPaneel.setPrefWidth(model.getWorldSizeX()*model.getTextureResolution());
         grafischPaneel.setPrefHeight(model.getGUITopHeight() + model.getWorldSizeY()*model.getTextureResolution());
         
-        
-        
+        DayNight d = new DayNight(this,true);
+        Thread t = new Thread(d);
+        t.setDaemon(true);
+        t.start();
         
         update();
         
@@ -165,6 +167,10 @@ public class FXMLBlockGameController {
             
         }
         view.updatePerson();
+    }
+    
+    public void setBackground(Color k) {
+        grafischPaneel.setBackground(new Background(new BackgroundFill(k, CornerRadii.EMPTY, Insets.EMPTY)));
     }
     
     
