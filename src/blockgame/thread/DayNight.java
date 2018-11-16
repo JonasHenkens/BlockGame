@@ -34,7 +34,16 @@ public class DayNight implements Runnable{
                     c.setBackground(Color.rgb(0, i, 255));
                     Platform.runLater(()->c.update());
                     try{
-                        Thread.sleep(5000);
+                        Thread.sleep(2500);
+                    }
+                    catch(InterruptedException ex){        
+                    }
+                }
+                for(int i=255;i<75;i--){
+                    c.setBackground(Color.rgb(0, 0, i));
+                    Platform.runLater(()->c.update());
+                    try{
+                        Thread.sleep(2500);
                     }
                     catch(InterruptedException ex){        
                     }
@@ -42,11 +51,20 @@ public class DayNight implements Runnable{
                 day=!day;
             }
             else{
-                for(int i=255;i<75;i--){
+                for(int i=75;i<255;i++){
                     c.setBackground(Color.rgb(0, 0, i));
                     Platform.runLater(()->c.update());
                     try{
-                        Thread.sleep(5000);
+                        Thread.sleep(2500);
+                    }
+                    catch(InterruptedException ex){        
+                    }
+                }
+                for(int i=0;i<200;i--){
+                    c.setBackground(Color.rgb(0, i, 255));
+                    Platform.runLater(()->c.update());
+                    try{
+                        Thread.sleep(2500);
                     }
                     catch(InterruptedException ex){        
                     }
