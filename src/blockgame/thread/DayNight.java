@@ -7,10 +7,6 @@ package blockgame.thread;
 
 import blockgame.FXMLBlockGameController;
 import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 /**
@@ -30,7 +26,7 @@ public class DayNight implements Runnable{
     public void run() {
         while(true){
             if(day==true){
-                for(int i=200;i>0;i--){
+                for(int i=0;i<200;i--){
                     c.setBackground(Color.rgb(0, i, 255));
                     Platform.runLater(()->c.update());
                     try{
@@ -39,8 +35,8 @@ public class DayNight implements Runnable{
                     catch(InterruptedException ex){        
                     }
                 }
-                for(int i=255;i<75;i--){
-                    c.setBackground(Color.rgb(0, 0, i));
+                for(int i=200;i>0;i--){
+                    c.setBackground(Color.rgb(0, i, 255));
                     Platform.runLater(()->c.update());
                     try{
                         Thread.sleep(2500);
@@ -51,7 +47,7 @@ public class DayNight implements Runnable{
                 day=!day;
             }
             else{
-                for(int i=75;i<255;i++){
+                for(int i=255;i<75;i--){
                     c.setBackground(Color.rgb(0, 0, i));
                     Platform.runLater(()->c.update());
                     try{
@@ -60,8 +56,8 @@ public class DayNight implements Runnable{
                     catch(InterruptedException ex){        
                     }
                 }
-                for(int i=0;i<200;i--){
-                    c.setBackground(Color.rgb(0, i, 255));
+                for(int i=75;i<255;i++){
+                    c.setBackground(Color.rgb(0, 0, i));
                     Platform.runLater(()->c.update());
                     try{
                         Thread.sleep(2500);
