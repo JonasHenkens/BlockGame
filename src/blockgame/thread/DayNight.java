@@ -29,21 +29,30 @@ public class DayNight implements Runnable{
     @Override
     public void run() {
         while(true){
-        if(day==true){
-            c.setBackground(Color.rgb(0, 200, 255));
-            Platform.runLater(()->c.update());
-            day=!day;
-        }
-        else{
-            c.setBackground(Color.rgb(0, 0, 255));
-            Platform.runLater(()->c.update());
-            day=!day;
-        }
-        try{
-            Thread.sleep(6000);
-        }
-        catch(InterruptedException ex){        
-        }   
+            if(day==true){
+                for(int i=200;i>0;i--){
+                    c.setBackground(Color.rgb(0, i, 255));
+                    Platform.runLater(()->c.update());
+                    try{
+                        Thread.sleep(5000);
+                    }
+                    catch(InterruptedException ex){        
+                    }
+                }
+                day=!day;
+            }
+            else{
+                for(int i=255;i<75;i--){
+                    c.setBackground(Color.rgb(0, 0, i));
+                    Platform.runLater(()->c.update());
+                    try{
+                        Thread.sleep(5000);
+                    }
+                    catch(InterruptedException ex){        
+                    }
+                }
+                day=!day;
+            }   
         }
     }
     

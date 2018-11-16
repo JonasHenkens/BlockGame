@@ -164,6 +164,7 @@ public class Person {
      * @param id The id of the item to be added.
      * @param type The type of the item to be added.
      * @param amount The amount of the item to be added.
+     * @return 
      */
     public boolean addItem(int id, ItemType type, int amount){
         return inventory.addItemInInventory(id, type, amount);

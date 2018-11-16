@@ -2,10 +2,9 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
-import blockgame.model.Person;
+import blockgame.model.Time;
 import blockgame.thread.DayNight;
-import blockgame.thread.PersonMovement;
-import blockgame.thread.PersonMovement;
+import blockgame.thread.TimeTread;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -23,6 +22,7 @@ import javafx.scene.paint.Color;
 
 public class FXMLBlockGameController {
     private BlockGame model;
+    private Time time=new Time();
     
     @FXML
     private AnchorPane hoofdGrafischPaneel;
@@ -48,6 +48,9 @@ public class FXMLBlockGameController {
     
     @FXML
     private Label label;
+    
+    @FXML
+    private Label timeLabel;
 
     @FXML
     void initialize() {
@@ -80,6 +83,11 @@ public class FXMLBlockGameController {
         t.setDaemon(true);
         t.start();
         
+        TimeTread tt = new TimeTread(time,this);
+        Thread tr = new Thread(tt);
+        tr.setDaemon(true);
+        tr.start();
+       
         update();
         
     }
@@ -172,6 +180,9 @@ public class FXMLBlockGameController {
     public void setBackground(Color k) {
         grafischPaneel.setBackground(new Background(new BackgroundFill(k, CornerRadii.EMPTY, Insets.EMPTY)));
     }
-    
+
+    public void updateTimeText() {
+        timeLabel.setText(time.toString());
+    }
     
 }
