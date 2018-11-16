@@ -26,7 +26,7 @@ public class DayNight implements Runnable{
     public void run() {
         while(true){
             if(day==true){
-                for(int i=0;i<200;i--){
+                for(int i=0;i<200;i++){
                     c.setBackground(Color.rgb(0, i, 255));
                     Platform.runLater(()->c.update());
                     try{
