@@ -14,18 +14,23 @@ import javafx.application.Platform;
  * @author Souhaib El Habti
  */
 public class TimeTread implements Runnable {
-private Time time;
+private Time model;
 private FXMLBlockGameController controller;
 
-    public TimeTread(Time time, FXMLBlockGameController controller) {
-        this.time = time;
+    /**
+     * The constructor of the Treadclass TimeTread
+     * @param model: the model of the class Time
+     * @param controller: the controller
+     */
+    public TimeTread(Time model, FXMLBlockGameController controller) {
+        this.model = model;
         this.controller = controller;
     }
 
     @Override
     public void run() {
         while (true){
-            time.secPlusEen();
+            model.secPlusEen();
             Platform.runLater(()->controller.updateTimeText());
             try{
                 Thread.sleep(1000);

@@ -15,6 +15,9 @@ public class Time {
     private int sec;
     private boolean gestopt;
 
+    /**
+     *  Constructor of the class Time
+     */
     public Time() {
         sec=0;
         min=0;
@@ -22,6 +25,10 @@ public class Time {
         gestopt=true;
     }
 
+    /**
+     *  Adds 1 sec. to the sec
+     *  Checks if the min or the uren has to change 
+     */
     public void secPlusEen() {
         sec++;
         setMin();
@@ -47,6 +54,10 @@ public class Time {
         return uren;
     }
 
+    /**
+     *  If there is 60 sec: change it to 
+     *  1 min and 0 sec
+     */
     public void setMin() {
         if(sec==60){
             min++;
@@ -54,6 +65,10 @@ public class Time {
         }
     }
 
+    /**
+     *  If there is 60 min: change it to 
+     *  1 uren and 0 min
+     */
     public void setUren() {
         if(min==60){
             uren++;
@@ -62,14 +77,15 @@ public class Time {
     }
 
     /**
-     * @return the ms
+     * @return the sec
      */
     public int getSec() {
         return sec;
     }
 
     /**
-     * @return the gestopt
+     * @return the gestopt: true if the clock is
+     * stopped and false if it isn't stopped
      */
     public boolean isGestopt() {
         return gestopt;
@@ -79,7 +95,10 @@ public class Time {
         gestopt=!gestopt;
     }
 
-    void reset() {
+    /**
+     *  Reset the sec, min and uren
+     */
+    public void reset() {
         uren=0;
         sec=0;
         min=0;
