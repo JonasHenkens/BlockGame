@@ -33,7 +33,6 @@ public class DayNight implements Runnable{
             if(day==true){
                 for(int i=0;i<200;i=i+2){
                     c.setBackground(Color.rgb(0, i, 255));
-                    Platform.runLater(()->c.update());
                     try{
                         Thread.sleep(5000);
                     }
@@ -42,7 +41,6 @@ public class DayNight implements Runnable{
                 }
                 for(int i=200;i>0;i=i-2){
                     c.setBackground(Color.rgb(0, i, 255));
-                    Platform.runLater(()->c.update());
                     try{
                         Thread.sleep(5000);
                     }
@@ -52,9 +50,8 @@ public class DayNight implements Runnable{
                 day=!day;
             }
             else{
-                for(int i=255;i<75;i=i-2){
+                for(int i=255;i>75;i=i-2){
                     c.setBackground(Color.rgb(0, 0, i));
-                    Platform.runLater(()->c.update());
                     try{
                         Thread.sleep(5000);
                     }
@@ -63,7 +60,6 @@ public class DayNight implements Runnable{
                 }
                 for(int i=75;i<255;i=i+2){
                     c.setBackground(Color.rgb(0, 0, i));
-                    Platform.runLater(()->c.update());
                     try{
                         Thread.sleep(5000);
                     }
