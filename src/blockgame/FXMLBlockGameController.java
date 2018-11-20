@@ -148,7 +148,6 @@ public class FXMLBlockGameController {
     public void update(){
         view.update();
         model.updateGui();
-        
     }
     
     /**
