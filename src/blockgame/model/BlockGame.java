@@ -10,6 +10,7 @@ import blockgame.thread.PersonMovement;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -67,11 +68,7 @@ public class BlockGame {
             }
             Item item = world.hitBlock(x, y-guiTop.getHeight(), id, type);
             if(item != null){
-                System.out.println("id to be added: " + id);
-                System.out.println("type to be added: " + type);
                 boolean b = person.addItem(item.getId(), item.getItemType(), 1);
-                System.out.println("amount in inventory: " + person.getInventoryAmount(item.getId(), item.getItemType()));
-                System.out.println(b);
             }
         }
         else{
@@ -119,14 +116,26 @@ public class BlockGame {
      * @param name The name the world will be called.
      */
     public void exportWorld(String name){
-        System.out.println("Currently not working anymore");
+        // export world and player to file
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(world);
+        String jsonWorld = gson.toJson(world);
+        String jsonPerson = gson.toJson(person);
         
         try{
-            JsonWriter jsonWriter = gson.newJsonWriter(new FileWriter("src/blockgame/worlds/" + name + ".json"));
-            jsonWriter.jsonValue(json);
+            File path = new File("src/blockgame/worlds/" + name + "/");
+            if(!path.exists()){
+                path.mkdirs();
+            }
+            
+            // write world to file
+            JsonWriter jsonWriter = gson.newJsonWriter(new FileWriter("src/blockgame/worlds/" + name + "/world.json"));
+            jsonWriter.jsonValue(jsonWorld);
             jsonWriter.close();
+            // write person to file
+            jsonWriter = gson.newJsonWriter(new FileWriter("src/blockgame/worlds/" + name + "/person.json"));
+            jsonWriter.jsonValue(jsonPerson);
+            jsonWriter.close();
+            
         }
         catch(IOException e){
             
@@ -138,15 +147,18 @@ public class BlockGame {
      * @param name The name of the world that will be loaded.
      */
     public void loadWorld(String name){
-        System.out.println("Currently not working anymore");
         try {
             WorldInterface wi = new WorldInterface();
             World newWorld = wi.getWorld(name);
+            Person newPerson = wi.getPerson(name);
             world.renew(newWorld);
+            person.renew(newPerson);
         } 
         catch (NullPointerException e) {
-            System.out.println("ERROR: Couldn't find file.");
+            System.out.println("ERROR: BlockGame.loadWorld NullPointer");
         }
+        updateGui();
+        view.update();
     }
     
     

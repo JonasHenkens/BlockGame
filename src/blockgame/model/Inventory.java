@@ -18,6 +18,13 @@ public class Inventory {
     public Inventory(int amount) { 
         inventory = new ItemStack[amount];
     }
+
+    /**
+     * @param inventory The inventory to start with.
+     */
+    public Inventory(ItemStack[] inventory) {
+        this.inventory = inventory;
+    }
     
     /**
      * @param i place of ItemStack in inventory
@@ -29,10 +36,13 @@ public class Inventory {
     
     /**
      * @param i place of ItemStack in inventory
-     * @return id of the ItemStack
+     * @return type of the ItemStack
      */
     public ItemType getTypeItemStack(int i){
-        return inventory[i].getType();
+        if(inventory[i] != null){
+            return inventory[i].getType();
+        }
+        else return ItemType.nothing;
     }
     
     /**

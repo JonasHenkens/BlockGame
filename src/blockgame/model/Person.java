@@ -12,6 +12,8 @@ import javafx.scene.image.Image;
  * @author Jonas
  */
 public class Person {
+
+    
     private Inventory inventory;
     private double x;
     private double y;
@@ -57,6 +59,36 @@ public class Person {
     }
     
     /**
+     * Changes this person into the new person.
+     * @param person The person that will be replacing the current person.
+     */
+    public void renew(Person person) {
+        
+        int n = person.getInventorySize();
+        inventory = new Inventory(50);
+        for(int i = 0; i<n; i++){
+            if(person.getInventoryItemType(i) != ItemType.nothing){
+                inventory.addItemInInventory(person.getInventoryItemId(i), person.getInventoryItemType(i), person.getInventoryItemAmount(i));
+            }
+        }
+        
+        x = person.getX();
+        y = person.getY();
+        spawnX = person.getSpawnX();
+        spawnY = person.getSpawnY();
+        health = person.getHealth();
+        maxHealth = person.getMaxHealth();
+        width = person.getWidth();
+        height = person.getHeight();
+        texture = person.getTexture();
+        experience = person.getExperience();
+        vx = person.getVx();
+        vy = person.getVy();
+        maxVX = 20;
+        maxVY = 20;
+    }
+    
+    /**
      * Full constructor of a person.
      * @param inventory The inventory of the person.
      * @param x The x coordinate of the person in blocks.
@@ -67,8 +99,10 @@ public class Person {
      * @param maxHealth The maximum amount of health the person can have.
      * @param texture The texture of the person.
      * @param experience The amount of experience the person has.
+     * @param vx The speed in the x direction in blocks/s. (right is positive)
+     * @param vy The speed in the y direction in blocks/s. (down is positive)
      */
-    public Person(Inventory inventory, double x, double y, double spawnX, double spawnY, double health, double maxHealth, String texture, int experience) {
+    public Person(Inventory inventory, double x, double y, double spawnX, double spawnY, double health, double maxHealth, String texture, int experience, double vx, double vy) {
         this.inventory = inventory;
         this.x = x;
         this.y = y;
@@ -81,9 +115,9 @@ public class Person {
         Image i = new Image(texture);
         width = i.getWidth();
         height = i.getHeight();
-        vx = 0;
-        vy = 0;
-        maxVX = 10;
+        this.vx = vx;
+        this.vy = vy;
+        maxVX = 20;
         maxVY = 20;
     }
     
@@ -272,5 +306,18 @@ public class Person {
      */
     public ItemType getInventoryItemType(int index){
         return inventory.getTypeItemStack(index);
+    }
+
+    /**
+     * 
+     * @param index The place of the itemstack in the inventory.
+     * @return The amount in the itemstack.
+     */
+    public int getInventoryItemAmount(int index) {
+        return inventory.getAmountInItemStack(index);
+    }
+
+    public int getInventorySize() {
+        return inventory.getLenghtInventory();
     }
 }
