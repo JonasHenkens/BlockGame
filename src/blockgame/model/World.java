@@ -29,7 +29,6 @@ public class World {
         blocks = new Block[sizeX][sizeY];
         loadDefaultWorld();
         updateVisibilityAll();
-        
     }
     
     /**
@@ -228,7 +227,7 @@ public class World {
     public int getTextureResolution() {
         return textureResolution;
     }
-    
+
     /**
      * @param x The x coordinate of the block in blocks.
      * @param y The y coordinate of the block in blocks.

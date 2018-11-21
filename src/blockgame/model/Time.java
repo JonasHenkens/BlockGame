@@ -11,18 +11,19 @@ package blockgame.model;
  */
 public class Time {
     private int min;
-    private int uren;
+    private int hour;
     private int sec;
-    private boolean gestopt;
 
     /**
      *  Constructor of the class Time
+     * @param sec
+     * @param min
+     * @param hour
      */
-    public Time() {
-        sec=0;
-        min=0;
-        uren=0;
-        gestopt=true;
+    public Time(int sec, int min, int hour) {
+        this.sec=sec;
+        this.min=min;
+        this.hour=hour;
     }
 
     /**
@@ -32,12 +33,12 @@ public class Time {
     public void secPlusEen() {
         sec++;
         setMin();
-        setUren();
+        setHour();
     }
 
     @Override
     public String toString() {
-        return "PlayTime: "+uren+":"+min+":"+sec;
+        return "PlayTime: "+hour+":"+min+":"+sec;
     }
 
     /**
@@ -50,8 +51,8 @@ public class Time {
     /**
      * @return the uren
      */
-    public int getUren() {
-        return uren;
+    public int getHour() {
+        return hour;
     }
 
     /**
@@ -69,9 +70,9 @@ public class Time {
      *  If there is 60 min: change it to 
      *  1 uren and 0 min
      */
-    public void setUren() {
+    public void setHour() {
         if(min==60){
-            uren++;
+            hour++;
             min=0;
         }
     }
@@ -84,22 +85,10 @@ public class Time {
     }
 
     /**
-     * @return the gestopt: true if the clock is
-     * stopped and false if it isn't stopped
-     */
-    public boolean isGestopt() {
-        return gestopt;
-    }
-
-    public void setGestopt() {
-        gestopt=!gestopt;
-    }
-
-    /**
-     *  Reset the sec, min and uren
+     *  Reset the sec, min and hour
      */
     public void reset() {
-        uren=0;
+        hour=0;
         sec=0;
         min=0;
     }

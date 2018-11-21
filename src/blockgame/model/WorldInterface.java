@@ -9,6 +9,7 @@ import blockgame.model.deserializer.ItemDeserializer;
 import blockgame.model.deserializer.PersonDeserializer;
 import blockgame.model.deserializer.InventoryDeserializer;
 import blockgame.model.deserializer.ItemStackDeserializer;
+import blockgame.model.deserializer.TimeDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileNotFoundException;
@@ -54,6 +55,7 @@ public class WorldInterface {
         try {
             GsonBuilder gsonBouwer = new GsonBuilder();
             gsonBouwer.registerTypeAdapter(Item.class, new ItemDeserializer());
+            gsonBouwer.registerTypeAdapter(Time.class, new TimeDeserializer());
             Gson gson2 = gsonBouwer.create();
             World newWorld = gson2.fromJson(new FileReader("src/blockgame/worlds/" + name + "/world.json"),World.class);
             return newWorld;
