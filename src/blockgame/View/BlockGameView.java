@@ -7,6 +7,7 @@ package blockgame.View;
 
 import blockgame.model.BlockGame;
 import blockgame.model.GUITop;
+import blockgame.model.Person;
 import blockgame.model.World;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
@@ -23,13 +24,13 @@ public class BlockGameView extends Region{
     
     private WorldView worldView;
     private GUITopView topView;
-    private ImageView personView;
+    private PersonView personView;
     
     /**
      * Constructor of the BlockGameView.
      * @param model This is the BlockGame used for the view.
      */
-    public BlockGameView(BlockGame model, World world, GUITop guiTop) {
+    public BlockGameView(BlockGame model, World world, GUITop guiTop, Person person) {
         this.model = model;
         this.world = world;
         this.guiTop = guiTop;
@@ -39,8 +40,7 @@ public class BlockGameView extends Region{
         // Make gui top view
         topView = new GUITopView(guiTop);
         // Make person view
-        String personTexture = model.getPersonTexture();
-        personView = new ImageView(personTexture);
+        personView = new PersonView(person);
         // add all views
         getChildren().addAll(worldView, topView, personView);
         

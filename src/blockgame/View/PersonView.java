@@ -9,6 +9,10 @@ import blockgame.model.Person;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.ArcTo;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 
 /**
  * View of the person.
@@ -32,11 +36,21 @@ public class PersonView extends Region{
     public void update(){
         getChildren().clear();
         
+        
+        
+        
         Image i = new Image(model.getTexture());
         ImageView iv = new ImageView(i);
         getChildren().add(iv);
         
+        // temp to check range
+        double x = model.getWidth()/2;
+        double y = model.getHeight()/2;
+        Circle cirkel1 = new Circle(x, y, 4*16);
+        cirkel1.setFill(Color.TRANSPARENT);
+        cirkel1.setStroke(Color.RED);
         
+        getChildren().addAll(cirkel1);
         
     }
     

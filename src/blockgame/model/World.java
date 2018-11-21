@@ -28,6 +28,7 @@ public class World {
         this.textureResolution = textureResolution;
         blocks = new Block[sizeX][sizeY];
         loadDefaultWorld();
+        updateVisibilityAll();
         
     }
     
@@ -45,6 +46,8 @@ public class World {
             if(isBroken){
                 //remove block from world
                 blocks[(int)(x/16)][(int)(y/16)] = null;
+                
+                updateVisibilityAll();
                 // return item that has been dropped
                 ItemInterface ii = new ItemInterface();
                 return ii.getItem(b.getDropId(), b.getItemType());
@@ -63,8 +66,8 @@ public class World {
     /**
      * @param x The x coordinate of the mouseclick.
      * @param y The y coordinate of the mouseclick.
-     * @param id
-     * @param type
+     * @param id The id of the item that has been used to click.
+     * @param type The type of the item that has been used to click.
      */
     public boolean placeBlock(double x, double y, int id, ItemType type){
         if(type == ItemType.block){
@@ -75,6 +78,8 @@ public class World {
             int bY = (int)(y/16);
             if(blocks[bX][bY] == null){
                 blocks[bX][bY] = block;
+                // check for visibility
+                updateVisibilityAll();
                 return true;
             }
             else{
@@ -135,9 +140,70 @@ public class World {
                 blocks[i][j] = nieuw.getBlock(i, j);
             }
         }
+        updateVisibilityAll();
         
     }
     
+    /**
+     * @param x The x coordinate of the block to be updated.
+     * @param y The y coordinate of the block to be updated.
+     */
+    public void updateVisibility(int x, int y){
+        // if in range an empty block => make visible
+        // check square aroung block
+        int range = 3;
+        
+        if(blocks[x][y] != null){
+            // block exists
+            
+            for(int i = -range; i<= range; i++){
+                // x
+                for(int j = -range; j<= range; j++){
+                    // y
+                    // x + 1 and y + j cant be negative (out of world)
+                    // AND cant be bigger or equals to world size
+                    if(x+i >= 0 && y+j >=0 && x+i < sizeX && y+j <sizeY)
+                    if(blocks[x + i][y + j] == null){
+                        // empty block in range of square
+                        // now check if the middle of empty spot is in the range of circle
+                        double middleEmptyX = x + i;
+                        double middleEmptyY = y + j;
+                        double middleBlockX = x;
+                        double middleBlockY = y;
+                        
+                        double distance = Math.sqrt(Math.pow((middleBlockX-middleEmptyX), 2) + Math.pow((middleBlockY-middleEmptyY), 2));
+                        if(distance < range-0.5){
+                            // empty spot in range => block is visible
+                            blocks[x][y].setVisible(true);
+                            return;
+                        }
+                        else{
+                            // empty spot isn't in range => check next
+                        }
+                        
+                        
+                    }
+                    else{
+                        // this block isn't empty => try next one
+                        
+                    }
+                }
+            }
+            // no empty blocks in range => not visible
+            blocks[x][y].setVisible(false);
+        }
+    }
+    
+    /**
+     * Updates the visibility of all blocks
+     */
+    public void updateVisibilityAll(){
+        for(int i = 0; i<sizeX; i++){
+            for(int j = 0; j<sizeY; j++){
+                updateVisibility(i, j);
+            }
+        }
+    }
     
     //getters
     

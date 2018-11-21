@@ -34,7 +34,7 @@ public class BlockGame {
         this.world = world;
         guiTop = new GUITop(person);
         
-        view = new BlockGameView(this, world, guiTop);
+        view = new BlockGameView(this, world, guiTop, person);
         
         // Start the thread that manages the person's movement
         PersonMovement pm = new PersonMovement(person, view, world);
@@ -52,23 +52,39 @@ public class BlockGame {
      */
     public void leftClick(double x, double y){
         if(x <= guiTop.getWidth() && y <= guiTop.getHeight()){
+            // clicked on GUITop
             guiTop.leftClick(x, y);
         }
         else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
-            int index = guiTop.getSelectedItem();
-            int id = guiTop.getItemId(index);
-            ItemType type = guiTop.getItemType(index);
-            if(id == -1){
-                // no block in spot: use "noTexture" block
-                id = 0;
-                type = ItemType.block;
-            }
-            else{
-                // id and type are correct, nothing needs to change
-            }
-            Item item = world.hitBlock(x, y-guiTop.getHeight(), id, type);
-            if(item != null){
-                boolean b = person.addItem(item.getId(), item.getItemType(), 1);
+            // clicked on world
+            // check if in range of person
+            // middle coordinates of person
+            double personMiddleX = person.getX() + person.getWidth()/world.getTextureResolution()/2;
+            double personMiddleY = person.getY() + person.getHeight()/world.getTextureResolution()/2;
+            // x and y of click in blocks
+            double x2 = x/world.getTextureResolution();
+            double y2 = (y-guiTop.getHeight())/world.getTextureResolution();
+            
+            // calculate distance using formula
+            double distance = Math.sqrt(Math.pow((personMiddleX-x2), 2) + Math.pow((personMiddleY-y2), 2));
+            
+            if(distance < 4){
+                // click is within range of person => can hit block
+                int index = guiTop.getSelectedItem();
+                int id = guiTop.getItemId(index);
+                ItemType type = guiTop.getItemType(index);
+                if(id == -1){
+                    // no block in spot: use "noTexture" block
+                    id = 0;
+                    type = ItemType.block;
+                }
+                else{
+                    // id and type are correct, nothing needs to change
+                }
+                Item item = world.hitBlock(x, y-guiTop.getHeight(), id, type);
+                if(item != null){
+                    boolean b = person.addItem(item.getId(), item.getItemType(), 1);
+                }
             }
         }
         else{
@@ -88,20 +104,34 @@ public class BlockGame {
             
         }
         else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
-            int index = guiTop.getSelectedItem();
-            int id = guiTop.getItemId(index);
-            ItemType type = guiTop.getItemType(index);
-            if(type == ItemType.block){
-                // kan enkel blokken plaatsen
-                if(person.getInventoryAmount(id, type) >= 1){
-                    boolean geplaatst = world.placeBlock(x, y-guiTop.getHeight(), id, type);
-                    if(geplaatst){
-                        person.removeInventoryItem(id, type, 1);
+            // clicked on world
+            // check if in range of person
+            // middle coordinates of person
+            double personMiddleX = person.getX() + person.getWidth()/world.getTextureResolution()/2;
+            double personMiddleY = person.getY() + person.getHeight()/world.getTextureResolution()/2;
+            // x and y of click in blocks
+            double x2 = x/world.getTextureResolution();
+            double y2 = (y-guiTop.getHeight())/world.getTextureResolution();
+            
+            // calculate distance using formula
+            double distance = Math.sqrt(Math.pow((personMiddleX-x2), 2) + Math.pow((personMiddleY-y2), 2));
+            
+            if(distance < 4){
+                // click is within range of person => can place block
+                int index = guiTop.getSelectedItem();
+                int id = guiTop.getItemId(index);
+                ItemType type = guiTop.getItemType(index);
+                if(type == ItemType.block){
+                    // kan enkel blokken plaatsen
+                    if(person.getInventoryAmount(id, type) >= 1){
+                        boolean geplaatst = world.placeBlock(x, y-guiTop.getHeight(), id, type);
+                        if(geplaatst){
+                            person.removeInventoryItem(id, type, 1);
+                        }
                     }
-                    System.out.println("amount in inventory: " + person.getInventoryAmount(id, type));
-                }
-                else{
-                    // block is niet uit inventory verwijderd => niet plaatsen
+                    else{
+                        // block is niet uit inventory verwijderd => niet plaatsen
+                    }
                 }
             }
         }
