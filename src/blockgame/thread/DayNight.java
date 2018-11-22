@@ -6,7 +6,6 @@
 package blockgame.thread;
 
 import blockgame.FXMLBlockGameController;
-import javafx.application.Platform;
 import javafx.scene.paint.Color;
 
 /**

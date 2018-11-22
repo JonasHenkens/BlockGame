@@ -174,10 +174,17 @@ public class FXMLBlockGameController {
         view.updatePerson();
     }
     
-    public void setBackground(Color k) {
-        grafischPaneel.setBackground(new Background(new BackgroundFill(k, CornerRadii.EMPTY, Insets.EMPTY)));
+    /**
+     * Changes the background 
+     * @param c: The color for the background
+     */
+    public void setBackground(Color c) {
+        grafischPaneel.setBackground(new Background(new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
+    /**
+     *  Changes the label with the time.
+     */
     public void updateTimeText() {
         timeLabel.setText("Time: " + model.getHour()+":"+model.getMin()+":"+model.getSec());
     }

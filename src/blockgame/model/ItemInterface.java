@@ -5,8 +5,6 @@
  */
 package blockgame.model;
 
-import blockgame.model.Block;
-
 /**
  * ItemInterface is used to request items by id and type.
  * @author Jonas

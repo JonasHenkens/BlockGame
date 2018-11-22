@@ -19,7 +19,7 @@ private FXMLBlockGameController controller;
 
     /**
      * The constructor of the Treadclass TimeTread
-     * @param model: the model of the class Time
+     * @param model: the model of the BlockGame
      * @param controller: the controller
      */
     public TimeTread(BlockGame model, FXMLBlockGameController controller) {

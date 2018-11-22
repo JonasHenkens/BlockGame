@@ -36,11 +36,6 @@ public class Time {
         setHour();
     }
 
-    @Override
-    public String toString() {
-        return "PlayTime: "+hour+":"+min+":"+sec;
-    }
-
     /**
      * @return the min
      */
