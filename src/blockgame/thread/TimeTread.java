@@ -6,7 +6,7 @@
 package blockgame.thread;
 
 import blockgame.FXMLBlockGameController;
-import blockgame.model.Time;
+import blockgame.model.BlockGame;
 import javafx.application.Platform;
 
 /**
@@ -14,7 +14,7 @@ import javafx.application.Platform;
  * @author Souhaib El Habti
  */
 public class TimeTread implements Runnable {
-private Time model;
+private BlockGame model;
 private FXMLBlockGameController controller;
 
     /**
@@ -22,7 +22,7 @@ private FXMLBlockGameController controller;
      * @param model: the model of the class Time
      * @param controller: the controller
      */
-    public TimeTread(Time model, FXMLBlockGameController controller) {
+    public TimeTread(BlockGame model, FXMLBlockGameController controller) {
         this.model = model;
         this.controller = controller;
     }

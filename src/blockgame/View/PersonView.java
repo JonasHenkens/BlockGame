@@ -46,7 +46,7 @@ public class PersonView extends Region{
         // temp to check range
         double x = model.getWidth()/2;
         double y = model.getHeight()/2;
-        Circle cirkel1 = new Circle(x, y, 4*16);
+        Circle cirkel1 = new Circle(x, y, 3.5*16);
         cirkel1.setFill(Color.TRANSPARENT);
         cirkel1.setStroke(Color.RED);
         

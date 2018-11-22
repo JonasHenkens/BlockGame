@@ -68,7 +68,7 @@ public class BlockGame {
             // calculate distance using formula
             double distance = Math.sqrt(Math.pow((personMiddleX-x2), 2) + Math.pow((personMiddleY-y2), 2));
             
-            if(distance < 4){
+            if(distance < 3.5){
                 // click is within range of person => can hit block
                 int index = guiTop.getSelectedItem();
                 int id = guiTop.getItemId(index);
@@ -116,7 +116,7 @@ public class BlockGame {
             // calculate distance using formula
             double distance = Math.sqrt(Math.pow((personMiddleX-x2), 2) + Math.pow((personMiddleY-y2), 2));
             
-            if(distance < 4){
+            if(distance < 3.5){
                 // click is within range of person => can place block
                 int index = guiTop.getSelectedItem();
                 int id = guiTop.getItemId(index);
@@ -217,6 +217,9 @@ public class BlockGame {
         guiTop.updateItems();
     }
     
+    public void secPlusEen() {
+        world.secPlusEen();
+    }
     
     // getters
     
@@ -290,6 +293,28 @@ public class BlockGame {
         return person.getVx();
     }
     
+    /**
+     * TODO
+     * @return hour
+     */
+    public int getHour(){
+        return world.getHour();
+    }
     
+    /**
+     *TODO
+     * @return min
+     */
+    public int getMin(){
+        return world.getMin();
+    }
+    
+    /**
+     * TODO
+     * @return sec
+     */
+    public int getSec(){
+        return world.getSec();
+    }
     
 }

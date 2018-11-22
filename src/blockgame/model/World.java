@@ -15,6 +15,7 @@ public class World {
     private int sizeX;
     private int sizeY;
     private int textureResolution;
+    private Time time;
 
     /**
      * Constructor of World.
@@ -29,6 +30,7 @@ public class World {
         blocks = new Block[sizeX][sizeY];
         loadDefaultWorld();
         updateVisibilityAll();
+        time = new Time(0, 0, 0);
     }
     
     /**
@@ -139,6 +141,8 @@ public class World {
                 blocks[i][j] = nieuw.getBlock(i, j);
             }
         }
+        
+        time = new Time(nieuw.getSec(),nieuw.getMin(),nieuw.getHour());
         updateVisibilityAll();
         
     }
@@ -204,6 +208,10 @@ public class World {
         }
     }
     
+    public void secPlusEen() {
+        time.secPlusEen();
+    }
+    
     //getters
     
     
@@ -250,4 +258,27 @@ public class World {
         return blocks[(int)(x/16)][(int)(y/16)];
     }
     
+    /**
+     * TODO
+     * @return hour
+     */
+    public int getHour(){
+        return time.getHour();
+    }
+    
+    /**
+     *TODO
+     * @return min
+     */
+    public int getMin(){
+        return time.getMin();
+    }
+    
+    /**
+     * TODO
+     * @return sec
+     */
+    public int getSec(){
+        return time.getSec();
+    }
 }

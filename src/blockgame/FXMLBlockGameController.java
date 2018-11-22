@@ -22,7 +22,6 @@ import javafx.scene.paint.Color;
 
 public class FXMLBlockGameController {
     private BlockGame model;
-    private Time time = new Time(0,0,0);
     
     @FXML
     private AnchorPane hoofdGrafischPaneel;
@@ -83,7 +82,7 @@ public class FXMLBlockGameController {
         t.setDaemon(true);
         t.start();
         
-        TimeTread tt = new TimeTread(time,this);
+        TimeTread tt = new TimeTread(model,this);
         Thread tr = new Thread(tt);
         tr.setDaemon(true);
         tr.start();
@@ -180,7 +179,7 @@ public class FXMLBlockGameController {
     }
 
     public void updateTimeText() {
-        timeLabel.setText(time.toString());
+        timeLabel.setText("Time: " + model.getHour()+":"+model.getMin()+":"+model.getSec());
     }
 
 }
