@@ -52,7 +52,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -486,7 +486,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -920,7 +920,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -1354,7 +1354,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -1788,7 +1788,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -2222,7 +2222,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -2656,7 +2656,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -3090,7 +3090,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -3524,7 +3524,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -3958,7 +3958,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -4392,7 +4392,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -4826,7 +4826,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -5260,7 +5260,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -5694,7 +5694,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -6128,7 +6128,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -6562,7 +6562,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -6996,7 +6996,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7430,7 +7430,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7443,7 +7443,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7456,7 +7456,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7469,7 +7469,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7482,7 +7482,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7495,7 +7495,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7903,7 +7903,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7916,7 +7916,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -7929,7 +7929,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -8350,7 +8350,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -8363,7 +8363,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -8697,41 +8697,15 @@
       null,
       null,
       null,
-      {
-        "texture": "blockgame/textures/blocks/dirt.png",
-        "health": 1.0,
-        "hardness": 1.0,
-        "id": 1,
-        "dropId": 1,
-        "dropType": "block",
-        "type": "block",
-        "name": "dirt",
-        "visible": true,
-        "maxStackSize": 50,
-        "strength": 1.0
-      },
-      {
-        "texture": "blockgame/textures/blocks/dirt.png",
-        "health": 1.0,
-        "hardness": 1.0,
-        "id": 1,
-        "dropId": 1,
-        "dropType": "block",
-        "type": "block",
-        "name": "dirt",
-        "visible": true,
-        "maxStackSize": 50,
-        "strength": 1.0
-      },
       {
-        "texture": "blockgame/textures/blocks/dirt.png",
+        "texture": "blockgame/textures/blocks/grass.png",
         "health": 1.0,
-        "hardness": 1.0,
-        "id": 1,
-        "dropId": 1,
+        "hardness": 1.25,
+        "id": 2,
+        "dropId": 2,
         "dropType": "block",
         "type": "block",
-        "name": "dirt",
+        "name": "grass",
         "visible": true,
         "maxStackSize": 50,
         "strength": 1.0
@@ -8749,15 +8723,17 @@
         "maxStackSize": 50,
         "strength": 1.0
       },
+      null,
+      null,
       {
-        "texture": "blockgame/textures/blocks/dirt.png",
-        "health": 1.0,
-        "hardness": 1.0,
-        "id": 1,
-        "dropId": 1,
+        "texture": "blockgame/textures/blocks/stone.png",
+        "health": 5.0,
+        "hardness": 3.0,
+        "id": 3,
+        "dropId": 3,
         "dropType": "block",
         "type": "block",
-        "name": "dirt",
+        "name": "stone",
         "visible": true,
         "maxStackSize": 50,
         "strength": 1.0
@@ -8784,7 +8760,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -8797,7 +8773,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -9140,19 +9116,6 @@
         "dropType": "block",
         "type": "block",
         "name": "grass",
-        "visible": true,
-        "maxStackSize": 50,
-        "strength": 1.0
-      },
-      {
-        "texture": "blockgame/textures/blocks/dirt.png",
-        "health": 1.0,
-        "hardness": 1.0,
-        "id": 1,
-        "dropId": 1,
-        "dropType": "block",
-        "type": "block",
-        "name": "dirt",
         "visible": true,
         "maxStackSize": 50,
         "strength": 1.0
@@ -9170,20 +9133,21 @@
         "maxStackSize": 50,
         "strength": 1.0
       },
+      null,
+      null,
       {
-        "texture": "blockgame/textures/blocks/dirt.png",
-        "health": 1.0,
-        "hardness": 1.0,
-        "id": 1,
-        "dropId": 1,
+        "texture": "blockgame/textures/blocks/stone.png",
+        "health": 5.0,
+        "hardness": 3.0,
+        "id": 3,
+        "dropId": 3,
         "dropType": "block",
         "type": "block",
-        "name": "dirt",
+        "name": "stone",
         "visible": true,
         "maxStackSize": 50,
         "strength": 1.0
       },
-      null,
       {
         "texture": "blockgame/textures/blocks/stone.png",
         "health": 5.0,
@@ -9206,7 +9170,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -9219,7 +9183,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -9640,7 +9604,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -9653,7 +9617,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10061,7 +10025,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10074,7 +10038,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10087,7 +10051,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10456,7 +10420,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10469,7 +10433,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10482,7 +10446,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10495,7 +10459,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10508,7 +10472,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10521,7 +10485,7 @@
         "dropType": "block",
         "type": "block",
         "name": "stone",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -10890,7 +10854,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -11324,7 +11288,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -11758,7 +11722,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -12192,7 +12156,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -12626,7 +12590,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -13060,7 +13024,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -13494,7 +13458,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -13928,7 +13892,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -14362,7 +14326,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -14796,7 +14760,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -15230,7 +15194,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -15664,7 +15628,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -16098,7 +16062,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -16532,7 +16496,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -16966,7 +16930,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -17400,7 +17364,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -17834,7 +17798,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -18268,7 +18232,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -18702,7 +18666,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -19136,7 +19100,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -19570,7 +19534,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -20004,7 +19968,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -20438,7 +20402,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -20872,7 +20836,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -21306,7 +21270,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -21740,7 +21704,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -22174,7 +22138,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -22608,7 +22572,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -23042,7 +23006,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -23476,7 +23440,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -23910,7 +23874,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -24344,7 +24308,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -24778,7 +24742,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -25212,7 +25176,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -25646,7 +25610,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -26080,7 +26044,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -26514,7 +26478,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -26948,7 +26912,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -27382,7 +27346,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -27816,7 +27780,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -28250,7 +28214,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -28684,7 +28648,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -29118,7 +29082,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -29552,7 +29516,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -29986,7 +29950,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -30420,7 +30384,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -30854,7 +30818,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -31288,7 +31252,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -31722,7 +31686,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -32156,7 +32120,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -32590,7 +32554,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -33024,7 +32988,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -33458,7 +33422,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -33892,7 +33856,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -34326,7 +34290,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -34760,7 +34724,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -35194,7 +35158,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -35628,7 +35592,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -36062,7 +36026,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -36496,7 +36460,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -36930,7 +36894,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -37364,7 +37328,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -37798,7 +37762,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -38232,7 +38196,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -38666,7 +38630,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -39100,7 +39064,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -39534,7 +39498,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -39968,7 +39932,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -40402,7 +40366,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -40836,7 +40800,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -41270,7 +41234,7 @@
         "dropType": "block",
         "type": "block",
         "name": "dirt",
-        "visible": true,
+        "visible": false,
         "maxStackSize": 50,
         "strength": 1.0
       },
@@ -41655,5 +41619,10 @@
   ],
   "sizeX": 96,
   "sizeY": 48,
-  "textureResolution": 16
+  "textureResolution": 16,
+  "time": {
+    "min": 0,
+    "hour": 0,
+    "sec": 59
+  }
 }

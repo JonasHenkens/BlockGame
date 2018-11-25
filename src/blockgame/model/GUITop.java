@@ -23,8 +23,8 @@ public class GUITop{
      */
     public GUITop(Person person) {
         this.person = person;
-        itemIds = new int[10];
-        itemTypes = new ItemType[10];
+        itemIds = new int[15];
+        itemTypes = new ItemType[15];
         height = 32;
         width = 1536;
         
