@@ -48,19 +48,19 @@ public class PersonMovement implements Runnable{
             }
             else if(keysBeingHeld.contains(Key.LEFT)){
                 if(keysBeingHeld.contains(Key.SPRINT)){
-                    person.setVx(-16);
+                    person.setVx(-12);
                 }
                 else{
-                    person.setVx(-8);
+                    person.setVx(-6);
                 }
             }
             
             else if(keysBeingHeld.contains(Key.RIGHT)){
                 if(keysBeingHeld.contains(Key.SPRINT)){
-                    person.setVx(16);
+                    person.setVx(12);
                 }
                 else{
-                    person.setVx(8);
+                    person.setVx(6);
                 }
             }
             
@@ -89,15 +89,7 @@ public class PersonMovement implements Runnable{
             double personWidth = person.getWidth()/world.getTextureResolution();
             
             
-            
-            /*
-            TODO?: (only top of world not working correctly(if hit top while moving left/right, you teleport))
-            when move person in x and y direction
-            limit player inside world:
-            x: 0 => worldWidth - personWidth
-            y: 0 => worldHeight - PersonHeigth
-            */
-            
+           
             // new x coordinate of top left corner
             double xNew = x + vx*t;
             // new y coordinate of top left corner
@@ -211,6 +203,9 @@ public class PersonMovement implements Runnable{
                     
                     for(int i = 0; i <= n; i++){
                         double yc = yNew + (personHeigth - (double)1/world.getTextureResolution())*i/n;
+                        if(yc<0){
+                            yc = 0;
+                        }
                         Block block = world.getBlock(xNew, yc);
                         if(block != null){
                             // A block is in the way: can't move
@@ -226,7 +221,7 @@ public class PersonMovement implements Runnable{
                         }
                         else{
                             dx = vx*t/2;
-                            dvx = -vx/64;
+                            dvx = -vx/32;
                         }
                     }
                     else{
@@ -249,6 +244,9 @@ public class PersonMovement implements Runnable{
                     
                     for(int i = 0; i <= n; i++){
                         double yc = yNew + (personHeigth - (double)1/world.getTextureResolution())*i/n;
+                        if(yc<0){
+                            yc = 0;
+                        }
                         Block block = world.getBlock(xNew + personWidth, yc);
                         if(block != null){
                             // A block is in the way: can't move
@@ -264,7 +262,7 @@ public class PersonMovement implements Runnable{
                         }
                         else{
                             dx = vx*t/2;
-                            dvx = -vx/64;
+                            dvx = -vx/32;
                         }
                     }
                     else{
