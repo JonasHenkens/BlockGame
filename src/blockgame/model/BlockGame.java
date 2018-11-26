@@ -13,6 +13,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * In BlockGame all the big views get put together.
@@ -23,6 +25,8 @@ public class BlockGame {
     private GUITop guiTop;
     private Person person;
     private BlockGameView view;
+    private ArrayList<Key> keysBeingHeld;
+    
 
     /**
      * Constructor for BlockGame.
@@ -37,11 +41,12 @@ public class BlockGame {
         view = new BlockGameView(this, world, guiTop, person);
         
         // Start the thread that manages the person's movement
-        PersonMovement pm = new PersonMovement(person, view, world);
+        PersonMovement pm = new PersonMovement(person, view, world, this);
         Thread t = new Thread(pm);
         t.setDaemon(true);
         t.start();
         
+        keysBeingHeld = new ArrayList<>();
         
     }
     
@@ -169,7 +174,6 @@ public class BlockGame {
             
         }
         catch(IOException e){
-            
         }
     }
     
@@ -218,6 +222,9 @@ public class BlockGame {
         guiTop.updateItems();
     }
     
+    /**
+     * TODO
+     */
     public void secPlusEen() {
         world.secPlusEen();
     }
@@ -239,8 +246,6 @@ public class BlockGame {
         double pYMin = person.getY();
         double pYMax = pYMin + person.getHeight()/16;
         
-        
-        
         // corner 1: x,y
         if(pXMin < x && x < pXMax && pYMin < y && y < pYMax){
             return true;
@@ -260,6 +265,44 @@ public class BlockGame {
         // none of the corners are in the person so not overlapping
         return false;
     }
+    
+    
+    /**
+     * @param key The key being held.
+     */
+    public void addKeyBeingHeld(Key key){
+        if(!keysBeingHeld.contains(key)){
+            keysBeingHeld.add(key);
+        }
+    }
+    
+    /**
+     * @param key The key not being held anymore.
+     */
+    public void removeKeyBeingHeld(Key key){
+        if(keysBeingHeld.contains(key)){
+            keysBeingHeld.remove(key);
+        }
+    }
+    
+    
+    // setters
+
+    
+    /**
+     * @param vx The new speed in the x direction in blocks/sec.
+     */
+    public void setVx(double vx) {
+        person.setVx(vx);
+    }
+
+    /**
+     * @param vy The new speed in the y direction in blocks/sec.
+     */
+    public void setVy(double vy) {
+        person.setVy(vy);
+    }
+    
     
     // getters
     
@@ -357,4 +400,11 @@ public class BlockGame {
         return world.getSec();
     }
     
+    /**
+     * TODO
+     * @return 
+     */
+    public Iterator<Key> getKeysBeingHeldIterator(){
+        return keysBeingHeld.iterator();
+    }
 }

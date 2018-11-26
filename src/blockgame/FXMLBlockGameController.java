@@ -2,6 +2,7 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
+import blockgame.model.Key;
 import blockgame.thread.DayNight;
 import blockgame.thread.TimeTread;
 import java.net.URL;
@@ -21,6 +22,8 @@ import javafx.scene.paint.Color;
 
 public class FXMLBlockGameController {
     private BlockGame model;
+    
+    
     
     @FXML
     private AnchorPane hoofdGrafischPaneel;
@@ -65,7 +68,8 @@ public class FXMLBlockGameController {
         grafischPaneel.setOnMouseClicked(this::geklikt);
         loadWorld.setOnMouseClicked(e -> loadWorld(worldName.getText()));
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
-        hoofdGrafischPaneel.setOnKeyPressed(this::movePerson);
+        hoofdGrafischPaneel.setOnKeyPressed(this::keyPressed);
+        hoofdGrafischPaneel.setOnKeyReleased(this::keyReleased);
 
     }
     
@@ -156,30 +160,57 @@ public class FXMLBlockGameController {
     }
     
     /**
-     * moves the person according to the key pressed
-     * @param e 
+     * @param e The keyEvent.
      */
-    public void movePerson(KeyEvent e){
+    public void keyPressed(KeyEvent e){
         switch (e.getCode()){
             case LEFT:
             case Q:
-                model.changePersonSpeed(-16 - model.getPersonVx(), 0);
+                model.addKeyBeingHeld(Key.LEFT);
                 break;
             case RIGHT:
             case D:
-                model.changePersonSpeed(16 - model.getPersonVx(), 0);
+                model.addKeyBeingHeld(Key.RIGHT);
                 break;
             case UP:
             case Z:
             case SPACE:
-                if(model.getPersonVy() == 0.0){
-                    model.changePersonSpeed(0, -7);
-                }
+                model.addKeyBeingHeld(Key.UP);
+                break;
+            case SHIFT:
+                model.addKeyBeingHeld(Key.SPRINT);
+                break;
+            
+        }
+    }
+    
+    /**
+     * @param e The keyEvent.
+     */
+    public void keyReleased(KeyEvent e){
+        switch (e.getCode()){
+            case LEFT:
+            case Q:
+                model.removeKeyBeingHeld(Key.LEFT);
+                break;
+            case RIGHT:
+            case D:
+                model.removeKeyBeingHeld(Key.RIGHT);
+                break;
+            case UP:
+            case Z:
+            case SPACE:
+                model.removeKeyBeingHeld(Key.UP);
+                break;
+            case SHIFT:
+                model.removeKeyBeingHeld(Key.SPRINT);
                 break;
             
         }
         view.updatePerson();
     }
+    
+    
     
     /**
      * Changes the background 

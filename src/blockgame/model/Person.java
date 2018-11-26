@@ -156,6 +156,49 @@ public class Person {
         }
     }
     
+    
+    
+    /**
+     * @param id The id of the item to be removed.
+     * @param type The type of the item to be removed.
+     * @param amount The amount to be removed.
+     * @return True if items are removed.
+     */
+    public boolean removeInventoryItem(int id, ItemType type, int amount){
+        boolean verwijderd = inventory.removeItemInInventory(id, type, amount);
+        return verwijderd;
+    }
+    
+    
+    
+    /**
+     * @param id The id of the item to be added.
+     * @param type The type of the item to be added.
+     * @param amount The amount of the item to be added.
+     * @return 
+     */
+    public boolean addItem(int id, ItemType type, int amount){
+        return inventory.addItemInInventory(id, type, amount);
+    }
+    
+    
+    
+    // setters
+    
+    /**
+     * @param vx The new speed in the x direction in blocks/sec.
+     */
+    public void setVx(double vx) {
+        this.vx = vx;
+    }
+
+    /**
+     * @param vy The new speed in the y direction in blocks/sec.
+     */
+    public void setVy(double vy) {
+        this.vy = vy;
+    }
+    
     /**
      * @param x The new x coordinate in blocks.
      * @param y The new y coordinate in blocks.
@@ -174,16 +217,10 @@ public class Person {
         this.spawnY = spawnY;
     }
     
-    /**
-     * @param id The id of the item to be removed.
-     * @param type The type of the item to be removed.
-     * @param amount The amount to be removed.
-     * @return True if items are removed.
-     */
-    public boolean removeInventoryItem(int id, ItemType type, int amount){
-        boolean verwijderd = inventory.removeItemInInventory(id, type, amount);
-        return verwijderd;
-    }
+    
+    
+    
+    // getters
     
     /**
      * @param id The id of the item you want to get the amount of.
@@ -193,20 +230,6 @@ public class Person {
     public int getInventoryAmount(int id, ItemType type){
         return inventory.getAantal(id, type);
     }
-    
-    /**
-     * @param id The id of the item to be added.
-     * @param type The type of the item to be added.
-     * @param amount The amount of the item to be added.
-     * @return 
-     */
-    public boolean addItem(int id, ItemType type, int amount){
-        return inventory.addItemInInventory(id, type, amount);
-    }
-    
-    
-    
-    // getters
     
     /**
      * @return The x coordinate of the person in blocks.

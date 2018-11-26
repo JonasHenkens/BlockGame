@@ -7,8 +7,12 @@ package blockgame.thread;
 
 import blockgame.View.BlockGameView;
 import blockgame.model.Block;
+import blockgame.model.BlockGame;
+import blockgame.model.Key;
 import blockgame.model.Person;
 import blockgame.model.World;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javafx.application.Platform;
 
 /**
@@ -16,14 +20,16 @@ import javafx.application.Platform;
  * @author Jonas
  */
 public class PersonMovement implements Runnable{
-    private Person model;
+    private Person person;
     private BlockGameView view;
     private World world;
+    private BlockGame blockgame;
 
-    public PersonMovement(Person model, BlockGameView view, World world) {
-        this.model = model;
+    public PersonMovement(Person person, BlockGameView view, World world, BlockGame blockgame) {
+        this.person = person;
         this.view = view;
         this.world = world;
+        this.blockgame = blockgame;
     }
     
     
@@ -31,23 +37,56 @@ public class PersonMovement implements Runnable{
     @Override
     public void run() {
         while(true){
+            ArrayList<Key> keysBeingHeld = new ArrayList<>();
+            Iterator<Key> it = blockgame.getKeysBeingHeldIterator();
+            while(it.hasNext()){
+                keysBeingHeld.add(it.next());
+            }
+            
+            if(keysBeingHeld.contains(Key.LEFT) && keysBeingHeld.contains(Key.RIGHT)){
+                person.setVx(0);
+            }
+            else if(keysBeingHeld.contains(Key.LEFT)){
+                if(keysBeingHeld.contains(Key.SPRINT)){
+                    person.setVx(-16);
+                }
+                else{
+                    person.setVx(-8);
+                }
+            }
+            
+            else if(keysBeingHeld.contains(Key.RIGHT)){
+                if(keysBeingHeld.contains(Key.SPRINT)){
+                    person.setVx(16);
+                }
+                else{
+                    person.setVx(8);
+                }
+            }
+            
+            if(keysBeingHeld.contains(Key.UP) && person.getVy() == 0){
+                person.setVy(-7);
+            }
+            
+            
+            
             // t = 20ms = 0.02s
             double t = 0.02;
             // x and y in blocks
-            double x = model.getX();
-            double y = model.getY();
+            double x = person.getX();
+            double y = person.getY();
             // gravity: ay = 10 blocks/s^2
             double ay = 10;
-            double vy = model.getVy();
-            double vx = model.getVx();
+            double vy = person.getVy();
+            double vx = person.getVx();
             double dy = 0;
             double dvy = 0;
             double dx = 0;
             double dvx = 0;
             // person heigth in blocks
-            double personHeigth = model.getHeight()/world.getTextureResolution();
+            double personHeigth = person.getHeight()/world.getTextureResolution();
             // person width in blocks
-            double personWidth = model.getWidth()/world.getTextureResolution();
+            double personWidth = person.getWidth()/world.getTextureResolution();
             
             
             
@@ -249,8 +288,8 @@ public class PersonMovement implements Runnable{
             }
             
             
-            model.move(dx, dy);
-            model.changeSpeed(dvx, dvy);
+            person.move(dx, dy);
+            person.changeSpeed(dvx, dvy);
             
             
             Platform.runLater( () -> view.updatePerson() );
