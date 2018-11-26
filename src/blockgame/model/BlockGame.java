@@ -122,6 +122,8 @@ public class BlockGame {
                 int id = guiTop.getItemId(index);
                 ItemType type = guiTop.getItemType(index);
                 if(type == ItemType.block){
+                    // kan niets op zichzelf plaatsen
+                    
                     // kan enkel blokken plaatsen
                     if(person.getInventoryAmount(id, type) >= 1){
                         boolean geplaatst = world.placeBlock(x, y-guiTop.getHeight(), id, type);

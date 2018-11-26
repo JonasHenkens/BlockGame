@@ -2,7 +2,6 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
-import blockgame.model.Time;
 import blockgame.thread.DayNight;
 import blockgame.thread.TimeTread;
 import java.net.URL;
@@ -50,6 +49,9 @@ public class FXMLBlockGameController {
     
     @FXML
     private Label timeLabel;
+    
+    @FXML
+    private AnchorPane achtergrond;
 
     @FXML
     void initialize() {
@@ -57,6 +59,7 @@ public class FXMLBlockGameController {
         loadWorld.setFocusTraversable(false);
         saveWorld.setFocusTraversable(false);
         grafischPaneel.setFocusTraversable(true);
+        achtergrond.setFocusTraversable(false);
         
         
         grafischPaneel.setOnMouseClicked(this::geklikt);
@@ -76,6 +79,10 @@ public class FXMLBlockGameController {
         grafischPaneel.getChildren().add(view);
         grafischPaneel.setPrefWidth(model.getWorldSizeX()*model.getTextureResolution());
         grafischPaneel.setPrefHeight(model.getGUITopHeight() + model.getWorldSizeY()*model.getTextureResolution());
+        achtergrond.setTranslateY(model.getGUITopHeight() + 16*model.getTextureResolution());
+        achtergrond.setPrefWidth(model.getWorldSizeX()*model.getTextureResolution());
+        achtergrond.setPrefHeight((model.getWorldSizeY()-16)*model.getTextureResolution());
+        achtergrond.setBackground(new Background(new BackgroundFill(Color.rgb(139,69,19), CornerRadii.EMPTY, Insets.EMPTY)));
         
         DayNight d = new DayNight(this,true);
         Thread t = new Thread(d);
