@@ -26,26 +26,6 @@ public class WorldInterface {
      */
     public WorldInterface() {
     }
-    /**
-     * @return The default world. Returns null if world doesn't exist.
-     */
-    public World getDefaultWorld(){
-        try {
-            
-            GsonBuilder gsonBouwer = new GsonBuilder();
-            gsonBouwer.registerTypeAdapter(Item.class, new ItemDeserializer());
-            gsonBouwer.registerTypeAdapter(Person.class, new PersonDeserializer());
-            gsonBouwer.registerTypeAdapter(ItemStack.class, new ItemStackDeserializer());
-            Gson gson = gsonBouwer.create();
-            World world = gson.fromJson(new FileReader("src/blockgame/objects/defaultWorld.json"),World.class);
-            
-            return world;
-        } 
-        catch (FileNotFoundException ex) {
-            System.out.println("ERROR: Couldn't find default world file.");
-            return null;
-        }
-    }
     
     /**
      * @param name The name of the world that will be loaded.

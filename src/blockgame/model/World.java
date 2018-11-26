@@ -28,7 +28,7 @@ public class World {
         this.sizeY = sizeY;
         this.textureResolution = textureResolution;
         blocks = new Block[sizeX][sizeY];
-        loadDefaultWorld();
+        loadNewWorld();
         updateVisibilityAll();
         time = new Time(0, 0, 0);
     }
@@ -94,40 +94,60 @@ public class World {
     }
     
     /**
-     * Tries to load default world from "objects/defaultWorld.json".
-     * If fails: generate standard world.
+     * Loads a new world.
      */
-    public void loadDefaultWorld(){
-        try {
-            WorldInterface wi = new WorldInterface();
-            World newWorld = wi.getDefaultWorld();
-            renew(newWorld);
-        } 
-        catch (NullPointerException e) {
-            System.out.println("INFO: Default world not found. Generating standard world.");
-            
-            ItemInterface ii = new ItemInterface();
-            
-            for(int i = 0;i<sizeX;i++){
-                for(int j = 0;j<16;j++){
-                   blocks[i][j] = null;
-                } 
-            }
-            for(int i = 0;i<sizeX;i++){
-                for(int j = 16;j<17;j++){
-                   blocks[i][j] = ii.getBlock(2);
-                } 
-            }
-            for(int i = 0;i<sizeX;i++){
-                for(int j = 17;j<20;j++){
-                   blocks[i][j] = ii.getBlock(1);
-                } 
-            }
-            for(int i = 0;i<sizeX;i++){
-                for(int j = 20;j<sizeY;j++){
+    public void loadNewWorld(){
+        ItemInterface ii = new ItemInterface();
+        // air layer
+        for(int i = 0;i<sizeX;i++){
+            for(int j = 0;j<16;j++){
+               blocks[i][j] = null;
+            } 
+        }
+        // grass layer
+        for(int i = 0;i<sizeX;i++){
+            for(int j = 16;j<17;j++){
+               blocks[i][j] = ii.getBlock(2);
+            } 
+        }
+        // dirt layer
+        for(int i = 0;i<sizeX;i++){
+            for(int j = 17;j<20;j++){
+               blocks[i][j] = ii.getBlock(1);
+            } 
+        }
+        
+        int[] ores = new int[4];
+        // id
+        ores[0] = 4; // coal
+        ores[1] = 5; // iron
+        ores[2] = 6; // diamond
+        ores[3] = 7; // emerald
+        
+        double[] rarity = new double[4];
+        // percentage
+        rarity[0] = 10; // coal
+        rarity[1] = 5; // iron
+        rarity[2] = 2; // diamond
+        rarity[3] = 0.5; // emerald
+        
+        // underground: mostly stune with random ores
+        for(int i = 0;i<sizeX;i++){
+            for(int j = 20;j<sizeY;j++){
+               int k = 0;
+               boolean placedBlock = false;
+               for(double per : rarity){
+                   if(Math.random()*100 < per){
+                       blocks[i][j] = ii.getBlock(ores[k]);
+                       placedBlock = true;
+                   }
+                   k++;
+               }
+               if(!placedBlock){
+                   // didn't place ore => place stone
                    blocks[i][j] = ii.getBlock(3);
-                } 
-            }
+               }
+            } 
         }
     }
     
@@ -182,13 +202,10 @@ public class World {
                         }
                         else{
                             // empty spot isn't in range => check next
-                        }
-                        
-                        
+                        }  
                     }
                     else{
                         // this block isn't empty => try next one
-                        
                     }
                 }
             }

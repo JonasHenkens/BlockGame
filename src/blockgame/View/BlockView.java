@@ -7,8 +7,6 @@ package blockgame.View;
 
 import blockgame.model.Block;
 import blockgame.model.ImageInterface;
-import blockgame.model.ItemType;
-import java.awt.Color;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
@@ -20,8 +18,8 @@ import javafx.scene.shape.Rectangle;
 public class BlockView extends Region{
     private Block block;
     private ImageInterface imageInterface;
+    private boolean overwriteVisible = false;
     
-    private String texture;
     private boolean isVisible;
 
     /**
@@ -35,7 +33,7 @@ public class BlockView extends Region{
         
         isVisible = block.isVisible();
         // draw for first time
-        if(block.isVisible()){
+        if(block.isVisible() || overwriteVisible){
             getChildren().clear();
             ImageView c = new ImageView(imageInterface.getImage(block.getId(), block.getItemType()));
             getChildren().add(c);
@@ -53,14 +51,14 @@ public class BlockView extends Region{
         
         // if visibility didn't change => no need to redraw
         // else => redraw
-        if(isVisible == block.isVisible()){
+        if((isVisible == block.isVisible() && overwriteVisible == false) || (isVisible = true && overwriteVisible == true)){
             // don't redraw
         }
         else{
             isVisible = block.isVisible();
             // if block visible => normal view
             // else black rectangle
-            if(block.isVisible()){
+            if(block.isVisible() || overwriteVisible){
                 getChildren().clear();
                 ImageView c = new ImageView(imageInterface.getImage(block.getId(), block.getItemType()));
                 getChildren().add(c);

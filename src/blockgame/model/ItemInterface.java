@@ -21,7 +21,10 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, ItemType.block, "dirt"));
         addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, ItemType.block, "grass"));
         addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, ItemType.block, "stone"));
-        addBlock(new Block("blockgame/textures/blocks/pink.png", 10, 12, 4, 4, ItemType.block, "pink"));
+        addBlock(new Block("blockgame/textures/blocks/coalOre.png", 5, 3, 4, 4, ItemType.block, "coal ore"));
+        addBlock(new Block("blockgame/textures/blocks/ironOre.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
+        addBlock(new Block("blockgame/textures/blocks/diamondOre.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
+        addBlock(new Block("blockgame/textures/blocks/emeraldOre.png", 10, 8, 7, 7, ItemType.block, "emerald ore"));
     }
     
     /**
