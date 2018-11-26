@@ -7,7 +7,6 @@ package blockgame.thread;
 
 import blockgame.View.BlockGameView;
 import blockgame.model.Block;
-import blockgame.model.BlockGame;
 import blockgame.model.Person;
 import blockgame.model.World;
 import javafx.application.Platform;

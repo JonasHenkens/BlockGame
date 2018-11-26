@@ -116,14 +116,13 @@ public class BlockGame {
             // calculate distance using formula
             double distance = Math.sqrt(Math.pow((personMiddleX-x2), 2) + Math.pow((personMiddleY-y2), 2));
             
-            if(distance < 3.5){
+            if(distance < 3.5 && !doesBlockOverlapPerson((int)Math.floor(x2), (int)Math.floor(y2))){
                 // click is within range of person => can place block
+                // block wont overlap with person
                 int index = guiTop.getSelectedItem();
                 int id = guiTop.getItemId(index);
                 ItemType type = guiTop.getItemType(index);
                 if(type == ItemType.block){
-                    // kan niets op zichzelf plaatsen
-                    
                     // kan enkel blokken plaatsen
                     if(person.getInventoryAmount(id, type) >= 1){
                         boolean geplaatst = world.placeBlock(x, y-guiTop.getHeight(), id, type);
@@ -221,6 +220,45 @@ public class BlockGame {
     
     public void secPlusEen() {
         world.secPlusEen();
+    }
+    
+    
+    
+    /**
+     * Checks if a block would overlap with the person.
+     * @param x The x coordinate of the block in blocks.
+     * @param y The y coordinate of the block in blocks.
+     * @return True if it overlaps, False if it doesn't.
+     */
+    public boolean doesBlockOverlapPerson(int x, int y){
+        // check if corners are inside person => block overlaps person
+        // else not overlapping
+        
+        double pXMin = person.getX();
+        double pXMax = pXMin + person.getWidth()/16;
+        double pYMin = person.getY();
+        double pYMax = pYMin + person.getHeight()/16;
+        
+        
+        
+        // corner 1: x,y
+        if(pXMin < x && x < pXMax && pYMin < y && y < pYMax){
+            return true;
+        }
+        // corner 2: x+1, y
+        if(pXMin < x+1 && x+1 < pXMax && pYMin < y && y < pYMax){
+            return true;
+        }
+        // corner 3: x, y+1
+        if(pXMin < x && x < pXMax && pYMin < y+1 && y+1 < pYMax){
+            return true;
+        }
+        // corner 4: x+1, y+1
+        if(pXMin < x+1 && x+1 < pXMax && pYMin < y+1 && y+1 < pYMax){
+            return true;
+        }
+        // none of the corners are in the person so not overlapping
+        return false;
     }
     
     // getters
