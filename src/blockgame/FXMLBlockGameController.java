@@ -23,7 +23,8 @@ import javafx.scene.paint.Color;
 public class FXMLBlockGameController {
     private BlockGame model;
     
-    
+     @FXML
+    private Button craftButton;
     
     @FXML
     private AnchorPane hoofdGrafischPaneel;
