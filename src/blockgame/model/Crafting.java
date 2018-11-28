@@ -10,9 +10,22 @@ package blockgame.model;
  * @author Souhaib El Habti
  */
 public class Crafting {
-
+    private boolean geopend;
+    
     public Crafting() {
-        
+        geopend=false;
+    }
+
+    /**
+     * @return the geopend: TRUE, als de craftingmenu open staat
+     *                      FALSE, als de craftingmenu gesloten is
+     */
+    public boolean isGeopend() {
+        return geopend;
+    }
+
+    public void setGeopend() {
+        geopend = !geopend;
     }
     
     
