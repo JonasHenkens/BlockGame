@@ -2,6 +2,8 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
+import blockgame.View.CraftingView;
+import blockgame.model.Crafting;
 import blockgame.model.Key;
 import blockgame.thread.DayNight;
 import blockgame.thread.TimeTread;
@@ -22,6 +24,7 @@ import javafx.scene.paint.Color;
 
 public class FXMLBlockGameController {
     private BlockGame model;
+    private Crafting c;
     
      @FXML
     private Button craftButton;
@@ -38,6 +41,7 @@ public class FXMLBlockGameController {
     @FXML
     private AnchorPane grafischPaneel;
     private BlockGameView view;
+    private CraftingView cv;
     
     @FXML
     private Button loadWorld;
@@ -64,6 +68,7 @@ public class FXMLBlockGameController {
         saveWorld.setFocusTraversable(false);
         grafischPaneel.setFocusTraversable(true);
         achtergrond.setFocusTraversable(false);
+        craftButton.setFocusTraversable(false);
         
         
         grafischPaneel.setOnMouseClicked(this::geklikt);
@@ -71,7 +76,7 @@ public class FXMLBlockGameController {
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
         hoofdGrafischPaneel.setOnKeyPressed(this::keyPressed);
         hoofdGrafischPaneel.setOnKeyReleased(this::keyReleased);
-
+        craftButton.setOnMouseClicked(this::craftmenu);
     }
     
     /**
@@ -88,6 +93,7 @@ public class FXMLBlockGameController {
         achtergrond.setPrefWidth(model.getWorldSizeX()*model.getTextureResolution());
         achtergrond.setPrefHeight((model.getWorldSizeY()-16)*model.getTextureResolution());
         achtergrond.setBackground(new Background(new BackgroundFill(Color.rgb(139,69,19), CornerRadii.EMPTY, Insets.EMPTY)));
+        cv = new CraftingView(c);
         
         DayNight d = new DayNight(this,true);
         Thread t = new Thread(d);
@@ -211,7 +217,9 @@ public class FXMLBlockGameController {
         view.updatePerson();
     }
     
-    
+    public void craftmenu(MouseEvent e){
+        grafischPaneel.getChildren().add(cv);
+    }
     
     /**
      * Changes the background 
