@@ -10,18 +10,12 @@ package blockgame.model;
  *
  * @author Jonas
  */
-public class Block implements Item{
-    private String texture;
+public class Block extends Item{
     private double health;
     private double hardness;
-    private int id;
     private int dropId;
     private ItemType dropType;
-    private ItemType type;
-    private String name;
     private boolean visible;
-    private int maxStackSize;
-    private double strength;
 
     /**
      * Constructor of the Block.
@@ -55,7 +49,7 @@ public class Block implements Item{
      */
     public boolean hitBlock(int itemId, ItemType type){
         ItemInterface ii = new ItemInterface();
-        strength = ii.getItem(itemId, type).getStrength();
+        double strength = ii.getItem(itemId, type).getStrength();
         health = health - strength/hardness;
         if(health < 0){
             health = 0;
@@ -76,60 +70,13 @@ public class Block implements Item{
 
     // getters
     
-    /**
-     * @return The maximum stack size.
-     */
-    @Override
-    public int getMaxStackSize() {
-        return maxStackSize;
-    }
-
-    /**
-     * @return The strength.
-     */
-    @Override
-    public double getStrength() {
-        return strength;
-    }
     
-    /**
-     * @return The type ItemType.block.
-     */
-    @Override
-    public ItemType getItemType() {
-        return type;
-        
-    }
-    
-    /**
-     * @return The id of the block.
-     */
-    @Override
-    public int getId(){
-        return id;
-    }
 
     /**
      * @return The id of the item dropped when breaking the block.
      */
     public int getDropId() {
         return dropId;
-    }
-
-    /**
-     * @return The name of the block.
-     */
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @return The texture used for this block.
-     */
-    @Override
-    public String getTexture() {
-        return texture;
     }
 
     /**
@@ -152,4 +99,12 @@ public class Block implements Item{
     public boolean isVisible() {
         return visible;
     }
+
+    /**
+     * @return the dropType
+     */
+    public ItemType getDropType() {
+        return dropType;
+    }
+    
 }

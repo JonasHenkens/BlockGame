@@ -37,7 +37,7 @@ public class BlockGameView extends Region{
         this.model = model;
         this.world = world;
         this.guiTop = guiTop;
-        this.craft=craft;
+        this.craft = craft;
         // Make world view
         worldView = new WorldView(world);
         worldView.setTranslateY(guiTop.getHeight());
@@ -48,7 +48,7 @@ public class BlockGameView extends Region{
         // Make crafting view
         cv= new CraftingView(craft);
         // add all views exept crafting view
-        getChildren().addAll(worldView, topView, personView);
+        getChildren().addAll(worldView, topView, personView, cv);
         
         update();
     }
@@ -60,9 +60,8 @@ public class BlockGameView extends Region{
         worldView.update();
         topView.update();
         updatePerson();
-        if(craft.isGeopend()==true){
-            cv.update();
-        }
+        
+        cv.setVisible(craft.isGeopend());
     }
     
     /**
