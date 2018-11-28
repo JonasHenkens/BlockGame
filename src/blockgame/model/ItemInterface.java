@@ -19,12 +19,12 @@ public class ItemInterface {
         blocks = new Block[1024];
         addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, ItemType.block, "noTexture"));
         addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, ItemType.block, "dirt"));
-        addBlock(new Block("blockgame/textures/blocks/grass.png", 1, 1.25, 2, 2, ItemType.block, "grass"));
+        addBlock(new Block("blockgame/textures/blocks/grass_side.png", 1, 1.25, 2, 2, ItemType.block, "grass"));
         addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, ItemType.block, "stone"));
-        addBlock(new Block("blockgame/textures/blocks/coalOre.png", 5, 3, 4, 4, ItemType.block, "coal ore"));
-        addBlock(new Block("blockgame/textures/blocks/ironOre.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
-        addBlock(new Block("blockgame/textures/blocks/diamondOre.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
-        addBlock(new Block("blockgame/textures/blocks/emeraldOre.png", 10, 8, 7, 7, ItemType.block, "emerald ore"));
+        addBlock(new Block("blockgame/textures/blocks/coal_ore.png", 5, 3, 4, 4, ItemType.block, "coal ore"));
+        addBlock(new Block("blockgame/textures/blocks/iron_ore.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
+        addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
+        addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 4, 7, 7, ItemType.block, "gold ore"));
     }
     
     /**
