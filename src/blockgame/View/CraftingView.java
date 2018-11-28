@@ -6,13 +6,8 @@
 package blockgame.View;
 
 import blockgame.model.Crafting;
-import javafx.geometry.Insets;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -32,23 +27,48 @@ public class CraftingView extends Region{
     
     public void update(){
         getChildren().clear();
+        // Crafting menu-screen
         Rectangle r = new Rectangle(500, 250, Color.rgb(134,136,138));
         r.setX(646);
         r.setY(35);
-        
-        Label l = new Label("Crafting Menu");
+        // Titel menu
+        Label l = new Label("CRAFTING MENU");
         Font f = new Font(35);
         l.setFont(f);
         l.setTextFill(Color.rgb(255,255,255));
         l.setTranslateX(790);
         l.setTranslateY(40);
+
+        // Pickaxe-label
+        Label lp = new Label("1) PICKAXE");
+        Font fp = new Font(15);
+        lp.setFont(fp);
+        lp.setTextFill(Color.rgb(255,255,255));
+        lp.setTranslateX(650);
+        lp.setTranslateY(105);
         
-        /*
-            Rectangle rc = new Rectangle(300, 40, Color.rgb(134,136,138));
-            
-        */
+        // Pickaxe-craftButton: WOOD, STONE, IRON, GOLD, DIAMOND
+        Button pw = new Button("WOOD");
+        pw.setTranslateX(735);
+        pw.setTranslateY(100);
         
-        getChildren().addAll(r, l);
+        Button ps = new Button("STONE");
+        ps.setTranslateX(820);
+        ps.setTranslateY(100);
+        
+        Button pi = new Button("IRON");
+        pi.setTranslateX(905);
+        pi.setTranslateY(100);
+        
+        Button pg = new Button("GOLD");
+        pg.setTranslateX(980);
+        pg.setTranslateY(100);
+        
+        Button pd = new Button("DIAMOND");
+        pd.setTranslateX(1050);
+        pd.setTranslateY(100);
+        
+        getChildren().addAll(r, l, lp, pw, ps, pi, pg, pd);
     }
     
 }
