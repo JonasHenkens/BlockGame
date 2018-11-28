@@ -24,10 +24,6 @@ public class CraftingView extends Region{
         update();
     }
     
-    public void sluit(){
-        getChildren().clear();
-    }
-    
     public void update(){
         getChildren().clear();
         Rectangle r = new Rectangle(500, 500, Color.rgb(0,255,150));

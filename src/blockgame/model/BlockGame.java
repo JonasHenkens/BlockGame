@@ -26,7 +26,7 @@ public class BlockGame {
     private Person person;
     private BlockGameView view;
     private ArrayList<Key> keysBeingHeld;
-    
+    private Crafting craft;
 
     /**
      * Constructor for BlockGame.
@@ -37,8 +37,9 @@ public class BlockGame {
         this.person = person;
         this.world = world;
         guiTop = new GUITop(person);
+        craft = new Crafting();
         
-        view = new BlockGameView(this, world, guiTop, person);
+        view = new BlockGameView(this, world, guiTop, person, getCraft());
         
         // Start the thread that manages the person's movement
         PersonMovement pm = new PersonMovement(person, view, world, this);
@@ -406,5 +407,12 @@ public class BlockGame {
      */
     public Iterator<Key> getKeysBeingHeldIterator(){
         return keysBeingHeld.iterator();
+    }
+
+    /**
+     * @return the craft
+     */
+    public Crafting getCraft() {
+        return craft;
     }
 }

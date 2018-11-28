@@ -18,7 +18,7 @@ public class Crafting {
 
     /**
      * @return the geopend: TRUE, als de craftingmenu open staat
-     *                      FALSE, als de craftingmenu gesloten is
+     * FALSE, als de craftingmenu gesloten is
      */
     public boolean isGeopend() {
         return geopend;

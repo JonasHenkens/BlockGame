@@ -6,6 +6,7 @@
 package blockgame.View;
 
 import blockgame.model.BlockGame;
+import blockgame.model.Crafting;
 import blockgame.model.GUITop;
 import blockgame.model.Person;
 import blockgame.model.World;
@@ -20,20 +21,23 @@ public class BlockGameView extends Region{
     private BlockGame model;
     private World world;
     private GUITop guiTop;
+    private Crafting craft;
     
     
     private WorldView worldView;
     private GUITopView topView;
     private PersonView personView;
+    private CraftingView cv;
     
     /**
      * Constructor of the BlockGameView.
      * @param model This is the BlockGame used for the view.
      */
-    public BlockGameView(BlockGame model, World world, GUITop guiTop, Person person) {
+    public BlockGameView(BlockGame model, World world, GUITop guiTop, Person person, Crafting craft) {
         this.model = model;
         this.world = world;
         this.guiTop = guiTop;
+        this.craft=craft;
         // Make world view
         worldView = new WorldView(world);
         worldView.setTranslateY(guiTop.getHeight());
@@ -41,7 +45,9 @@ public class BlockGameView extends Region{
         topView = new GUITopView(guiTop);
         // Make person view
         personView = new PersonView(person);
-        // add all views
+        // Make crafting view
+        cv= new CraftingView(craft);
+        // add all views exept crafting view
         getChildren().addAll(worldView, topView, personView);
         
         update();
@@ -54,6 +60,9 @@ public class BlockGameView extends Region{
         worldView.update();
         topView.update();
         updatePerson();
+        if(craft.isGeopend()==true){
+            cv.update();
+        }
     }
     
     /**

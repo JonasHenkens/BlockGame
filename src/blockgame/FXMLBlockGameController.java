@@ -24,9 +24,8 @@ import javafx.scene.paint.Color;
 
 public class FXMLBlockGameController {
     private BlockGame model;
-    private Crafting c;
     
-     @FXML
+    @FXML
     private Button craftButton;
     
     @FXML
@@ -41,7 +40,6 @@ public class FXMLBlockGameController {
     @FXML
     private AnchorPane grafischPaneel;
     private BlockGameView view;
-    private CraftingView cv;
     
     @FXML
     private Button loadWorld;
@@ -93,7 +91,6 @@ public class FXMLBlockGameController {
         achtergrond.setPrefWidth(model.getWorldSizeX()*model.getTextureResolution());
         achtergrond.setPrefHeight((model.getWorldSizeY()-16)*model.getTextureResolution());
         achtergrond.setBackground(new Background(new BackgroundFill(Color.rgb(139,69,19), CornerRadii.EMPTY, Insets.EMPTY)));
-        cv = new CraftingView(c);
         
         DayNight d = new DayNight(this,true);
         Thread t = new Thread(d);
@@ -218,7 +215,8 @@ public class FXMLBlockGameController {
     }
     
     public void craftmenu(MouseEvent e){
-        grafischPaneel.getChildren().add(cv);
+        model.getCraft().setGeopend();
+        view.update();
     }
     
     /**
