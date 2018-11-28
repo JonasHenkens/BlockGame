@@ -5,14 +5,18 @@
  */
 package blockgame.View;
 
+import blockgame.model.Crafting;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 /**
  *
  * @author Souhaib El Habti
  */
 public class CraftingView extends Region{
-    /*
     private Crafting model;
     
     public CraftingView(Crafting model) {
@@ -23,7 +27,7 @@ public class CraftingView extends Region{
     public void update(){
         getChildren().clear();
         Rectangle r = new Rectangle(500, 500, Color.rgb(0,255,150));
-        Image im = new Image("foto's/kruis.jgp.jpg");
+        Image im = new Image("blockgame/textures/kruis.jpg");
         ImageView ic = new ImageView(im);
         ic.setFitHeight(20);
         ic.setFitWidth(20);
@@ -31,6 +35,5 @@ public class CraftingView extends Region{
         ic.setY(10);
         getChildren().addAll(r,ic);
     }
-    */
     
 }

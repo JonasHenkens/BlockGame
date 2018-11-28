@@ -10,12 +10,9 @@ package blockgame.model;
  * @author Souhaib El Habti
  */
 public class Crafting {
-    private int aantalStuks;
-    private Item item;
 
-    public Crafting(int aantalStuks, Item item) {
-        this.aantalStuks = aantalStuks;
-        this.item = item;
+    public Crafting() {
+        
     }
     
     
