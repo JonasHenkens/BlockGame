@@ -22,6 +22,9 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
+/**
+ * @author Souhaib El Habti en Jonas Henkens
+ */
 public class FXMLBlockGameController {
     private BlockGame model;
     
@@ -216,7 +219,13 @@ public class FXMLBlockGameController {
     
     public void craftmenu(MouseEvent e){
         model.getCraft().setGeopend();
-        view.update();
+        if(model.getCraft().isGeopend()){
+            craftButton.setText("Close Crafting");
+        }
+        else{
+            craftButton.setText("Crafting");
+        }
+        update();
     }
     
     /**

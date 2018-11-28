@@ -26,17 +26,11 @@ public class CraftingView extends Region{
     
     public void update(){
         getChildren().clear();
-        Rectangle r = new Rectangle(500, 500, Color.rgb(0,255,150));
-        r.setX(600);
-        r.setY(50);
+        Rectangle r = new Rectangle(500, 250, Color.rgb(134,136,138));
+        r.setX(646);
+        r.setY(35);
         
-        Image im = new Image("blockgame/textures/kruis.jpg");
-        ImageView ic = new ImageView(im);
-        ic.setFitHeight(30);
-        ic.setFitWidth(30);
-        ic.setX(1070);
-        ic.setY(50);
-        getChildren().addAll(r,ic);
+        getChildren().addAll(r);
     }
     
 }
