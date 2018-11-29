@@ -12,6 +12,7 @@ package blockgame.model;
 public class ItemInterface {
     private Block[] blocks;
     private Material[] materials;
+    private Tool[] tools;
     
     /**
      * Constructor of ItemInterface.
@@ -32,6 +33,9 @@ public class ItemInterface {
         addMaterial(new Material(1, "gold ingot", "blockgame/textures/materials/gold_ingot.png"));
         addMaterial(new Material(2, "diamond", "blockgame/textures/materials/diamond.png"));
         addMaterial(new Material(3, "coal", "blockgame/textures/materials/coal.png"));
+        
+        tools = new Tool[1024];
+        
         
     }
     
@@ -55,9 +59,22 @@ public class ItemInterface {
     public void addMaterial(Material material){
         
         if(materials[material.getId()] != null){
-            System.err.println("WARNING: Block with id " + material.getId() + "has been replaced");
+            System.err.println("WARNING: Material with id " + material.getId() + "has been replaced");
         }
         materials[material.getId()] = material;
+        
+    }
+    
+    /**
+     * Add a tool to the materials list. This replaces an already existing tool if the same id is used.
+     * @param tool 
+     */
+    public void addTool(Tool tool){
+        
+        if(tools[tool.getId()] != null){
+            System.err.println("WARNING: Tool with id " + tool.getId() + "has been replaced");
+        }
+        tools[tool.getId()] = tool;
         
     }
     
@@ -88,6 +105,19 @@ public class ItemInterface {
     }
     
     /**
+     * @param id Id of the tool.
+     * @return The tool with the id. Returns null if it doesn't exist.
+     */
+    public Tool getTool(int id){
+        try{
+            return new Tool(tools[id].getId(), tools[id].getStrength(), tools[id].getName(), tools[id].getTexture(), tools[id].getMaxDurability());
+        }
+        catch(NullPointerException e){
+            return null;
+        }
+    }
+    
+    /**
      * @return The amount of blocks that exist.
      */
     public int getBlocksLength(){
@@ -100,11 +130,15 @@ public class ItemInterface {
      * @return The Item with the id and type. Returns null if it doesn't exist.
      */
     public Item getItem(int itemId, ItemType type){
-        if(type.equals(ItemType.block)){
-            return blocks[itemId];
-        }
-        else{
-            return null;
+        switch (type) {
+            case block:
+                return blocks[itemId];
+            case material:
+                return materials[itemId];
+            case tool:
+                return tools[itemId];
+            default:
+                return null;
         }
     }
     
@@ -114,11 +148,15 @@ public class ItemInterface {
      * @return The max stacksize of the item. Returns -1 if item does not exist.
      */
     public int getMaxStacksize(int id, ItemType type){
-         if(type.equals(ItemType.block)){
-            return blocks[id].getMaxStackSize();
-        }
-        else{
-            return -1;
+        switch (type) {
+            case block:
+                return blocks[id].getMaxStackSize();
+            case material:
+                return materials[id].getMaxStackSize();
+            case tool:
+                return tools[id].getMaxStackSize();
+            default:
+                return -1;
         }
     }
     
