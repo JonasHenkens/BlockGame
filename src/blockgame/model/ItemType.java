@@ -10,5 +10,5 @@ package blockgame.model;
  * @author Jonas and Souhaib
  */
 public enum ItemType {
-    nothing, block
+    nothing, block, material, tool
 }

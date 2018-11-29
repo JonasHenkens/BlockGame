@@ -11,6 +11,7 @@ package blockgame.model;
  */
 public class ItemInterface {
     private Block[] blocks;
+    private Material[] materials;
     
     /**
      * Constructor of ItemInterface.
@@ -25,6 +26,37 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/iron_ore.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
         addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
         addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 4, 7, 7, ItemType.block, "gold ore"));
+        
+        materials = new Material[1024];
+        
+        
+        
+    }
+    
+    /**
+     * Adds a block to the blocks list. This replaces an already existing block if the same id is used.
+     * @param block The block that will be added.
+     */
+    public void addBlock(Block block){
+        
+        if(blocks[block.getId()] != null){
+            System.err.println("WARNING: Block with id " + block.getId() + "has been replaced");
+        }
+        blocks[block.getId()] = block;
+        
+    }
+    
+    /**
+     * Add a material to the materials list. This replaces an already existing material if the same id is used.
+     * @param material 
+     */
+    public void addMaterial(Material material){
+        
+        if(materials[material.getId()] != null){
+            System.err.println("WARNING: Block with id " + material.getId() + "has been replaced");
+        }
+        materials[material.getId()] = material;
+        
     }
     
     /**
@@ -37,6 +69,19 @@ public class ItemInterface {
         }
         catch(NullPointerException e){
             return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getItemType(), blocks[0].getName());
+        }
+    }
+    
+    /**
+     * @param id Id of the material.
+     * @return The material with the id. Returns null if it doesn't exist.
+     */
+    public Material getMaterial(int id){
+        try{
+            return new Material(materials[id].getId(), materials[id].getName(), materials[id].getTexture());
+        }
+        catch(NullPointerException e){
+            return null;
         }
     }
     
@@ -59,19 +104,6 @@ public class ItemInterface {
         else{
             return null;
         }
-    }
-    
-    /**
-     * Adds a block to the blocks list. This replaces an already existing block if the same id is used.
-     * @param block The block that will be added.
-     */
-    public void addBlock(Block block){
-        
-        if(blocks[block.getId()] != null){
-            System.err.println("WARNING: Block with id " + block.getId() + "has been replaced");
-        }
-        blocks[block.getId()] = block;
-        
     }
     
     /**
