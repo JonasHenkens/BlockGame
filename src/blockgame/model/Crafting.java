@@ -11,11 +11,31 @@ package blockgame.model;
  */
 public class Crafting {
     private boolean geopend;
+    private Person person;
     
-    public Crafting() {
-        geopend=false;
+    public Crafting(Person person) {
+        geopend = false;
+        this.person = person;
     }
-
+    
+    public void setGeopend() {
+        geopend = !geopend;
+    }
+    
+    public void makeGoldIngot(int id, int aantal){
+        aantal=person.getInventoryAmount(id, ItemType.block);
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    //GETTERS
+    
     /**
      * @return the geopend: TRUE, als de craftingmenu open staat
      * FALSE, als de craftingmenu gesloten is
@@ -23,13 +43,5 @@ public class Crafting {
     public boolean isGeopend() {
         return geopend;
     }
-
-    public void setGeopend() {
-        geopend = !geopend;
-    }
-    
-    
-    
-    
     
 }

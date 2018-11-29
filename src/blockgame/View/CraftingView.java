@@ -72,7 +72,7 @@ public class CraftingView extends Region{
         getChildren().addAll(r, l, lp, pw, ps, pi, pg, pd);
         
         // Ingot-label
-        Label li = new Label("2) INGOT");
+        Label li = new Label("2) MATERIAL");
         Font fi = new Font(15);
         li.setFont(fi);
         li.setTextFill(Color.rgb(255,255,255));
@@ -81,15 +81,23 @@ public class CraftingView extends Region{
         
         // Ingot-craftButton: IRON AND GOLD
         
-        Button ii = new Button("IRON");
-        ii.setTranslateX(735);
-        ii.setTranslateY(145);
+        Button mi = new Button("IRON INGOT");
+        mi.setTranslateX(745);
+        mi.setTranslateY(145);
         
-        Button ig = new Button("GOLD");
-        ig.setTranslateX(820);
-        ig.setTranslateY(145);
+        Button mg = new Button("GOLD INGOT");
+        mg.setTranslateX(860);
+        mg.setTranslateY(145);
         
-        getChildren().addAll(ii, li, ig);
+        Button md = new Button("DIAMOND");
+        md.setTranslateX(980);
+        md.setTranslateY(145);
+        
+        Button mc = new Button("COAL");
+        mc.setTranslateX(1080);
+        mc.setTranslateY(145);
+        
+        getChildren().addAll(li, mc, md, mi, mg);
     }
     
 }
