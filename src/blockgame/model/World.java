@@ -51,7 +51,7 @@ public class World {
                 updateVisibilityAll();
                 // return item that has been dropped
                 ItemInterface ii = new ItemInterface();
-                return ii.getItem(b.getDropId(), b.getItemType());
+                return ii.getItem(b.getDropId(), b.getDropType());
                 
             }
             else{

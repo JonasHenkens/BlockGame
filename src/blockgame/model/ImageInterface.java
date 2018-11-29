@@ -16,20 +16,43 @@ import javafx.scene.image.Image;
  */
 public class ImageInterface {
     private ArrayList<Image> blockImages;
+    private ArrayList<Image> materialImages;
+    private ArrayList<Image> toolImages;
     
     /**
      * Constructor for ImageInterface.
      */
     public ImageInterface() {
         blockImages = new ArrayList<>();
+        materialImages = new ArrayList<>();
+        toolImages = new ArrayList<>();
         ItemInterface ii = new ItemInterface();
-        int n = 0;
-        for(n=0; n<ii.getBlocksLength(); n++){
+        for(int n=0; n<ii.getBlocksLength(); n++){
             try{
                 Block b = ii.getBlock(n);
                 String tex = b.getTexture();
                 Image i = new Image(tex);
                 blockImages.add(i);
+            }
+            catch(NullPointerException e){
+            }
+        }
+        for(int n=0; n<ii.getMaterialsLength(); n++){
+            try{
+                Material m = ii.getMaterial(n);
+                String tex = m.getTexture();
+                Image i = new Image(tex);
+                materialImages.add(i);
+            }
+            catch(NullPointerException e){
+            }
+        }
+        for(int n=0; n<ii.getToolsLength(); n++){
+            try{
+                Tool t = ii.getTool(n);
+                String tex = t.getTexture();
+                Image i = new Image(tex);
+                toolImages.add(i);
             }
             catch(NullPointerException e){
             }
@@ -44,11 +67,18 @@ public class ImageInterface {
      * @return Returns the image of an item. Returns null if it doesn't exist.
      */
     public Image getImage(int id, ItemType type){
-        if(type == ItemType.block){
-            return blockImages.get(id);
-        }
-        else{
+        if(null == type){
             return null;
+        }
+        else switch (type) {
+            case block:
+                return blockImages.get(id);
+            case material:
+                return materialImages.get(id);
+            case tool:
+                return toolImages.get(id);
+            default:
+                return null;
         }
     }
     

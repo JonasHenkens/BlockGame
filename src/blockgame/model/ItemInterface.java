@@ -23,7 +23,7 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, ItemType.block, "dirt"));
         addBlock(new Block("blockgame/textures/blocks/grass_side.png", 1, 1.25, 2, 2, ItemType.block, "grass"));
         addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, ItemType.block, "stone"));
-        addBlock(new Block("blockgame/textures/blocks/coal_ore.png", 5, 3, 4, 4, ItemType.block, "coal ore"));
+        addBlock(new Block("blockgame/textures/blocks/coal_ore.png", 5, 3, 4, 3, ItemType.material, "coal ore"));
         addBlock(new Block("blockgame/textures/blocks/iron_ore.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
         addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
         addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 4, 7, 7, ItemType.block, "gold ore"));
@@ -85,10 +85,10 @@ public class ItemInterface {
      */
     public Block getBlock(int id){
         try{
-            return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getItemType(), blocks[id].getName());
+            return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getDropType(), blocks[id].getName());
         }
         catch(NullPointerException e){
-            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getItemType(), blocks[0].getName());
+            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getDropType(), blocks[0].getName());
         }
     }
     
@@ -123,6 +123,20 @@ public class ItemInterface {
      */
     public int getBlocksLength(){
         return blocks.length;
+    }
+    
+    /**
+     * @return The amount of materials that exist.
+     */
+    public int getMaterialsLength(){
+        return materials.length;
+    }
+    
+    /**
+     * @return The amount of tools that exist.
+     */
+    public int getToolsLength(){
+        return tools.length;
     }
     
     /**
