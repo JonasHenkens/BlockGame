@@ -75,7 +75,7 @@ public class FXMLBlockGameController {
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
         hoofdGrafischPaneel.setOnKeyPressed(this::keyPressed);
         hoofdGrafischPaneel.setOnKeyReleased(this::keyReleased);
-        craftButton.setOnMouseClicked(this::craftmenu);
+        craftButton.setOnMouseClicked (e->craftmenu());
     }
     
     /**
@@ -215,7 +215,7 @@ public class FXMLBlockGameController {
         view.updatePerson();
     }
     
-    public void craftmenu(MouseEvent e){
+    public void craftmenu(){
         model.getCraft().setGeopend();
         if(model.getCraft().isGeopend()){
             craftButton.setText("Close Crafting");
