@@ -39,6 +39,8 @@ public class CraftingView extends Region{
         l.setTextFill(Color.rgb(255,255,255));
         l.setTranslateX(780);
         l.setTranslateY(40);
+        
+        getChildren().addAll(r, l);
 
         // Ingot-label
         Label li = new Label("1) MATERIAL");
@@ -62,7 +64,7 @@ public class CraftingView extends Region{
         md.setTranslateX(1050);
         md.setTranslateY(100);
         
-        getChildren().addAll(r, l, li, md, mi, mg);
+        getChildren().addAll(li, md, mi, mg);
         
         // Pickaxe-label
         Label lp = new Label("2) PICKAXE");
