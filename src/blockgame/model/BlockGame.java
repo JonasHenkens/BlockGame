@@ -84,6 +84,9 @@ public class BlockGame {
                     id = 0;
                     type = ItemType.block;
                 }
+                else if(type==ItemType.tool){
+                    // Damage the tool
+                }
                 else{
                     // id and type are correct, nothing needs to change
                 }
