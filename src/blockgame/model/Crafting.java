@@ -22,14 +22,41 @@ public class Crafting {
         geopend = !geopend;
     }
     
-    public void makeGoldIngot(int id, int aantal){
-        aantal=person.getInventoryAmount(id, ItemType.block);
+    public void makeGoldIngot(){
+        int aantal=person.getInventoryAmount(7, ItemType.block);
         
-        
-        
-        
+        if(aantal>=2){
+            person.removeInventoryItem(7, ItemType.block, 1);
+            person.addItem(1, ItemType.material,1);
+        }
     }
     
+    public void makeIronIngot(){
+        int aantal=person.getInventoryAmount(5, ItemType.block);
+        
+        if(aantal>=2){
+            person.removeInventoryItem(5, ItemType.block, 1);
+            person.addItem(0, ItemType.material, 1);
+        }
+    }
+    
+    public void makeDiamant(){
+        int aantal=person.getInventoryAmount(6, ItemType.block);
+        
+        if(aantal>=2){
+            person.removeInventoryItem(6, ItemType.block, 1);
+            person.addItem(2, ItemType.material,1);
+        }
+    }
+    
+    public void makeCoal(){
+        int aantal=person.getInventoryAmount(4, ItemType.block);
+        
+        if(aantal>=2){
+            person.removeInventoryItem(4, ItemType.block, 1);
+            person.addItem(3, ItemType.material, 1);
+        }
+    }
     
     
     
