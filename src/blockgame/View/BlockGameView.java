@@ -10,7 +10,6 @@ import blockgame.model.Crafting;
 import blockgame.model.GUITop;
 import blockgame.model.Person;
 import blockgame.model.World;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 
 /**
@@ -32,6 +31,10 @@ public class BlockGameView extends Region{
     /**
      * Constructor of the BlockGameView.
      * @param model This is the BlockGame used for the view.
+     * @param world
+     * @param guiTop
+     * @param person
+     * @param craft
      */
     public BlockGameView(BlockGame model, World world, GUITop guiTop, Person person, Crafting craft) {
         this.model = model;
@@ -47,7 +50,7 @@ public class BlockGameView extends Region{
         personView = new PersonView(person);
         // Make crafting view
         cv= new CraftingView(craft);
-        // add all views exept crafting view
+        // add all views
         getChildren().addAll(worldView, topView, personView, cv);
         
         update();
@@ -73,8 +76,6 @@ public class BlockGameView extends Region{
         double personY = model.getPersonY();
         personView.setTranslateX(personX*model.getTextureResolution());
         personView.setTranslateY(personY*model.getTextureResolution() + guiTop.getHeight());
-        
-        
         
     }
     

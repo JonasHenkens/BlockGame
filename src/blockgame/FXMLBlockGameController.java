@@ -2,8 +2,6 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
-import blockgame.View.CraftingView;
-import blockgame.model.Crafting;
 import blockgame.model.Key;
 import blockgame.thread.DayNight;
 import blockgame.thread.TimeTread;
