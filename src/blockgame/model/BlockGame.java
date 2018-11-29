@@ -39,7 +39,7 @@ public class BlockGame {
         guiTop = new GUITop(person);
         craft = new Crafting(person);
         
-        view = new BlockGameView(this, world, guiTop, person, getCraft());
+        view = new BlockGameView(this, world, guiTop, person, craft);
         
         // Start the thread that manages the person's movement
         PersonMovement pm = new PersonMovement(person, view, world, this);

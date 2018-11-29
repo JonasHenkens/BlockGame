@@ -29,8 +29,8 @@ public class CraftingView extends Region{
         getChildren().clear();
         // Crafting menu-screen
         Rectangle r = new Rectangle(500, 250, Color.rgb(134,136,138));
-        r.setX(646);
-        r.setY(35);
+        r.setTranslateX(646);
+        r.setTranslateY(35);
         
         // Titel menu
         Label l = new Label("CRAFTING MENU");
@@ -51,7 +51,6 @@ public class CraftingView extends Region{
         li.setTranslateY(105);
         
         // Material-craftButton: IRON, GOLD AND DIAMOND
-        
         Button mi = new Button("IRON INGOT");
         mi.setTranslateX(750);
         mi.setTranslateY(100);

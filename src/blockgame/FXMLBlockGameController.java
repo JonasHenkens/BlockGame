@@ -75,7 +75,7 @@ public class FXMLBlockGameController {
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
         hoofdGrafischPaneel.setOnKeyPressed(this::keyPressed);
         hoofdGrafischPaneel.setOnKeyReleased(this::keyReleased);
-        craftButton.setOnMouseClicked (e->craftmenu());
+        craftButton.setOnMouseClicked (e -> craftmenu());
     }
     
     /**

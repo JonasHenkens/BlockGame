@@ -63,7 +63,6 @@ public class BlockGameView extends Region{
         worldView.update();
         topView.update();
         updatePerson();
-        
         cv.setVisible(craft.isGeopend());
     }
     
@@ -71,7 +70,6 @@ public class BlockGameView extends Region{
      * Updates the personView.
      */
     public void updatePerson(){
-        
         double personX = model.getPersonX();
         double personY = model.getPersonY();
         personView.setTranslateX(personX*model.getTextureResolution());

@@ -37,8 +37,6 @@ public class PersonView extends Region{
         getChildren().clear();
         
         
-        
-        
         Image i = new Image(model.getTexture());
         ImageView iv = new ImageView(i);
         getChildren().add(iv);
