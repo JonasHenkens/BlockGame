@@ -26,7 +26,7 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/coal_ore.png", 5, 3, 4, 3, ItemType.material, "coal ore"));
         addBlock(new Block("blockgame/textures/blocks/iron_ore.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
         addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
-        addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 4, 7, 7, ItemType.block, "gold ore"));
+        addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 5, 7, 7, ItemType.block, "gold ore"));
         addBlock(new Block("blockgame/textures/blocks/log_oak.png", 4, 2, 8, 8, ItemType.block, "wood"));
         
         materials = new Material[1024];
@@ -36,8 +36,11 @@ public class ItemInterface {
         addMaterial(new Material(3, "coal", "blockgame/textures/materials/coal.png"));
         
         tools = new Tool[1024];
-        
-        
+        addTool(new Tool(0, 3, "wood pickaxe", "blockgame/textures/tools/wood_pickaxe.png", 10));
+        addTool(new Tool(1, 4,"stone pickaxe", "blockgame/textures/tools/stone_pickaxe.png", 14));
+        addTool(new Tool(2, 11,"diamond pickaxe", "blockgame/textures/tools/diamond_pickaxe.png", 30));
+        addTool(new Tool(3, 5,"iron pickaxe", "blockgame/textures/tools/iron_pickaxe.png", 18));
+        addTool(new Tool(4, 6,"gold pickaxe", "blockgame/textures/tools/gold_pickaxe.png", 25));
     }
     
     /**

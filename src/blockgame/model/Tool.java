@@ -32,12 +32,10 @@ public class Tool extends Item {
     }
     
     /**
-     * 
-     * @param amount The amount of damage you do to the tool
      * @return True if pickaxe broke, false if durability left.
      */
-    public boolean damage(int amount){
-        durability = durability-amount;
+    public boolean damage(){
+        durability = durability-1;
         if(durability<0){
             durability = 0;
             return true;

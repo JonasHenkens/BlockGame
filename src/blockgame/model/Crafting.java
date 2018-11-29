@@ -25,7 +25,7 @@ public class Crafting {
     public void makeGoldIngot(){
         int aantal=person.getInventoryAmount(7, ItemType.block);
         
-        if(aantal>=2){
+        if(aantal>=1){
             person.removeInventoryItem(7, ItemType.block, 1);
             person.addItem(1, ItemType.material,1);
         }
@@ -49,16 +49,58 @@ public class Crafting {
         }
     }
     
-    public void makeCoal(){
-        int aantal=person.getInventoryAmount(4, ItemType.block);
+    public void makeWoodPickaxe(){
+        int amount=person.getInventoryAmount(8, ItemType.block);
         
-        if(aantal>=2){
-            person.removeInventoryItem(4, ItemType.block, 1);
-            person.addItem(3, ItemType.material, 1);
+        if(amount>=4){
+            person.removeInventoryItem(8, ItemType.block, 4);
+            person.addItem(0, ItemType.tool, 1);
         }
     }
     
+    public void makeStonePickaxe(){
+        int amountS=person.getInventoryAmount(3, ItemType.block);
+        int amountW=person.getInventoryAmount(8, ItemType.block);
+        
+        if(amountS>=3 && amountW>=1){
+            person.removeInventoryItem(8, ItemType.block, 1);
+            person.removeInventoryItem(3, ItemType.block, 3);
+            person.addItem(1, ItemType.tool, 1);
+        }
+    }
     
+    public void makeIronPickaxe(){
+        int amountW=person.getInventoryAmount(8, ItemType.block);
+        int amountI=person.getInventoryAmount(0, ItemType.material);
+        
+        if(amountW>=1 && amountI>=3){
+            person.removeInventoryItem(8, ItemType.block, 1);
+            person.removeInventoryItem(0, ItemType.material, 3);
+            person.addItem(3, ItemType.tool, 1);
+        }
+    }
+    
+    public void makeGoldPickaxe(){
+        int amountW=person.getInventoryAmount(8, ItemType.block);
+        int amountG=person.getInventoryAmount(1, ItemType.material);
+        
+        if(amountW>=1 && amountG>=3){
+            person.removeInventoryItem(8, ItemType.block, 1);
+            person.removeInventoryItem(1, ItemType.material, 3);
+            person.addItem(4, ItemType.tool, 1);
+        }
+    }
+    
+    public void makeDiamondPickaxe(){
+        int amountW=person.getInventoryAmount(8, ItemType.block);
+        int amountD=person.getInventoryAmount(2, ItemType.material);
+        
+        if(amountW>=1 && amountD>=2){
+            person.removeInventoryItem(8, ItemType.block, 1);
+            person.removeInventoryItem(2, ItemType.material, 2);
+            person.addItem(2, ItemType.tool, 1);
+        }
+    }
     
     
     //GETTERS

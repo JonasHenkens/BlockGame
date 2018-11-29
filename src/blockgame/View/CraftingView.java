@@ -40,64 +40,60 @@ public class CraftingView extends Region{
         l.setTranslateX(780);
         l.setTranslateY(40);
 
-        // Pickaxe-label
-        Label lp = new Label("1) PICKAXE");
-        Font fp = new Font(15);
-        lp.setFont(fp);
-        lp.setTextFill(Color.rgb(255,255,255));
-        lp.setTranslateX(650);
-        lp.setTranslateY(105);
-        
-        // Pickaxe-craftButton: WOOD, STONE, IRON, GOLD, DIAMOND
-        Button pw = new Button("WOOD");
-        pw.setTranslateX(735);
-        pw.setTranslateY(100);
-        
-        Button ps = new Button("STONE");
-        ps.setTranslateX(820);
-        ps.setTranslateY(100);
-        
-        Button pi = new Button("IRON");
-        pi.setTranslateX(905);
-        pi.setTranslateY(100);
-        
-        Button pg = new Button("GOLD");
-        pg.setTranslateX(980);
-        pg.setTranslateY(100);
-        
-        Button pd = new Button("DIAMOND");
-        pd.setTranslateX(1050);
-        pd.setTranslateY(100);
-        
-        getChildren().addAll(r, l, lp, pw, ps, pi, pg, pd);
-        
         // Ingot-label
-        Label li = new Label("2) MATERIAL");
+        Label li = new Label("1) MATERIAL");
         Font fi = new Font(15);
         li.setFont(fi);
         li.setTextFill(Color.rgb(255,255,255));
         li.setTranslateX(650);
-        li.setTranslateY(150);
+        li.setTranslateY(105);
         
-        // Ingot-craftButton: IRON AND GOLD
+        // Material-craftButton: IRON, GOLD AND DIAMOND
         
         Button mi = new Button("IRON INGOT");
-        mi.setTranslateX(745);
-        mi.setTranslateY(145);
+        mi.setTranslateX(750);
+        mi.setTranslateY(100);
         
         Button mg = new Button("GOLD INGOT");
-        mg.setTranslateX(860);
-        mg.setTranslateY(145);
+        mg.setTranslateX(900);
+        mg.setTranslateY(100);
         
         Button md = new Button("DIAMOND");
-        md.setTranslateX(980);
-        md.setTranslateY(145);
+        md.setTranslateX(1050);
+        md.setTranslateY(100);
         
-        Button mc = new Button("COAL");
-        mc.setTranslateX(1080);
-        mc.setTranslateY(145);
+        getChildren().addAll(r, l, li, md, mi, mg);
         
-        getChildren().addAll(li, mc, md, mi, mg);
+        // Pickaxe-label
+        Label lp = new Label("2) PICKAXE");
+        Font fp = new Font(15);
+        lp.setFont(fp);
+        lp.setTextFill(Color.rgb(255,255,255));
+        lp.setTranslateX(650);
+        lp.setTranslateY(150);
+        
+        // Pickaxe-craftButton: WOOD, STONE, IRON, GOLD, DIAMOND
+        Button pw = new Button("WOOD");
+        pw.setTranslateX(735);
+        pw.setTranslateY(145);
+        
+        Button ps = new Button("STONE");
+        ps.setTranslateX(820);
+        ps.setTranslateY(145);
+        
+        Button pi = new Button("IRON");
+        pi.setTranslateX(905);
+        pi.setTranslateY(145);
+        
+        Button pg = new Button("GOLD");
+        pg.setTranslateX(980);
+        pg.setTranslateY(145);
+        
+        Button pd = new Button("DIAMOND");
+        pd.setTranslateX(1050);
+        pd.setTranslateY(145);
+        
+        getChildren().addAll(lp, pw, ps, pi, pg, pd);
     }
     
 }
