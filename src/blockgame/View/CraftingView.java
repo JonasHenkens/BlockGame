@@ -31,12 +31,13 @@ public class CraftingView extends Region{
         Rectangle r = new Rectangle(500, 250, Color.rgb(134,136,138));
         r.setX(646);
         r.setY(35);
+        
         // Titel menu
         Label l = new Label("CRAFTING MENU");
         Font f = new Font(35);
         l.setFont(f);
         l.setTextFill(Color.rgb(255,255,255));
-        l.setTranslateX(790);
+        l.setTranslateX(780);
         l.setTranslateY(40);
 
         // Pickaxe-label
@@ -69,6 +70,26 @@ public class CraftingView extends Region{
         pd.setTranslateY(100);
         
         getChildren().addAll(r, l, lp, pw, ps, pi, pg, pd);
+        
+        // Ingot-label
+        Label li = new Label("2) INGOT");
+        Font fi = new Font(15);
+        li.setFont(fi);
+        li.setTextFill(Color.rgb(255,255,255));
+        li.setTranslateX(650);
+        li.setTranslateY(150);
+        
+        // Ingot-craftButton: IRON AND GOLD
+        
+        Button ii = new Button("IRON");
+        ii.setTranslateX(735);
+        ii.setTranslateY(145);
+        
+        Button ig = new Button("GOLD");
+        ig.setTranslateX(820);
+        ig.setTranslateY(145);
+        
+        getChildren().addAll(ii, li, ig);
     }
     
 }
