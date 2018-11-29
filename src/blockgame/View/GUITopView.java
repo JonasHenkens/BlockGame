@@ -42,7 +42,7 @@ public class GUITopView extends Region{
         ItemInterface ii = new ItemInterface();
         ImageInterface imi = new ImageInterface();
         
-        for(int i=0; i<15; i++){
+        for(int i=0; i<model.getSize(); i++){
             Rectangle sq;
             if(model.getSelectedItem() == i){
                 sq = new Rectangle(6 + 24*i, 6, 20, 20);

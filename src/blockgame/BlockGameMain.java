@@ -28,7 +28,11 @@ public class BlockGameMain extends Application {
         Person person = new Person(0, 0, "blockgame/textures/person.png");
         person.addItem(1, ItemType.block, 2);
         person.addItem(2, ItemType.block, 10);
-        person.addItem(3, ItemType.block, 2);
+        person.addItem(3, ItemType.block, 10);
+        person.addItem(4, ItemType.block, 10);
+        person.addItem(5, ItemType.block, 10);
+        person.addItem(6, ItemType.block, 10);
+        person.addItem(7, ItemType.block, 10);
         
         World world = new World(96, 48, 16);
         BlockGame model = new BlockGame(world, person);

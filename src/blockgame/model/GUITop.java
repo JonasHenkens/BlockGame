@@ -17,14 +17,16 @@ public class GUITop{
     private ItemType[] itemTypes;
     private int selectedItem;
     private Person person;
+    private int size;
 
     /**
      * Constructor of GUITop.
      */
     public GUITop(Person person) {
         this.person = person;
-        itemIds = new int[15];
-        itemTypes = new ItemType[15];
+        size = 30;
+        itemIds = new int[size];
+        itemTypes = new ItemType[size];
         height = 32;
         width = 1536;
         
@@ -56,7 +58,7 @@ public class GUITop{
      */
     public void leftClick(double x, double y){
         boolean done = false;
-        for(int i=0; i<10 && !done; i++){
+        for(int i=0; i<size && !done; i++){
             if(x >= (8+24*i) && x <= (8 + 24*i+16) && y>= 8 && y<= 22){
                 selectedItem = i;
                 done = true;
@@ -68,7 +70,7 @@ public class GUITop{
      * Updates the items in each slot.
      */
     public void updateItems(){
-        for(int i = 0; i<10; i++){
+        for(int i = 0; i<size; i++){
             try{
                 itemIds[i] = person.getInventoryItemId(i);
                 itemTypes[i] = person.getInventoryItemType(i);
@@ -106,6 +108,14 @@ public class GUITop{
     public ItemType getItemType(int index){
         return itemTypes[index];
     }
+
+    /**
+     * @return The amount of slots shown.
+     */
+    public int getSize() {
+        return size;
+    }
+    
     
     
 }

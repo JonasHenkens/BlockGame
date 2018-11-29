@@ -54,8 +54,6 @@ public class Block extends Item{
         if(health < 0){
             health = 0;
         }
-        
-        System.out.println(health);
         return health == 0.0;
     }
 

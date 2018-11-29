@@ -40,7 +40,7 @@ public class Person {
         // hotbar 10 slots: 0-9
         // inventor 40 slots: 10-49
         // total 50 slots
-        inventory = new Inventory(50);
+        inventory = new Inventory(30);
         
         x = spawnX;
         y = spawnY;
@@ -65,7 +65,7 @@ public class Person {
     public void renew(Person person) {
         
         int n = person.getInventorySize();
-        inventory = new Inventory(50);
+        inventory = new Inventory(30);
         for(int i = 0; i<n; i++){
             if(person.getInventoryItemType(i) != ItemType.nothing){
                 inventory.addItemInInventory(person.getInventoryItemId(i), person.getInventoryItemType(i), person.getInventoryItemAmount(i));

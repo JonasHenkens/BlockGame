@@ -121,15 +121,15 @@ public class World {
         // id
         ores[0] = 4; // coal
         ores[1] = 5; // iron
-        ores[2] = 6; // diamond
-        ores[3] = 7; // gold
+        ores[2] = 7; // gold
+        ores[3] = 6; // diamond
         
         double[] rarity = new double[4];
         // percentage
         rarity[0] = 10; // coal
         rarity[1] = 5; // iron
-        rarity[2] = 2; // diamond
-        rarity[3] = 0.5; // gold
+        rarity[2] = 2; // gold
+        rarity[3] = 0.5; // diamond
         
         // underground: mostly stune with random ores
         for(int i = 0;i<sizeX;i++){
@@ -137,7 +137,7 @@ public class World {
                int k = 0;
                boolean placedBlock = false;
                for(double per : rarity){
-                   if(Math.random()*100 < per){
+                   if(Math.random()*100 <= per){
                        blocks[i][j] = ii.getBlock(ores[k]);
                        placedBlock = true;
                    }
