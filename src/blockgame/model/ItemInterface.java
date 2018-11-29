@@ -28,8 +28,10 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 4, 7, 7, ItemType.block, "gold ore"));
         
         materials = new Material[1024];
-        
-        
+        addMaterial(new Material(0, "iron ingot", "blockgame/textures/materials/iron_ingot.png"));
+        addMaterial(new Material(1, "gold ingot", "blockgame/textures/materials/gold_ingot.png"));
+        addMaterial(new Material(2, "diamond", "blockgame/textures/materials/diamond.png"));
+        addMaterial(new Material(3, "coal", "blockgame/textures/materials/coal.png"));
         
     }
     
