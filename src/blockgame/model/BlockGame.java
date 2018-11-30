@@ -19,7 +19,7 @@ import javafx.application.Platform;
 
 /**
  * In BlockGame all the big views get put together.
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public class BlockGame {
     private World world;
@@ -85,8 +85,14 @@ public class BlockGame {
                     id = 0;
                     type = ItemType.block;
                 }
+                // NIET AF/TO DO
                 else if(type==ItemType.tool){
-                    // Damage the tool
+                    ItemInterface ii = new ItemInterface();
+                    Tool t = ii.getTool(id);
+                    t.damage();
+                    if (t.damage()){
+                        person.removeInventoryItem(id, type, 1);
+                    }
                 }
                 else{
                     // id and type are correct, nothing needs to change

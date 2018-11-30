@@ -168,7 +168,7 @@ public class Person {
         boolean verwijderd = inventory.removeItemInInventory(id, type, amount);
         return verwijderd;
     }
-    
+
     
     
     /**
