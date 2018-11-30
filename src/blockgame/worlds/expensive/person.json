@@ -2,15 +2,15 @@
   "inventory": {
     "inventory": [
       {
-        "id": 1,
+        "id": 2,
         "type": "block",
-        "amount": 15,
+        "amount": 2,
         "maxStackSize": 50
       },
       {
         "id": 2,
         "type": "block",
-        "amount": 12,
+        "amount": 8,
         "maxStackSize": 50
       },
       {
@@ -27,12 +27,7 @@
       },
       null,
       null,
-      {
-        "id": 3,
-        "type": "material",
-        "amount": 1,
-        "maxStackSize": 50
-      },
+      null,
       null,
       null,
       null,
@@ -58,7 +53,7 @@
       null
     ]
   },
-  "x": 42.375,
+  "x": 42.10693585029699,
   "y": 12.125,
   "spawnX": 0.0,
   "spawnY": 0.0,
