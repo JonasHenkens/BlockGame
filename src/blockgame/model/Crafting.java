@@ -12,10 +12,14 @@ package blockgame.model;
 public class Crafting {
     private boolean geopend;
     private Person person;
+    private double height;
+    private double width;
     
     public Crafting(Person person) {
         geopend = false;
         this.person = person;
+        height=250;
+        width=500;
     }
     
     public void setGeopend() {
@@ -23,29 +27,41 @@ public class Crafting {
     }
     
     public void makeGoldIngot(){
-        int aantal=person.getInventoryAmount(7, ItemType.block);
+        int aantalg=person.getInventoryAmount(7, ItemType.block);
+        int aantalc=person.getInventoryAmount(3, ItemType.material);
         
-        if(aantal>=1){
+        if(aantalg>=1 && aantalc>=2){
             person.removeInventoryItem(7, ItemType.block, 1);
+            person.removeInventoryItem(3, ItemType.material, 2);
             person.addItem(1, ItemType.material,1);
+        }
+        else{
         }
     }
     
     public void makeIronIngot(){
-        int aantal=person.getInventoryAmount(5, ItemType.block);
-        
-        if(aantal>=2){
+        int aantali=person.getInventoryAmount(5, ItemType.block);
+        int aantalc=person.getInventoryAmount(3, ItemType.material);
+
+        if(aantali>=1 && aantalc>=1){
             person.removeInventoryItem(5, ItemType.block, 1);
+            person.removeInventoryItem(3, ItemType.material, 1);
             person.addItem(0, ItemType.material, 1);
+        }
+        else{
         }
     }
     
     public void makeDiamant(){
-        int aantal=person.getInventoryAmount(6, ItemType.block);
+        int aantald=person.getInventoryAmount(6, ItemType.block);
+        int aantalc=person.getInventoryAmount(3, ItemType.material);
         
-        if(aantal>=2){
+        if(aantald>=1 && aantalc>=3){
             person.removeInventoryItem(6, ItemType.block, 1);
+            person.removeInventoryItem(3, ItemType.material, 3);
             person.addItem(2, ItemType.material,1);
+        }
+        else{
         }
     }
     
@@ -55,6 +71,8 @@ public class Crafting {
         if(amount>=4){
             person.removeInventoryItem(8, ItemType.block, 4);
             person.addItem(0, ItemType.tool, 1);
+        }
+        else{
         }
     }
     
@@ -67,6 +85,8 @@ public class Crafting {
             person.removeInventoryItem(3, ItemType.block, 3);
             person.addItem(1, ItemType.tool, 1);
         }
+        else{
+        }
     }
     
     public void makeIronPickaxe(){
@@ -77,6 +97,8 @@ public class Crafting {
             person.removeInventoryItem(8, ItemType.block, 1);
             person.removeInventoryItem(0, ItemType.material, 3);
             person.addItem(3, ItemType.tool, 1);
+        }
+        else{
         }
     }
     
@@ -89,6 +111,8 @@ public class Crafting {
             person.removeInventoryItem(1, ItemType.material, 3);
             person.addItem(4, ItemType.tool, 1);
         }
+        else{
+        }
     }
     
     public void makeDiamondPickaxe(){
@@ -99,6 +123,8 @@ public class Crafting {
             person.removeInventoryItem(8, ItemType.block, 1);
             person.removeInventoryItem(2, ItemType.material, 2);
             person.addItem(2, ItemType.tool, 1);
+        }
+        else{
         }
     }
     
@@ -111,6 +137,20 @@ public class Crafting {
      */
     public boolean isGeopend() {
         return geopend;
+    }
+
+    /**
+     * @return the height
+     */
+    public double getHeight() {
+        return height;
+    }
+
+    /**
+     * @return the width
+     */
+    public double getWidth() {
+        return width;
     }
     
 }
