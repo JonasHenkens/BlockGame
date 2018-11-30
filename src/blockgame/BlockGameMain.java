@@ -35,6 +35,7 @@ public class BlockGameMain extends Application {
         person.addItem(8, ItemType.block, 10);
         person.addItem(9, ItemType.block, 10);
         person.addItem(10, ItemType.block, 10);
+        person.addItem(3, ItemType.material, 10);
         
         World world = new World(96, 48, 16);
         BlockGame model = new BlockGame(world, person);

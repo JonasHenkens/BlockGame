@@ -34,8 +34,10 @@ public class Crafting {
             person.removeInventoryItem(7, ItemType.block, 1);
             person.removeInventoryItem(3, ItemType.material, 2);
             person.addItem(1, ItemType.material,1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -47,8 +49,10 @@ public class Crafting {
             person.removeInventoryItem(5, ItemType.block, 1);
             person.removeInventoryItem(3, ItemType.material, 1);
             person.addItem(0, ItemType.material, 1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -60,8 +64,10 @@ public class Crafting {
             person.removeInventoryItem(6, ItemType.block, 1);
             person.removeInventoryItem(3, ItemType.material, 3);
             person.addItem(2, ItemType.material,1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -71,8 +77,10 @@ public class Crafting {
         if(amount>=4){
             person.removeInventoryItem(8, ItemType.block, 4);
             person.addItem(0, ItemType.tool, 1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -84,8 +92,10 @@ public class Crafting {
             person.removeInventoryItem(8, ItemType.block, 1);
             person.removeInventoryItem(3, ItemType.block, 3);
             person.addItem(1, ItemType.tool, 1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -97,8 +107,10 @@ public class Crafting {
             person.removeInventoryItem(8, ItemType.block, 1);
             person.removeInventoryItem(0, ItemType.material, 3);
             person.addItem(3, ItemType.tool, 1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -110,8 +122,10 @@ public class Crafting {
             person.removeInventoryItem(8, ItemType.block, 1);
             person.removeInventoryItem(1, ItemType.material, 3);
             person.addItem(4, ItemType.tool, 1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     
@@ -123,8 +137,10 @@ public class Crafting {
             person.removeInventoryItem(8, ItemType.block, 1);
             person.removeInventoryItem(2, ItemType.material, 2);
             person.addItem(2, ItemType.tool, 1);
+            System.out.println("Gelukt!!");
         }
         else{
+            System.out.println("Mislukt!!");
         }
     }
     

@@ -21,7 +21,7 @@ public class CraftingView extends Region{
     private Crafting model;
     
     public CraftingView(Crafting model) {
-        model=this.model;
+        this.model = model;
         update();
     }
     
@@ -61,13 +61,13 @@ public class CraftingView extends Region{
         mg.setFocusTraversable(false);
         mg.setTranslateX(900);
         mg.setTranslateY(100);
-        mg.setOnAction(e->model.makeGoldIngot());
+        mg.setOnMouseClicked(e->model.makeGoldIngot());
         
         Button md = new Button("DIAMOND");
         md.setFocusTraversable(false);
         md.setTranslateX(1050);
         md.setTranslateY(100);
-        md.setOnAction(e->model.makeDiamant());
+        md.setOnMouseClicked(e->model.makeDiamant());
         
         getChildren().addAll(li, md, mi, mg);
         
@@ -83,27 +83,27 @@ public class CraftingView extends Region{
         Button pw = new Button("WOOD");
         pw.setTranslateX(735);
         pw.setTranslateY(145);
-        pw.setOnAction(e->model.makeWoodPickaxe());
+        pw.setOnMouseClicked(e->model.makeWoodPickaxe());
         
         Button ps = new Button("STONE");
         ps.setTranslateX(820);
         ps.setTranslateY(145);
-        ps.setOnAction(e->model.makeStonePickaxe());
+        ps.setOnMouseClicked(e->model.makeStonePickaxe());
         
         Button pi = new Button("IRON");
         pi.setTranslateX(905);
         pi.setTranslateY(145);
-        pi.setOnAction(e->model.makeIronPickaxe());
+        pi.setOnMouseClicked(e->model.makeIronPickaxe());
         
         Button pg = new Button("GOLD");
         pg.setTranslateX(980);
         pg.setTranslateY(145);
-        pg.setOnAction(e->model.makeGoldPickaxe());
+        pg.setOnMouseClicked(e->model.makeGoldPickaxe());
         
         Button pd = new Button("DIAMOND");
         pd.setTranslateX(1050);
         pd.setTranslateY(145);
-        pd.setOnAction(e->model.makeDiamondPickaxe());
+        pd.setOnMouseClicked(e->model.makeDiamondPickaxe());
         
         getChildren().addAll(lp, pw, ps, pi, pg, pd);
     }
