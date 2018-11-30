@@ -11,34 +11,36 @@ import javafx.application.Platform;
 
 /**
  *
- * @author Souhaib El Habti
+ * @author Jonas
  */
-public class TimeTread implements Runnable {
-private BlockGame model;
-private FXMLBlockGameController controller;
-
+public class Ticker implements Runnable{
+    private BlockGame model;
+    
     /**
-     * The constructor of the Treadclass TimeTread
-     * @param model: the model of the BlockGame
-     * @param controller: the controller
+     * 
+     * @param model The blackgame used.
      */
-    public TimeTread(BlockGame model, FXMLBlockGameController controller) {
+    public Ticker(BlockGame model) {
         this.model = model;
-        this.controller = controller;
+        
+        
     }
-
+    
+    
     @Override
     public void run() {
         while (true){
-            model.secPlusEen();
-            Platform.runLater(()->controller.updateTimeText());
+            
+            model.tick();
             try{
-                Thread.sleep(1000);
+                Thread.sleep(50);
             }
             catch(InterruptedException ex){
                 
             }
         }
     }
+    
+    
     
 }

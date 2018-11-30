@@ -185,27 +185,28 @@ public class World {
                     // y
                     // x + 1 and y + j cant be negative (out of world)
                     // AND cant be bigger or equals to world size
-                    if(x+i >= 0 && y+j >=0 && x+i < sizeX && y+j <sizeY)
-                    if(blocks[x + i][y + j] == null){
-                        // empty block in range of square
-                        // now check if the middle of empty spot is in the range of circle
-                        double middleEmptyX = x + i;
-                        double middleEmptyY = y + j;
-                        double middleBlockX = x;
-                        double middleBlockY = y;
-                        
-                        double distance = Math.sqrt(Math.pow((middleBlockX-middleEmptyX), 2) + Math.pow((middleBlockY-middleEmptyY), 2));
-                        if(distance < range-0.5){
-                            // empty spot in range => block is visible
-                            blocks[x][y].setVisible(true);
-                            return;
+                    if(x+i >= 0 && y+j >=0 && x+i < sizeX && y+j <sizeY){
+                        if(blocks[x + i][y + j] == null){
+                            // empty block in range of square
+                            // now check if the middle of empty spot is in the range of circle
+                            double middleEmptyX = x + i;
+                            double middleEmptyY = y + j;
+                            double middleBlockX = x;
+                            double middleBlockY = y;
+
+                            double distance = Math.sqrt(Math.pow((middleBlockX-middleEmptyX), 2) + Math.pow((middleBlockY-middleEmptyY), 2));
+                            if(distance < range-0.5){
+                                // empty spot in range => block is visible
+                                blocks[x][y].setVisible(true);
+                                return;
+                            }
+                            else{
+                                // empty spot isn't in range => check next
+                            }  
                         }
                         else{
-                            // empty spot isn't in range => check next
-                        }  
-                    }
-                    else{
-                        // this block isn't empty => try next one
+                            // this block isn't empty => try next one
+                        }
                     }
                 }
             }
@@ -231,9 +232,69 @@ public class World {
         time.secPlusEen();
     }
     
-    
-    
-    
+    /**
+     * Grows saplings and turns them into trees they are mature.
+     * @return True if a tree has been placed.
+     */
+    public boolean updateSaplings(){
+        for(int i=0; i<sizeX; i++){
+            for(int j=0; j<sizeY; j++){
+                if (blocks[i][j] instanceof Sapling){
+                    Sapling s = (Sapling)blocks[i][j];
+                    int saplingTrunkId = s.getWoodId();
+                    int saplingLeavesId = s.getLeavesId();
+                    int saplingX = i;
+                    int saplingY = j;
+                    boolean mature = s.addRandomProgress();
+                    if(mature){
+                        // tree is mature => check if space around is free to place blocks
+                        // trunk has to have space, leaves don't (won't be placed when block is in the way)
+                        // if yes:
+                        // place tree trunk of 4 high
+                        // place leaves around top block
+                        boolean placeable = true;
+                        for(int dy = -1; dy>= -3; dy--){
+                            // has to be inside world
+                            if(saplingX >= 0 && saplingY+dy >=0 && saplingX < sizeX && saplingY+dy <sizeY){
+                                if(blocks[saplingX][saplingY + dy] != null){
+                                    placeable = false;
+                                }
+                            }
+                            else{
+                                placeable = false;
+                            }
+                        }
+                        if(placeable){
+                            ItemInterface ii = new ItemInterface();
+                            // place trunk
+                            for(int dy = 0; dy>= -3; dy--){
+                                blocks[saplingX][saplingY + dy] = ii.getBlock(saplingTrunkId);
+                            }
+                            
+                            // place leaves
+                            for(int dx = -1; dx<= 1; dx++){
+                                for(int dy = -3; dy>= -4; dy--){
+                                    // has to be inside world
+                                    if(saplingX+dx >= 0 && saplingY+dy >=0 && saplingX+dx < sizeX && saplingY+dy <sizeY){
+                                        if(blocks[saplingX + dx][saplingY + dy] == null){
+                                            Block b = ii.getBlock(saplingLeavesId);
+                                            blocks[saplingX + dx][saplingY + dy] = b;
+                                        }
+                                        else{
+                                            // block in the way => don't place leaves
+                                        }
+                                    }
+                                }
+                            }
+                            updateVisibilityAll();
+                            return true;
+                        } 
+                    }
+                }
+            }
+        }
+        return false;
+    }
     
     
     

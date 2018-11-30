@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javafx.application.Platform;
 
 /**
  * In BlockGame all the big views get put together.
@@ -286,6 +287,17 @@ public class BlockGame {
     public void removeKeyBeingHeld(Key key){
         if(keysBeingHeld.contains(key)){
             keysBeingHeld.remove(key);
+        }
+    }
+    
+    /**
+     * Runs code that has to happen each tick.
+     */
+    public void tick() {
+        boolean saplingsUpdated = world.updateSaplings();
+        if(saplingsUpdated){
+            
+            Platform.runLater( () -> view.update() );
         }
     }
     

@@ -28,6 +28,9 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
         addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 5, 7, 7, ItemType.block, "gold ore"));
         addBlock(new Block("blockgame/textures/blocks/log_oak.png", 4, 2, 8, 8, ItemType.block, "wood"));
+        addBlock(new Block("blockgame/textures/blocks/leaves_oak.png", 1, 1, 9, 10, ItemType.block, "leaves"));
+        addBlock(new Sapling("blockgame/textures/blocks/sapling_oak.png", 1, 1, 10, 10, ItemType.block, "sapling", 8, 9));
+
         
         materials = new Material[1024];
         addMaterial(new Material(0, "iron ingot", "blockgame/textures/materials/iron_ingot.png"));
@@ -88,7 +91,14 @@ public class ItemInterface {
      */
     public Block getBlock(int id){
         try{
-            return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getDropType(), blocks[id].getName());
+            if(blocks[id] instanceof Sapling){
+                Sapling s = (Sapling)blocks[id];
+                return new Sapling(s.getTexture(), s.getHealth(), s.getHardness(), s.getId(), s.getDropId(), s.getDropType(), s.getName(), s.getWoodId(), s.getLeavesId());
+                
+            }
+            else{
+                return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getDropType(), blocks[id].getName());
+            }
         }
         catch(NullPointerException e){
             return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getDropType(), blocks[0].getName());

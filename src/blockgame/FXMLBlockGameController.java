@@ -4,7 +4,8 @@ import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
 import blockgame.model.Key;
 import blockgame.thread.DayNight;
-import blockgame.thread.TimeTread;
+import blockgame.thread.Ticker;
+import blockgame.thread.TimeThread;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -98,11 +99,16 @@ public class FXMLBlockGameController {
         t.setDaemon(true);
         t.start();
         
-        TimeTread tt = new TimeTread(model,this);
+        TimeThread tt = new TimeThread(model,this);
         Thread tr = new Thread(tt);
         tr.setDaemon(true);
         tr.start();
        
+        Ticker ticker = new Ticker(model);
+        Thread tickerT = new Thread(ticker);
+        tickerT.setDaemon(true);
+        tickerT.start();
+        
         update();
         
     }
