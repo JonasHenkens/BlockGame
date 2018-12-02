@@ -60,7 +60,6 @@ public class BlockGameView extends Region{
      * Updates the BlockGameView.
      */
     public void update(){
-        System.out.println("test");
         worldView.update();
         guiTop.updateItems();
         topView.update();

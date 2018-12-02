@@ -109,7 +109,10 @@ public class World {
             int j = 15;
             double rng = Math.random()*100;
             if(rng<10){
-                blocks[i][j] = ii.getBlock(10);
+                Sapling s = (Sapling)ii.getBlock(10);
+                // set progress to 100 so they all grow
+                s.setProgress(100);
+                blocks[i][j] = s;
             }
             else{
                 blocks[i][j] = null;

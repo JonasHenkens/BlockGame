@@ -40,13 +40,19 @@ public class Sapling extends Block{
      * @return True if tree mature.
      */
     public boolean addRandomProgress(){
-        progress = progress + Math.random();
+        progress = progress + Math.random()/5;
         if(progress > 100){
             progress = 100;
         }
         return isDone();
     }
-    
+
+    /**
+     * @param progress the progress to set
+     */
+    public void setProgress(double progress) {
+        this.progress = progress;
+    }
     
     // getters
     
@@ -72,5 +78,12 @@ public class Sapling extends Block{
      */
     public int getLeavesId() {
         return leavesId;
+    }
+
+    /**
+     * @return the progress
+     */
+    public double getProgress() {
+        return progress;
     }
 }
