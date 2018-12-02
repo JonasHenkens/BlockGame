@@ -9,10 +9,6 @@ import blockgame.model.Person;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.ArcTo;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 
 /**
  * View of the person.

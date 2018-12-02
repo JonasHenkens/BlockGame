@@ -8,7 +8,7 @@ package blockgame.model;
 
 /**
  * A world is made of blocks.
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public class World {
     private Block[][] blocks;

@@ -6,7 +6,6 @@
 package blockgame.model.deserializer;
 
 import blockgame.model.Block;
-import blockgame.model.Block;
 import blockgame.model.Item;
 import blockgame.model.ItemType;
 import com.google.gson.JsonDeserializationContext;

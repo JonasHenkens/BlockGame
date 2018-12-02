@@ -7,7 +7,7 @@ package blockgame.model;
 
 /**
  * ItemInterface is used to request items by id and type.
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public class ItemInterface {
     private Block[] blocks;

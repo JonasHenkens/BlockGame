@@ -7,7 +7,7 @@ package blockgame.model;
 
 /**
  *
- * @author Souhaib
+ * @author Souhaib and Jonas
  */
 public class ItemStack {
     private int id;

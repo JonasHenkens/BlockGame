@@ -7,7 +7,7 @@ package blockgame.model;
 
 /**
  *
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public class Tool extends Item {
     

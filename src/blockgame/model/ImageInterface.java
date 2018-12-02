@@ -5,7 +5,6 @@
  */
 package blockgame.model;
 
-import blockgame.model.Block;
 import java.util.ArrayList;
 import javafx.scene.image.Image;
 

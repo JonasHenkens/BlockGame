@@ -22,7 +22,7 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
 /**
- * @author Souhaib El Habti en Jonas Henkens
+ * @author Souhaib and Jonas
  */
 public class FXMLBlockGameController {
     private BlockGame model;

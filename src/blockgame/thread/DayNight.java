@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 
 /**
  *
- * @author Souhaib El Habti
+ * @author Souhaib
  */
 public class DayNight implements Runnable{
     private FXMLBlockGameController c;

@@ -14,7 +14,7 @@ import javafx.scene.layout.Region;
 
 /**
  * Complete worldView of blockgame.
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public class BlockGameView extends Region{
     private BlockGame model;

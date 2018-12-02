@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 
 /**
  *
- * @author Souhaib El Habti
+ * @author Souhaib
  */
 public class CraftingView extends Region{
     private Crafting model;

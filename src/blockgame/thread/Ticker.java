@@ -5,9 +5,7 @@
  */
 package blockgame.thread;
 
-import blockgame.FXMLBlockGameController;
 import blockgame.model.BlockGame;
-import javafx.application.Platform;
 
 /**
  *
