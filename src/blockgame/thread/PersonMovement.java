@@ -37,6 +37,36 @@ public class PersonMovement implements Runnable{
     @Override
     public void run() {
         while(true){
+            
+            
+            
+            
+            // t = 20ms = 0.02s
+            double t = 0.02;
+            // x and y in blocks
+            double x = person.getX();
+            double y = person.getY();
+            // gravity: ay = 10 blocks/s^2
+            double ay = 10;
+            double vy = person.getVy();
+            double vx = person.getVx();
+            double dy = 0;
+            double dvy = 0;
+            double dx = 0;
+            double dvx = 0;
+            // person heigth in blocks
+            double personHeigth = person.getHeight()/world.getTextureResolution();
+            // person width in blocks
+            double personWidth = person.getWidth()/world.getTextureResolution();
+            
+            
+           
+            // new x coordinate of top left corner
+            double xNew = x + vx*t;
+            // new y coordinate of top left corner
+            double yNew = y + vy*t;
+            
+            
             ArrayList<Key> keysBeingHeld = new ArrayList<>();
             Iterator<Key> it = blockgame.getKeysBeingHeldIterator();
             while(it.hasNext()){
@@ -65,35 +95,14 @@ public class PersonMovement implements Runnable{
             }
             
             if(keysBeingHeld.contains(Key.UP) && person.getVy() == 0){
-                person.setVy(-7);
+                // eerst controleren of persoon ob blok staar, anders kan je niet springen
+                Block b1 = world.getBlock(x, y+personHeigth);
+                Block b2 = world.getBlock(x + personWidth, y+personHeigth);
+                
+                if(b1 != null || b2 != null){
+                    person.setVy(-7);
+                }
             }
-            
-            
-            
-            // t = 20ms = 0.02s
-            double t = 0.02;
-            // x and y in blocks
-            double x = person.getX();
-            double y = person.getY();
-            // gravity: ay = 10 blocks/s^2
-            double ay = 10;
-            double vy = person.getVy();
-            double vx = person.getVx();
-            double dy = 0;
-            double dvy = 0;
-            double dx = 0;
-            double dvx = 0;
-            // person heigth in blocks
-            double personHeigth = person.getHeight()/world.getTextureResolution();
-            // person width in blocks
-            double personWidth = person.getWidth()/world.getTextureResolution();
-            
-            
-           
-            // new x coordinate of top left corner
-            double xNew = x + vx*t;
-            // new y coordinate of top left corner
-            double yNew = y + vy*t;
             
             
             

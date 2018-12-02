@@ -14,10 +14,12 @@ public class Crafting {
     private Person person;
     private double height;
     private double width;
+    private BlockGame blockGame;
     
-    public Crafting(Person person) {
+    public Crafting(Person person, BlockGame blockGame) {
         geopend = false;
         this.person = person;
+        this.blockGame = blockGame;
         height=250;
         width=500;
     }
@@ -39,6 +41,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeIronIngot(){
@@ -54,6 +57,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeDiamant(){
@@ -69,6 +73,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeWoodPickaxe(){
@@ -82,6 +87,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeStonePickaxe(){
@@ -97,6 +103,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeIronPickaxe(){
@@ -112,6 +119,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeGoldPickaxe(){
@@ -127,6 +135,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     public void makeDiamondPickaxe(){
@@ -142,6 +151,7 @@ public class Crafting {
         else{
             System.out.println("Mislukt!!");
         }
+        blockGame.getView().update();
     }
     
     

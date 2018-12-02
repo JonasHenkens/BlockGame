@@ -100,9 +100,21 @@ public class World {
         ItemInterface ii = new ItemInterface();
         // air layer
         for(int i = 0;i<sizeX;i++){
-            for(int j = 0;j<16;j++){
+            for(int j = 0;j<15;j++){
                blocks[i][j] = null;
             } 
+        }
+        // air layer + trees
+        for(int i = 0;i<sizeX;i++){
+            int j = 15;
+            double rng = Math.random()*100;
+            if(rng<10){
+                blocks[i][j] = ii.getBlock(10);
+            }
+            else{
+                blocks[i][j] = null;
+            }
+            
         }
         // grass layer
         for(int i = 0;i<sizeX;i++){

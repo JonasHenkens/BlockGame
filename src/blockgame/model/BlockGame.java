@@ -38,7 +38,7 @@ public class BlockGame {
         this.person = person;
         this.world = world;
         guiTop = new GUITop(person);
-        craft = new Crafting(person);
+        craft = new Crafting(person, this);
         
         view = new BlockGameView(this, world, guiTop, person, craft);
         
