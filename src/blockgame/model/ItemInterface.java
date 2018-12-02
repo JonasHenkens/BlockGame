@@ -39,11 +39,11 @@ public class ItemInterface {
         addMaterial(new Material(3, "coal", "blockgame/textures/materials/coal.png"));
         
         tools = new Tool[1024];
-        addTool(new Tool(0, 3, "wood pickaxe", "blockgame/textures/tools/wood_pickaxe.png", 10));
-        addTool(new Tool(1, 4,"stone pickaxe", "blockgame/textures/tools/stone_pickaxe.png", 14));
-        addTool(new Tool(2, 11,"diamond pickaxe", "blockgame/textures/tools/diamond_pickaxe.png", 30));
-        addTool(new Tool(3, 5,"iron pickaxe", "blockgame/textures/tools/iron_pickaxe.png", 18));
-        addTool(new Tool(4, 6,"gold pickaxe", "blockgame/textures/tools/gold_pickaxe.png", 25));
+        addTool(new Tool(0, 3, "wood pickaxe", "blockgame/textures/tools/wood_pickaxe.png"));
+        addTool(new Tool(1, 4,"stone pickaxe", "blockgame/textures/tools/stone_pickaxe.png"));
+        addTool(new Tool(2, 11,"diamond pickaxe", "blockgame/textures/tools/diamond_pickaxe.png"));
+        addTool(new Tool(3, 5,"iron pickaxe", "blockgame/textures/tools/iron_pickaxe.png"));
+        addTool(new Tool(4, 6,"gold pickaxe", "blockgame/textures/tools/gold_pickaxe.png"));
     }
     
     /**
@@ -124,7 +124,7 @@ public class ItemInterface {
      */
     public Tool getTool(int id){
         try{
-            return new Tool(tools[id].getId(), tools[id].getStrength(), tools[id].getName(), tools[id].getTexture(), tools[id].getMaxDurability());
+            return new Tool(tools[id].getId(), tools[id].getStrength(), tools[id].getName(), tools[id].getTexture());
         }
         catch(NullPointerException e){
             return null;

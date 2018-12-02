@@ -85,15 +85,6 @@ public class BlockGame {
                     id = 0;
                     type = ItemType.block;
                 }
-                // NIET AF/TO DO
-                else if(type==ItemType.tool){
-                    ItemInterface ii = new ItemInterface();
-                    Tool t = ii.getTool(id);
-                    t.damage();
-                    if (t.damage()){
-                        person.removeInventoryItem(id, type, 1);
-                    }
-                }
                 else{
                     // id and type are correct, nothing needs to change
                 }
