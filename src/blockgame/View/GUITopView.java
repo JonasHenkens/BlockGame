@@ -13,6 +13,7 @@ import blockgame.model.ItemType;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 
 /**
  * View of the GUI at the top of the game.
@@ -59,9 +60,11 @@ public class GUITopView extends Region{
             }
             else{
                 ItemView iv = new ItemView(model.getItemId(i), model.getItemType(i), imi);
-                iv.setTranslateY(8);
                 iv.setTranslateX(8 + 24*i);
-                getChildren().add(iv);
+                iv.setTranslateY(8);
+                Text t = new Text(10 + 24*i, 37, model.getAmount(i) + "");
+                
+                getChildren().addAll(iv,t);
             }
         }
         

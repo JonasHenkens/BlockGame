@@ -27,7 +27,7 @@ public class GUITop{
         size = 30;
         itemIds = new int[size];
         itemTypes = new ItemType[size];
-        height = 32;
+        height = 40;
         width = 1536;
         
         updateItems();
@@ -114,6 +114,14 @@ public class GUITop{
      */
     public int getSize() {
         return size;
+    }
+
+    /**
+     * The amount in the stack.
+     * @param i 
+     */
+    public int getAmount(int i) {
+        return person.getInventoryItemAmount(i);
     }
     
     
