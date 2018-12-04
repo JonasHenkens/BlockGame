@@ -95,9 +95,9 @@ public class PersonMovement implements Runnable{
             }
             
             if(keysBeingHeld.contains(Key.UP) && person.getVy() == 0){
-                // eerst controleren of persoon ob blok staar, anders kan je niet springen
+                // eerst controleren of persoon op blok staat, anders kan je niet springen
                 Block b1 = world.getBlock(x, y+personHeigth);
-                Block b2 = world.getBlock(x + personWidth, y+personHeigth);
+                Block b2 = world.getBlock(x + personWidth, y + personHeigth);
                 
                 if(b1 != null || b2 != null){
                     person.setVy(-7);

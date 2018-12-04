@@ -20,7 +20,7 @@ public class Crafting {
         geopend = false;
         this.person = person;
         this.blockGame = blockGame;
-        height=250;
+        height=240;
         width=500;
     }
     
@@ -158,8 +158,8 @@ public class Crafting {
     //GETTERS
     
     /**
-     * @return the geopend: TRUE, als de craftingmenu open staat
-     * FALSE, als de craftingmenu gesloten is
+     * @return the geopend: TRUE, if the crafting menu is open
+     * FALSE, if the crafting menu is closed
      */
     public boolean isGeopend() {
         return geopend;

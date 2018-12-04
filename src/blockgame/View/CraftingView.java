@@ -6,6 +6,7 @@
 package blockgame.View;
 
 import blockgame.model.Crafting;
+import blockgame.model.ImageInterface;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Region;
@@ -25,10 +26,26 @@ public class CraftingView extends Region{
         update();
     }
     
+    public void craftKader(){
+        Rectangle ck = new Rectangle(500, 80, Color.rgb(0,200,100));
+        ck.setStroke(Color.rgb(255,0,0));
+        ck.setStrokeWidth(3);
+        ck.setTranslateX(646);
+        ck.setTranslateY(200);
+        getChildren().addAll(ck);
+        
+        //ImageInterface imi = new ImageInterface();
+        //int item = gt.getSelectedItem();
+        //ItemView iv = new ItemView(gt.getItemId(item), gt.getItemType(item), imi);
+        //iv.setTranslateY(210);
+        //iv.setTranslateX(656);
+        //getChildren().add(iv);
+    }
+    
     public void update(){
         getChildren().clear();
         // Crafting menu-screen
-        Rectangle r = new Rectangle(500, 250, Color.rgb(134,136,138));
+        Rectangle r = new Rectangle(model.getWidth(), model.getHeight(), Color.rgb(134,136,138));
         r.setTranslateX(646);
         r.setTranslateY(35);
         
@@ -56,6 +73,7 @@ public class CraftingView extends Region{
         mi.setTranslateX(750);
         mi.setTranslateY(100);
         mi.setOnMouseClicked(e->model.makeIronIngot());
+        mi.setOnMouseClicked(e->craftKader());
         
         Button mg = new Button("GOLD INGOT");
         mg.setFocusTraversable(false);
