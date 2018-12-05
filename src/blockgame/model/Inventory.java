@@ -6,14 +6,14 @@
 package blockgame.model;
 
 /**
- * Items can be stored in an inventory
+ * Items can be stored in an inventory.
  * @author Souhaib
  */
 public class Inventory {
     private ItemStack[] inventory;
 
     /**
-     * @param amount, the amount of Itemstacks in the inventory
+     * @param amount The amount of itemstacks in the inventory.
      */
     public Inventory(int amount) { 
         inventory = new ItemStack[amount];
@@ -27,16 +27,16 @@ public class Inventory {
     }
     
     /**
-     * @param i place of ItemStack in inventory
-     * @return id of the ItemStack
+     * @param i Place of ItemStack in the inventory.
+     * @return Id of the ItemStack.
      */
     public int getIdItemStack(int i){
         return inventory[i].getId();
     }
     
     /**
-     * @param i place of ItemStack in inventory
-     * @return type of the ItemStack
+     * @param i Place of ItemStack in the inventory.
+     * @return Type of the ItemStack.
      */
     public ItemType getTypeItemStack(int i){
         if(inventory[i] != null){
@@ -46,34 +46,33 @@ public class Inventory {
     }
     
     /**
-     * @param i place of ItemStack in inventory
-     * @return the amount in this ItemStack
+     * @param i Place of ItemStack in the inventory.
+     * @return The amount in this ItemStack.
      */
     public int getAmountInItemStack(int i) {
         return inventory[i].getAmount();
     }
     
     /**
-     * @return the lenght of the inventory
+     * @return The lenght of the inventory.
      */
     public int getLenghtInventory() {
         return inventory.length;
     }
     
     /**
-     * TODO
-     * @param id
-     * @param type
-     * @param much the amount 
-     * @return  
+     * @param id The id of the item to be added.
+     * @param type The type of the item to be added.
+     * @param amount The amount of the item to be added.
+     * @return  True if items have been added.
      */
-    public boolean addItemInInventory(int id, ItemType type,int much) {
+    public boolean addItemInInventory(int id, ItemType type,int amount) {
         ItemInterface ii= new ItemInterface();
         for(int i=0;i<getLenghtInventory();i++){
             try{
                 if(getIdItemStack(i)==id && getTypeItemStack(i)==type){
-                    if(ii.getMaxStacksize(id, type)>=getAmountInItemStack(i)+much){
-                        inventory[i].addItems(much);
+                    if(ii.getMaxStacksize(id, type)>=getAmountInItemStack(i)+amount){
+                        inventory[i].addItems(amount);
                         return true;
                     }
                     else if(ii.getMaxStacksize(id, type)==getAmountInItemStack(i)){
@@ -81,7 +80,7 @@ public class Inventory {
                     }
                     else{
                         int in= ii.getMaxStacksize(id, type)-getAmountInItemStack(i);
-                        much=much-in;
+                        amount=amount-in;
                         inventory[i].addItems(in);
                     }
                 } 
@@ -89,15 +88,15 @@ public class Inventory {
             catch(NullPointerException e){
                 inventory[i]=new ItemStack(id, type, 0);
                 int in=0;
-                if (much>=ii.getMaxStacksize(id, type)){
+                if (amount>=ii.getMaxStacksize(id, type)){
                     in= ii.getMaxStacksize(id, type);
                 }
                 else{
-                    in=much;
+                    in=amount;
                 }
-                much=much-in;
+                amount=amount-in;
                 inventory[i].addItems(in);
-                if(much==0){
+                if(amount==0){
                     return true;
                 }
             }
@@ -106,20 +105,19 @@ public class Inventory {
     }
     
     /**
-     * TODO
-     * @param id
-     * @param type
-     * @param much the amount 
-     * @return  
+     * @param id The id of the item to be removed.
+     * @param type The type of the item to be removed.
+     * @param amount The amount of the item to be removed.
+     * @return  True if items have been removed.
      */
-    public boolean removeItemInInventory(int id, ItemType type, int much){
+    public boolean removeItemInInventory(int id, ItemType type, int amount){
         int n = 0;
-        if(getAantal(id, type)>=much){
+        if(getAantal(id, type)>=amount){
             for(ItemStack is : inventory){
                 try{
                     if(is.getId()==id && is.getType()==type){
-                        if(is.getAmount()>=much){ 
-                            is.removeItems(much);
+                        if(is.getAmount()>=amount){ 
+                            is.removeItems(amount);
                             
                             if(is.getAmount() == 0){
                                 // itemstack is empty => remove it
@@ -128,7 +126,7 @@ public class Inventory {
                             return true;
                         }
                         else{
-                            much=much-is.getAmount();
+                            amount=amount-is.getAmount();
                             is.removeItems(is.getAmount());
                             if(is.getAmount() == 0){
                                 // itemstack is empty => remove it
@@ -149,10 +147,9 @@ public class Inventory {
     }
     
     /**
-     * TODO
-     * @param id
-     * @param type
-     * @return 
+     * @param id The id of the item.
+     * @param typeTje type of the item.
+     * @return The amount of the item in the inventory.
      */
     public int getAantal(int id, ItemType type){
         int aantal=0;
