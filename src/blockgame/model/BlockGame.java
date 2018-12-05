@@ -18,7 +18,7 @@ import java.util.Iterator;
 import javafx.application.Platform;
 
 /**
- * In BlockGame all the big views get put together.
+ * In BlockGame all the models get put together.
  * @author Jonas and Souhaib
  */
 public class BlockGame {
@@ -225,7 +225,7 @@ public class BlockGame {
     }
     
     /**
-     * TODO
+     * Adds one second to the time of the world.
      */
     public void secPlusEen() {
         world.secPlusEen();
@@ -390,39 +390,35 @@ public class BlockGame {
     }
     
     /**
-     * TODO
-     * @return hour
+     * @return The current hour of the world.
      */
     public int getHour(){
         return world.getHour();
     }
     
     /**
-     *TODO
-     * @return min
+     * @return The current minute of the world.
      */
     public int getMin(){
         return world.getMin();
     }
     
     /**
-     * TODO
-     * @return sec
+     * @return The current second of the world.
      */
     public int getSec(){
         return world.getSec();
     }
     
     /**
-     * TODO
-     * @return 
+     * @return A iterator of all keys currently being held.
      */
     public Iterator<Key> getKeysBeingHeldIterator(){
         return keysBeingHeld.iterator();
     }
 
     /**
-     * @return the craft
+     * @return The craft model being used.
      */
     public Crafting getCraft() {
         return craft;

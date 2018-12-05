@@ -5,11 +5,9 @@
  */
 package blockgame.View;
 
-import blockgame.model.Block;
 import blockgame.model.ImageInterface;
 import blockgame.model.GUITop;
 import blockgame.model.ItemInterface;
-import blockgame.model.ItemType;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -67,7 +65,5 @@ public class GUITopView extends Region{
                 getChildren().addAll(iv,t);
             }
         }
-        
     }
-    
 }

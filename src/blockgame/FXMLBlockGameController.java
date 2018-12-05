@@ -81,7 +81,7 @@ public class FXMLBlockGameController {
     
     /**
      * Sets the model
-     * @param model the model used
+     * @param model The model used.
      */
     public void setModel(BlockGame model){
         this.model = model;
@@ -114,8 +114,8 @@ public class FXMLBlockGameController {
     }
     
     /**
-     * Sends the coordinates of the left/right click to the model
-     * @param e the mousevent of the click
+     * Sends the coordinates of the left/right click to the model.
+     * @param e The mousevent of the click.
      */
     public void geklikt(MouseEvent e){
         double x = e.getX();
@@ -132,8 +132,8 @@ public class FXMLBlockGameController {
     }
     
     /**
-     * exports the currently loaded world
-     * @param name the name the world will be called
+     * Exports the currently loaded world.
+     * @param name The name the world will be called.
      */
     public void exportWorld(String name){
         label.setText("");
@@ -148,8 +148,8 @@ public class FXMLBlockGameController {
     }
     
     /**
-     * load the world with name
-     * @param name the name of the world that should be loaded
+     * Loads the world with name.
+     * @param name The name of the world that should be loaded.
      */
     public void loadWorld(String name){
         label.setText("");
@@ -164,7 +164,7 @@ public class FXMLBlockGameController {
     }
     
     /**
-     * Updates the view
+     * Updates the view.
      */
     public void update(){
         view.update();
@@ -233,8 +233,8 @@ public class FXMLBlockGameController {
     }
     
     /**
-     * Changes the background 
-     * @param c: The color for the background
+     * Changes the background color
+     * @param c The new color for the background.
      */
     public void setBackground(Color c) {
         grafischPaneel.setBackground(new Background(new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY)));

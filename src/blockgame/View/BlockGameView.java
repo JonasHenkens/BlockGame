@@ -31,10 +31,10 @@ public class BlockGameView extends Region{
     /**
      * Constructor of the BlockGameView.
      * @param model This is the BlockGame used for the view.
-     * @param world
-     * @param guiTop
-     * @param person
-     * @param craft
+     * @param world This is the world used for the view.
+     * @param guiTop This is the GuiTop used for the view.
+     * @param person This is the person used for the view.
+     * @param craft This is the craft model used for the view.
      */
     public BlockGameView(BlockGame model, World world, GUITop guiTop, Person person, Crafting craft) {
         this.model = model;

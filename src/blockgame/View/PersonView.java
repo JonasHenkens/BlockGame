@@ -32,20 +32,9 @@ public class PersonView extends Region{
     public void update(){
         getChildren().clear();
         
-        
         Image i = new Image(model.getTexture());
         ImageView iv = new ImageView(i);
         getChildren().add(iv);
-        
-        // temp to check range
-//        double x = model.getWidth()/2;
-//        double y = model.getHeight()/2;
-//        Circle cirkel1 = new Circle(x, y, 3.5*16);
-//        cirkel1.setFill(Color.TRANSPARENT);
-//        cirkel1.setStroke(Color.RED);
-//        
-//        getChildren().addAll(cirkel1);
-        
     }
     
     

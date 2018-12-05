@@ -63,13 +63,11 @@ public class Block extends Item{
     public void setVisible(boolean visible) {
         this.visible = visible;
     }
-
     
 
     // getters
     
     
-
     /**
      * @return The id of the item dropped when breaking the block.
      */
@@ -99,7 +97,7 @@ public class Block extends Item{
     }
 
     /**
-     * @return the dropType
+     * @return The type of the item to be dropped when broken.
      */
     public ItemType getDropType() {
         return dropType;

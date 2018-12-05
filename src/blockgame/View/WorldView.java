@@ -71,8 +71,6 @@ public class WorldView extends Region{
                         blockViews[i][j].update();
                     }
                 }
-                    
-                
             }
         }
     }
