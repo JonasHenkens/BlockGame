@@ -15,10 +15,10 @@ public class Time {
     private int sec;
 
     /**
-     *  Constructor of the class Time
-     * @param sec
-     * @param min
-     * @param hour
+     * Constructor of the class Time
+     * @param sec The current second.
+     * @param min The current minute.
+     * @param hour The current hour.
      */
     public Time(int sec, int min, int hour) {
         this.sec=sec;
@@ -27,7 +27,7 @@ public class Time {
     }
 
     /**
-     *  Adds 1 sec. to the sec
+     *  Adds 1 seconds.
      *  Checks if the min or the uren has to change 
      */
     public void secPlusEen() {

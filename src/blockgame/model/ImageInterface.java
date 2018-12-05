@@ -60,7 +60,6 @@ public class ImageInterface {
     
     
     /**
-     * 
      * @param id The id of the item.
      * @param type The type of the item.
      * @return Returns the image of an item. Returns null if it doesn't exist.

@@ -57,6 +57,8 @@ public class Block extends Item{
         return health == 0.0;
     }
 
+    // setters
+    
     /**
      * @param visible True for block is visible.
      */
@@ -66,7 +68,6 @@ public class Block extends Item{
     
 
     // getters
-    
     
     /**
      * @return The id of the item dropped when breaking the block.

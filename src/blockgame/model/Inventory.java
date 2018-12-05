@@ -27,40 +27,6 @@ public class Inventory {
     }
     
     /**
-     * @param i Place of ItemStack in the inventory.
-     * @return Id of the ItemStack.
-     */
-    public int getIdItemStack(int i){
-        return inventory[i].getId();
-    }
-    
-    /**
-     * @param i Place of ItemStack in the inventory.
-     * @return Type of the ItemStack.
-     */
-    public ItemType getTypeItemStack(int i){
-        if(inventory[i] != null){
-            return inventory[i].getType();
-        }
-        else return ItemType.nothing;
-    }
-    
-    /**
-     * @param i Place of ItemStack in the inventory.
-     * @return The amount in this ItemStack.
-     */
-    public int getAmountInItemStack(int i) {
-        return inventory[i].getAmount();
-    }
-    
-    /**
-     * @return The lenght of the inventory.
-     */
-    public int getLenghtInventory() {
-        return inventory.length;
-    }
-    
-    /**
      * @param id The id of the item to be added.
      * @param type The type of the item to be added.
      * @param amount The amount of the item to be added.
@@ -146,9 +112,12 @@ public class Inventory {
     return false;
     }
     
+    
+    // getters
+    
     /**
      * @param id The id of the item.
-     * @param typeTje type of the item.
+     * @param type The type of the item.
      * @return The amount of the item in the inventory.
      */
     public int getAantal(int id, ItemType type){
@@ -162,6 +131,40 @@ public class Inventory {
         }
         
         return aantal;
+    }
+    
+    /**
+     * @param i Place of ItemStack in the inventory.
+     * @return Id of the ItemStack.
+     */
+    public int getIdItemStack(int i){
+        return inventory[i].getId();
+    }
+    
+    /**
+     * @param i Place of ItemStack in the inventory.
+     * @return Type of the ItemStack.
+     */
+    public ItemType getTypeItemStack(int i){
+        if(inventory[i] != null){
+            return inventory[i].getType();
+        }
+        else return ItemType.nothing;
+    }
+    
+    /**
+     * @param i Place of ItemStack in the inventory.
+     * @return The amount in this ItemStack.
+     */
+    public int getAmountInItemStack(int i) {
+        return inventory[i].getAmount();
+    }
+    
+    /**
+     * @return The lenght of the inventory.
+     */
+    public int getLenghtInventory() {
+        return inventory.length;
     }
 }
     

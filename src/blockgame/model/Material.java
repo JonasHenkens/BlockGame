@@ -11,6 +11,11 @@ package blockgame.model;
  */
 public class Material extends Item {
 
+    /**
+     * @param id The id of the material.
+     * @param name The name of the material.
+     * @param texture The texture of the material.
+     */
     public Material(int id, String name, String texture) {
         this.id = id;
         this.maxStackSize = 50;

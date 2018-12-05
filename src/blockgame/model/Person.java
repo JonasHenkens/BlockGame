@@ -156,8 +156,6 @@ public class Person {
         }
     }
     
-    
-    
     /**
      * @param id The id of the item to be removed.
      * @param type The type of the item to be removed.
@@ -169,8 +167,6 @@ public class Person {
         return verwijderd;
     }
 
-    
-    
     /**
      * @param id The id of the item to be added.
      * @param type The type of the item to be added.
@@ -180,7 +176,6 @@ public class Person {
     public boolean addItem(int id, ItemType type, int amount){
         return inventory.addItemInInventory(id, type, amount);
     }
-    
     
     
     // setters
@@ -216,8 +211,6 @@ public class Person {
         this.spawnX = spawnX;
         this.spawnY = spawnY;
     }
-    
-    
     
     
     // getters

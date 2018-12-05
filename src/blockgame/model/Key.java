@@ -6,7 +6,7 @@
 package blockgame.model;
 
 /**
- *
+ * The keys that can be pressed.
  * @author Jonas
  */
 public enum Key {

@@ -231,6 +231,13 @@ public class FXMLBlockGameController {
         }
         update();
     }
+
+    /**
+     *  Changes the label with the time.
+     */
+    public void updateTimeText() {
+        timeLabel.setText("Time: " + model.getHour()+":"+model.getMin()+":"+model.getSec());
+    }
     
     /**
      * Changes the background color
@@ -238,13 +245,6 @@ public class FXMLBlockGameController {
      */
     public void setBackground(Color c) {
         grafischPaneel.setBackground(new Background(new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY)));
-    }
-
-    /**
-     *  Changes the label with the time.
-     */
-    public void updateTimeText() {
-        timeLabel.setText("Time: " + model.getHour()+":"+model.getMin()+":"+model.getSec());
     }
 
 }

@@ -61,7 +61,7 @@ public class ItemInterface {
     
     /**
      * Add a material to the materials list. This replaces an already existing material if the same id is used.
-     * @param material 
+     * @param material The material that will be added.
      */
     public void addMaterial(Material material){
         
@@ -74,7 +74,7 @@ public class ItemInterface {
     
     /**
      * Add a tool to the materials list. This replaces an already existing tool if the same id is used.
-     * @param tool 
+     * @param tool The tool that will be added.
      */
     public void addTool(Tool tool){
         
@@ -84,6 +84,9 @@ public class ItemInterface {
         tools[tool.getId()] = tool;
         
     }
+    
+    
+    // getters
     
     /**
      * @param id Id of the block.

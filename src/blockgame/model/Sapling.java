@@ -81,7 +81,7 @@ public class Sapling extends Block{
     }
 
     /**
-     * @return the progress
+     * @return The progress of the sapling.
      */
     public double getProgress() {
         return progress;

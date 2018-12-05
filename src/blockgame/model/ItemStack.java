@@ -16,10 +16,9 @@ public class ItemStack {
     private int maxStackSize;
 
     /**
-     *
-     * @param id
-     * @param type
-     * @param amount
+     * @param id The id of the items stored in the itemstack.
+     * @param type The type of the items stored in the itemstack.
+     * @param amount The amount of the item stored in the itemstack.
      */
     public ItemStack(int id, ItemType type, int amount) {
         this.id = id;
@@ -59,28 +58,28 @@ public class ItemStack {
     }
     
     /**
-     * @return the amount
+     * @return The amount in the itemstack.
      */
     public int getAmount() {
         return amount;
     }
 
     /**
-     * @return the id
+     * @return The id of the items in the itemstack.
      */
     public int getId() {
         return id;
     }
 
     /**
-     * @return the type
+     * @return The type of the items in the itemstack.
      */
     public ItemType getType() {
         return type;
     }
 
     /**
-     * @return the maxStackSize
+     * @return The maximum stack size of the items in the itemstack.
      */
     public int getMaxStackSize() {
         return maxStackSize;

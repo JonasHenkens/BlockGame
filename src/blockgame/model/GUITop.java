@@ -21,6 +21,7 @@ public class GUITop{
 
     /**
      * Constructor of GUITop.
+     * @param person The person that the GUITop is linked to
      */
     public GUITop(Person person) {
         this.person = person;
@@ -35,20 +36,6 @@ public class GUITop{
         
         ItemInterface ii = new ItemInterface();
         
-    }
-
-    /**
-     * @return The height of the interface.
-     */
-    public int getHeight() {
-        return height;
-    }
-
-    /**
-     * @return The width of the interface.
-     */
-    public int getWidth() {
-        return width;
     }
     
     /**
@@ -83,8 +70,8 @@ public class GUITop{
         }
     }
     
+    
     // getters
-
 
     /**
      * @return The place of the currently selected block.
@@ -119,11 +106,24 @@ public class GUITop{
     /**
      * The amount in the stack.
      * @param i 
+     * @return The amount of items in the stack.
      */
     public int getAmount(int i) {
         return person.getInventoryItemAmount(i);
     }
-    
-    
+
+    /**
+     * @return The height of the interface.
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    /**
+     * @return The width of the interface.
+     */
+    public int getWidth() {
+        return width;
+    }
     
 }

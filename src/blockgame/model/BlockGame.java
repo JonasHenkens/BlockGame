@@ -301,7 +301,6 @@ public class BlockGame {
     
     // setters
 
-    
     /**
      * @param vx The new speed in the x direction in blocks/sec.
      */
