@@ -23,26 +23,15 @@ public class ItemStackDeserializer implements JsonDeserializer<ItemStack>{
     @Override
     public ItemStack deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jObject = json.getAsJsonObject();
-        System.out.println(jObject);
         // extract variables from json object
-        ItemType itemType;
-        String type = jObject.get("type").getAsString();
-        System.out.println(type);
-        
-        if(type.equals(ItemType.block.toString())){
-            itemType = ItemType.block;
-        }
-        else if(type.equals(ItemType.nothing.toString())){
-            itemType = ItemType.nothing;
-        }
-        else {
-            return null;
-        }
         
         int id = jObject.get("id").getAsInt();
+        JsonElement jType = jObject.get("type");
+        ItemType type = context.deserialize(jType, ItemType.class);
         int amount = jObject.get("amount").getAsInt();
         
-        return new ItemStack(id, itemType, amount);
+        
+        return new ItemStack(id, type, amount);
     }
     
     

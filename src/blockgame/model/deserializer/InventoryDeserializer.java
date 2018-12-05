@@ -27,7 +27,6 @@ public class InventoryDeserializer implements JsonDeserializer<Inventory> {
         // bron deserialize nested objects: http://www.javacreed.com/gson-deserialiser-example/
         ItemStack[] inventory = context.deserialize(jObject.get("inventory"), ItemStack[].class);
         Inventory inv = new Inventory(inventory);
-        System.out.println(inv);
         return inv;
         
         

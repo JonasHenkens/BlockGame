@@ -47,7 +47,6 @@ public class WorldInterface {
     }
 
     Person getPerson(String name) {
-            System.out.println("A");
         try {
             GsonBuilder gsonBouwer = new GsonBuilder();
             gsonBouwer.registerTypeAdapter(Person.class, new PersonDeserializer());
@@ -55,7 +54,6 @@ public class WorldInterface {
             gsonBouwer.registerTypeAdapter(ItemStack.class, new ItemStackDeserializer());
             Gson gson2 = gsonBouwer.create();
             Person newPerson = gson2.fromJson(new FileReader("src/blockgame/worlds/" + name + "/person.json"),Person.class);
-            System.out.println("B");
             return newPerson;
         } 
         catch (FileNotFoundException ex) {

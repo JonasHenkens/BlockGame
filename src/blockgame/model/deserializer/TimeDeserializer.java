@@ -22,7 +22,6 @@ public class TimeDeserializer implements JsonDeserializer<Time>{
     @Override
     public Time deserialize(JsonElement js, Type type, JsonDeserializationContext jdc) throws JsonParseException {
         JsonObject jObject = js.getAsJsonObject();
-        System.out.println(jObject);
         int sec = jObject.get("sec").getAsInt();
         int min = jObject.get("min").getAsInt();
         int hour = jObject.get("hour").getAsInt();

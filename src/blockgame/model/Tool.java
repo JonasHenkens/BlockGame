@@ -12,7 +12,6 @@ package blockgame.model;
 public class Tool extends Item {
     
     /**
-     * 
      * @param id The id of the tool.
      * @param strength The strength of the tool.
      * @param name The name of the tool.
