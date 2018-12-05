@@ -12,81 +12,69 @@ package blockgame.model;
 public class Crafting {
     private boolean geopend;
     private Person person;
-    private double height;
-    private double width;
     private BlockGame blockGame;
     
     public Crafting(Person person, BlockGame blockGame) {
         geopend = false;
         this.person = person;
         this.blockGame = blockGame;
-        height=240;
-        width=500;
     }
     
     public void setGeopend() {
         geopend = !geopend;
     }
     
-    public void makeGoldIngot(){
-        int aantalg=person.getInventoryAmount(7, ItemType.block);
+    public void makeMaterial(int id){
         int aantalc=person.getInventoryAmount(3, ItemType.material);
         
-        if(aantalg>=1 && aantalc>=2){
-            person.removeInventoryItem(7, ItemType.block, 1);
-            person.removeInventoryItem(3, ItemType.material, 2);
-            person.addItem(1, ItemType.material,1);
-            System.out.println("Gelukt!!");
-        }
-        else{
-            System.out.println("Mislukt!!");
+        switch (id) {
+            case 0:
+                int aantali=person.getInventoryAmount(5, ItemType.block);
+                if(aantali>=1 && aantalc>=1){
+                    person.removeInventoryItem(5, ItemType.block, 1);
+                    person.removeInventoryItem(3, ItemType.material, 1);
+                    person.addItem(id, ItemType.material, 1);
+                    System.out.println("Gelukt!!");
+                }
+                break;
+            case 1:
+                int aantalg=person.getInventoryAmount(7, ItemType.block);
+                if(aantalg>=1 && aantalc>=2){
+                    person.removeInventoryItem(7, ItemType.block, 1);
+                    person.removeInventoryItem(3, ItemType.material, 2);
+                    person.addItem(id, ItemType.material,1);
+                    System.out.println("Gelukt!!");
+                }
+                break;
+            case 2:
+                int aantald=person.getInventoryAmount(6, ItemType.block);
+                if(aantald>=1 && aantalc>=3){
+                    person.removeInventoryItem(6, ItemType.block, 1);
+                    person.removeInventoryItem(3, ItemType.material, 3);
+                    person.addItem(id, ItemType.material,1);
+                    System.out.println("Gelukt!!");
+                }
+                break;
         }
         blockGame.getView().update();
     }
     
-    public void makeIronIngot(){
-        int aantali=person.getInventoryAmount(5, ItemType.block);
-        int aantalc=person.getInventoryAmount(3, ItemType.material);
-
-        if(aantali>=1 && aantalc>=1){
-            person.removeInventoryItem(5, ItemType.block, 1);
-            person.removeInventoryItem(3, ItemType.material, 1);
-            person.addItem(0, ItemType.material, 1);
-            System.out.println("Gelukt!!");
+    public void makePickaxe(int id){
+        int amountw=person.getInventoryAmount(8, ItemType.block);
+        switch (id) {
+            case 0:
+                if(amountw>=5){
+                    person.removeInventoryItem(8, ItemType.block, 5);
+                    person.addItem(0, ItemType.tool, 1);
+                    System.out.println("Gelukt!!");
+                }
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
         }
-        else{
-            System.out.println("Mislukt!!");
-        }
-        blockGame.getView().update();
-    }
-    
-    public void makeDiamant(){
-        int aantald=person.getInventoryAmount(6, ItemType.block);
-        int aantalc=person.getInventoryAmount(3, ItemType.material);
         
-        if(aantald>=1 && aantalc>=3){
-            person.removeInventoryItem(6, ItemType.block, 1);
-            person.removeInventoryItem(3, ItemType.material, 3);
-            person.addItem(2, ItemType.material,1);
-            System.out.println("Gelukt!!");
-        }
-        else{
-            System.out.println("Mislukt!!");
-        }
-        blockGame.getView().update();
-    }
-    
-    public void makeWoodPickaxe(){
-        int amount=person.getInventoryAmount(8, ItemType.block);
-        
-        if(amount>=4){
-            person.removeInventoryItem(8, ItemType.block, 4);
-            person.addItem(0, ItemType.tool, 1);
-            System.out.println("Gelukt!!");
-        }
-        else{
-            System.out.println("Mislukt!!");
-        }
         blockGame.getView().update();
     }
     
@@ -166,16 +154,18 @@ public class Crafting {
     }
 
     /**
-     * @return the height
+     * @return the height: this is always 24 pixels high 
      */
     public double getHeight() {
+        double height = 240;
         return height;
     }
 
     /**
-     * @return the width
+     * @return the width: this is always 500 pixels long 
      */
     public double getWidth() {
+        double width = 500;
         return width;
     }
     

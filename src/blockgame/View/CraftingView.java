@@ -71,20 +71,20 @@ public class CraftingView extends Region{
         mi.setFocusTraversable(false);
         mi.setTranslateX(750);
         mi.setTranslateY(100);
-        mi.setOnMouseClicked(e->model.makeIronIngot());
+        mi.setOnMouseClicked(e->model.makeMaterial(0));
         mi.setOnMouseClicked(e->craftKader());
         
         Button mg = new Button("GOLD INGOT");
         mg.setFocusTraversable(false);
         mg.setTranslateX(900);
         mg.setTranslateY(100);
-        mg.setOnMouseClicked(e->model.makeGoldIngot());
+        mg.setOnMouseClicked(e->model.makeMaterial(1));
         
         Button md = new Button("DIAMOND");
         md.setFocusTraversable(false);
         md.setTranslateX(1050);
         md.setTranslateY(100);
-        md.setOnMouseClicked(e->model.makeDiamant());
+        md.setOnMouseClicked(e->model.makeMaterial(2));
         
         getChildren().addAll(li, md, mi, mg);
         
