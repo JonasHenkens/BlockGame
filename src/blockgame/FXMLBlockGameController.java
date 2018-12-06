@@ -77,6 +77,8 @@ public class FXMLBlockGameController {
         grafischPaneel.setFocusTraversable(true);
         achtergrond.setFocusTraversable(false);
         craftButton.setFocusTraversable(false);
+        resetWorld.setFocusTraversable(false);
+        cheatButton.setFocusTraversable(false);
         
         
         grafischPaneel.setOnMouseClicked(this::geklikt);
