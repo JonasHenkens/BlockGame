@@ -37,19 +37,17 @@ public class Time {
     }
 
     /**
-     * @return the min
+     *  Reset the sec, min and hour
      */
-    public int getMin() {
-        return min;
+    public void reset() {
+        hour=0;
+        sec=0;
+        min=0;
     }
 
-    /**
-     * @return the uren
-     */
-    public int getHour() {
-        return hour;
-    }
-
+    
+    // setters
+    
     /**
      *  If there is 60 sec: change it to 
      *  1 min and 0 sec
@@ -72,20 +70,28 @@ public class Time {
         }
     }
 
+    
+    // getters
+    
     /**
-     * @return the sec
+     * @return The current hour.
      */
-    public int getSec() {
-        return sec;
+    public int getHour() {
+        return hour;
     }
 
     /**
-     *  Reset the sec, min and hour
+     * @return The current minute.
      */
-    public void reset() {
-        hour=0;
-        sec=0;
-        min=0;
+    public int getMin() {
+        return min;
+    }
+
+    /**
+     * @return The current second.
+     */
+    public int getSec() {
+        return sec;
     }
     
 }

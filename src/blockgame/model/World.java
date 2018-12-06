@@ -51,8 +51,17 @@ public class World {
                 updateVisibilityAll();
                 // return item that has been dropped
                 ItemInterface ii = new ItemInterface();
-                return ii.getItem(b.getDropId(), b.getDropType());
+                if(b.getId() == 9){
+                    double random = Math.random()*100;
+                    if(random <40){
+                        return ii.getItem(b.getDropId(), b.getDropType());
+                    }
+                    else{
+                        return null;
+                    }
+                }
                 
+                return ii.getItem(b.getDropId(), b.getDropType());
             }
             else{
                 return null;
@@ -69,6 +78,7 @@ public class World {
      * @param y The y coordinate of the mouseclick.
      * @param id The id of the item that has been used to click.
      * @param type The type of the item that has been used to click.
+     * @return True if block is placed.
      */
     public boolean placeBlock(double x, double y, int id, ItemType type){
         if(type == ItemType.block){
@@ -117,7 +127,6 @@ public class World {
             else{
                 blocks[i][j] = null;
             }
-            
         }
         // grass layer
         for(int i = 0;i<sizeX;i++){
@@ -166,6 +175,10 @@ public class World {
         }
     }
     
+    /**
+     * Replaces the current world with the new one.
+     * @param nieuw The world that will replace the current one.
+     */
     public void renew(World nieuw){
         sizeX = nieuw.getSizeX();
         sizeY = nieuw.getSizeY();
@@ -260,7 +273,20 @@ public class World {
                     int saplingLeavesId = s.getLeavesId();
                     int saplingX = i;
                     int saplingY = j;
-                    boolean mature = s.addRandomProgress();
+                    boolean mature = false;
+                    
+                    if(blocks[i][j+1] != null){
+                        if((blocks[i][j+1].getId() == 1 || blocks[i][j+1].getId() == 2) && blocks[i][j+1].getItemType() == ItemType.block){
+                            mature = s.addRandomProgress();
+                        }
+                        else{
+                            mature = false;
+                        }
+                    }
+                    else{
+                        mature = false;
+                    }
+                    
                     if(mature){
                         // tree is mature => check if space around is free to place blocks
                         // trunk has to have space, leaves don't (won't be placed when block is in the way)
