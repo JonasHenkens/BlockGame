@@ -42,7 +42,6 @@ public class Inventory {
                         return true;
                     }
                     else if(ii.getMaxStacksize(id, type)==getAmountInItemStack(i)){
-                        System.out.println("ERROR: Itemstack of this item is full.");
                     }
                     else{
                         int in= ii.getMaxStacksize(id, type)-getAmountInItemStack(i);

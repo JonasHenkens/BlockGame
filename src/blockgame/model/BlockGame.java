@@ -198,6 +198,14 @@ public class BlockGame {
         view.update();
     }
     
+    /**
+     * Resets the person and world.
+     */
+    public void resetWorld(){
+        world.loadNewWorld();
+        person.renew(new Person(0, 0, "blockgame/textures/person.png"));
+    }
+    
     
     /**
      * Moves the person.
@@ -421,5 +429,12 @@ public class BlockGame {
      */
     public Crafting getCraft() {
         return craft;
+    }
+
+    /**
+     * @return The current person.
+     */
+    public Person getPerson() {
+        return person;
     }
 }

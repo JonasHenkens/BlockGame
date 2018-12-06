@@ -41,7 +41,7 @@ public class WorldInterface {
             return newWorld;
         } 
         catch (FileNotFoundException ex) {
-            System.out.println("ERROR: Couldn't find world file.");
+            // file not found, return null
             return null;
         }
     }
@@ -57,7 +57,7 @@ public class WorldInterface {
             return newPerson;
         } 
         catch (FileNotFoundException ex) {
-            System.out.println("ERROR: Couldn't find person file.");
+            // file not found, return null
             return null;
         }
     }

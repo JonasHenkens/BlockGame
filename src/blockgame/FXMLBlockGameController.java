@@ -2,7 +2,9 @@ package blockgame;
 
 import blockgame.model.BlockGame;
 import blockgame.View.BlockGameView;
+import blockgame.model.ItemType;
 import blockgame.model.Key;
+import blockgame.model.Person;
 import blockgame.thread.DayNight;
 import blockgame.thread.Ticker;
 import blockgame.thread.TimeThread;
@@ -62,6 +64,12 @@ public class FXMLBlockGameController {
     private AnchorPane achtergrond;
 
     @FXML
+    private Button resetWorld;
+
+    @FXML
+    private Button cheatButton;
+
+    @FXML
     void initialize() {
         worldName.setFocusTraversable(false);
         loadWorld.setFocusTraversable(false);
@@ -74,6 +82,8 @@ public class FXMLBlockGameController {
         grafischPaneel.setOnMouseClicked(this::geklikt);
         loadWorld.setOnMouseClicked(e -> loadWorld(worldName.getText()));
         saveWorld.setOnMouseClicked(e -> exportWorld(worldName.getText()));
+        resetWorld.setOnMouseClicked(e -> resetWorld());
+        cheatButton.setOnMouseClicked(e -> spawnItems());
         hoofdGrafischPaneel.setOnKeyPressed(this::keyPressed);
         hoofdGrafischPaneel.setOnKeyReleased(this::keyReleased);
         craftButton.setOnMouseClicked (e -> craftmenu());
@@ -164,6 +174,13 @@ public class FXMLBlockGameController {
     }
     
     /**
+     * Resets the world and person.
+     */
+    public void resetWorld(){
+        model.resetWorld();
+    }
+    
+    /**
      * Updates the view.
      */
     public void update(){
@@ -245,6 +262,31 @@ public class FXMLBlockGameController {
      */
     public void setBackground(Color c) {
         grafischPaneel.setBackground(new Background(new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY)));
+    }
+    
+    public void spawnItems(){
+        Person person = model.getPerson();
+        person.addItem(1, ItemType.block, 25);
+        person.addItem(2, ItemType.block, 25);
+        person.addItem(3, ItemType.block, 25);
+        person.addItem(4, ItemType.block, 25);
+        person.addItem(5, ItemType.block, 25);
+        person.addItem(6, ItemType.block, 25);
+        person.addItem(7, ItemType.block, 25);
+        person.addItem(8, ItemType.block, 25);
+        person.addItem(9, ItemType.block, 25);
+        person.addItem(10, ItemType.block, 25);
+        person.addItem(3, ItemType.material, 25);
+        person.addItem(0, ItemType.material, 25);
+        person.addItem(1, ItemType.material, 25);
+        person.addItem(2, ItemType.material, 25);
+        person.addItem(0, ItemType.tool, 1);
+        person.addItem(1, ItemType.tool, 1);
+        person.addItem(3, ItemType.tool, 1);
+        person.addItem(4, ItemType.tool, 1);
+        person.addItem(2, ItemType.tool, 1);
+        
+        update();
     }
 
 }
