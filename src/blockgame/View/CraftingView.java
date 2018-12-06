@@ -105,24 +105,23 @@ public class CraftingView extends Region{
         Button ps = new Button("STONE");
         ps.setTranslateX(820);
         ps.setTranslateY(145);
-        ps.setOnMouseClicked(e->model.makeStonePickaxe());
+        ps.setOnMouseClicked(e->model.makePickaxe(1));
         
         Button pi = new Button("IRON");
         pi.setTranslateX(905);
         pi.setTranslateY(145);
-        pi.setOnMouseClicked(e->model.makeIronPickaxe());
+        pi.setOnMouseClicked(e->model.makePickaxe(3));
         
         Button pg = new Button("GOLD");
         pg.setTranslateX(980);
         pg.setTranslateY(145);
-        pg.setOnMouseClicked(e->model.makeGoldPickaxe());
+        pg.setOnMouseClicked(e->model.makePickaxe(4));
         
         Button pd = new Button("DIAMOND");
         pd.setTranslateX(1050);
         pd.setTranslateY(145);
-        pd.setOnMouseClicked(e->model.makeDiamondPickaxe());
+        pd.setOnMouseClicked(e->model.makePickaxe(2));
         
         getChildren().addAll(lp, pw, ps, pi, pg, pd);
-    }
-    
+    }   
 }
