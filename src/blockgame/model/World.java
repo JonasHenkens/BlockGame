@@ -5,6 +5,12 @@
  */
 package blockgame.model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import sun.audio.*;
+
 
 /**
  * A world is made of blocks.
@@ -47,7 +53,17 @@ public class World {
             if(isBroken){
                 //remove block from world
                 blocks[(int)(x/16)][(int)(y/16)] = null;
-                
+                // play sound
+                // bron: https://alvinalexander.com/java/java-audio-example-java-au-play-sound
+                try{
+                    String soundFile = b.getBreakSound();
+                    InputStream inputStream = new FileInputStream(soundFile);
+                    AudioStream audioStream = new AudioStream(inputStream);
+                    AudioPlayer.player.start(audioStream);
+                }
+                catch(IOException e){
+                    // no sound :(
+                }
                 updateVisibilityAll();
                 // return item that has been dropped
                 ItemInterface ii = new ItemInterface();
@@ -91,6 +107,17 @@ public class World {
                 blocks[bX][bY] = block;
                 // check for visibility
                 updateVisibilityAll();
+                // play sound
+                // bron: https://alvinalexander.com/java/java-audio-example-java-au-play-sound
+                try{
+                    String soundFile = block.getPlaceSound();
+                    InputStream inputStream = new FileInputStream(soundFile);
+                    AudioStream audioStream = new AudioStream(inputStream);
+                    AudioPlayer.player.start(audioStream);
+                }
+                catch(IOException e){
+                    // no sound :(
+                }
                 return true;
             }
             else{

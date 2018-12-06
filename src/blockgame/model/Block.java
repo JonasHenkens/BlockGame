@@ -16,7 +16,8 @@ public class Block extends Item{
     private int dropId;
     private ItemType dropType;
     private boolean visible;
-
+    private String placeSound;
+    private String breakSound;
     /**
      * Constructor of the Block.
      * @param texture Path to the texture of the block.
@@ -26,8 +27,10 @@ public class Block extends Item{
      * @param dropId Id of the item that will be dropped when broken.
      * @param dropType Type of the item that will be dropped when broken.
      * @param name Name of the block.
+     * @param placeSound Path to the sound to be played when block is placed.
+     * @param breakSound Path to the sound to be played when block is broken.
      */
-    public Block(String texture, double health, double hardness, int id, int dropId, ItemType dropType, String name) {
+    public Block(String texture, double health, double hardness, int id, int dropId, ItemType dropType, String name, String placeSound, String breakSound) {
         this.texture = texture;
         this.health = health;
         this.hardness = hardness;
@@ -39,6 +42,8 @@ public class Block extends Item{
         visible = false;
         maxStackSize = 50;
         strength = 1;
+        this.placeSound = placeSound;
+        this.breakSound = breakSound;
     }
     
     /**
@@ -102,6 +107,20 @@ public class Block extends Item{
      */
     public ItemType getDropType() {
         return dropType;
+    }
+
+    /**
+     * @return Path to the sound to be played when block is placed.
+     */
+    public String getPlaceSound() {
+        return placeSound;
+    }
+
+    /**
+     * @return Path to the sound to be played when block is broken.
+     */
+    public String getBreakSound() {
+        return breakSound;
     }
     
 }

@@ -19,17 +19,17 @@ public class ItemInterface {
      */
     public ItemInterface() {
         blocks = new Block[1024];
-        addBlock(new Block("blockgame/textures/blocks/noTexture.png", 20, 3, 0, 0, ItemType.block, "noTexture"));
-        addBlock(new Block("blockgame/textures/blocks/dirt.png", 1, 1, 1, 1, ItemType.block, "dirt"));
-        addBlock(new Block("blockgame/textures/blocks/grass_side.png", 1, 1.25, 2, 2, ItemType.block, "grass"));
-        addBlock(new Block("blockgame/textures/blocks/stone.png", 5, 3, 3, 3, ItemType.block, "stone"));
-        addBlock(new Block("blockgame/textures/blocks/coal_ore.png", 5, 3, 4, 3, ItemType.material, "coal ore"));
-        addBlock(new Block("blockgame/textures/blocks/iron_ore.png", 7, 4, 5, 5, ItemType.block, "iron ore"));
-        addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore"));
-        addBlock(new Block("blockgame/textures/blocks/gold_ore.png", 8, 5, 7, 7, ItemType.block, "gold ore"));
-        addBlock(new Block("blockgame/textures/blocks/log_oak.png", 4, 2, 8, 8, ItemType.block, "wood"));
-        addBlock(new Block("blockgame/textures/blocks/leaves_oak.png", 1, 1, 9, 10, ItemType.block, "leaves"));
-        addBlock(new Sapling("blockgame/textures/blocks/sapling_oak.png", 1, 1, 10, 10, ItemType.block, "sapling", 8, 9));
+        addBlock(new Block("blockgame/textures/blocks/noTexture.png",   20, 3, 0, 0, ItemType.block, "noTexture",   "", ""));
+        addBlock(new Block("blockgame/textures/blocks/dirt.png",        1, 1, 1, 1, ItemType.block, "dirt",         "src/blockgame/audio/dirt_place.wav", "src/blockgame/audio/dirt_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/grass_side.png",  1, 1.25, 2, 2, ItemType.block, "grass",     "src/blockgame/audio/grass_place.wav", "src/blockgame/audio/grass_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/stone.png",       5, 3, 3, 3, ItemType.block, "stone",        "src/blockgame/audio/stone_place.wav", "src/blockgame/audio/stone_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/coal_ore.png",    5, 3, 4, 3, ItemType.material, "coal ore",  "src/blockgame/audio/stone_place.wav", "src/blockgame/audio/stone_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/iron_ore.png",    7, 4, 5, 5, ItemType.block, "iron ore",     "src/blockgame/audio/stone_place.wav", "src/blockgame/audio/stone_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/diamond_ore.png", 15, 10, 6, 6, ItemType.block, "diamond ore","src/blockgame/audio/stone_place.wav", "src/blockgame/audio/stone_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/gold_ore.png",    8, 5, 7, 7, ItemType.block, "gold ore",     "src/blockgame/audio/stone_place.wav", "src/blockgame/audio/stone_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/log_oak.png",     4, 2, 8, 8, ItemType.block, "wood",         "src/blockgame/audio/wood_place.wav", "src/blockgame/audio/wood_break.wav"));
+        addBlock(new Block("blockgame/textures/blocks/leaves_oak.png",  1, 1, 9, 10, ItemType.block, "leaves",      "src/blockgame/audio/leaves_place.wav", "src/blockgame/audio/leaves_break.wav"));
+        addBlock(new Sapling("blockgame/textures/blocks/sapling_oak.png", 1, 1, 10, 10, ItemType.block, "sapling",  "src/blockgame/audio/sapling_place.wav", "src/blockgame/audio/sapling_break.wav", 8, 9));
 
         
         materials = new Material[1024];
@@ -96,15 +96,15 @@ public class ItemInterface {
         try{
             if(blocks[id] instanceof Sapling){
                 Sapling s = (Sapling)blocks[id];
-                return new Sapling(s.getTexture(), s.getHealth(), s.getHardness(), s.getId(), s.getDropId(), s.getDropType(), s.getName(), s.getWoodId(), s.getLeavesId());
+                return new Sapling(s.getTexture(), s.getHealth(), s.getHardness(), s.getId(), s.getDropId(), s.getDropType(), s.getName(), s.getPlaceSound(), s.getBreakSound(), s.getWoodId(), s.getLeavesId());
                 
             }
             else{
-                return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getDropType(), blocks[id].getName());
+                return new Block(blocks[id].getTexture(), blocks[id].getHealth(), blocks[id].getHardness(), blocks[id].getId(), blocks[id].getDropId(), blocks[id].getDropType(), blocks[id].getName(), blocks[id].getPlaceSound(), blocks[id].getBreakSound());
             }
         }
         catch(NullPointerException e){
-            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getDropType(), blocks[0].getName());
+            return new Block(blocks[0].getTexture(), blocks[0].getHealth(), blocks[0].getHardness(), blocks[0].getId(), blocks[0].getDropId(), blocks[0].getDropType(), blocks[0].getName(), blocks[0].getPlaceSound(), blocks[0].getBreakSound());
         }
     }
     

@@ -26,8 +26,8 @@ public class Sapling extends Block{
      * @param woodId The id of the block used to make the trunk of the tree.
      * @param leavesId The id of the block used to make the leaves of the tree.
      */
-    public Sapling(String texture, double health, double hardness, int id, int dropId, ItemType dropType, String name, int woodId, int leavesId) {
-        super(texture, health, hardness, id, dropId, dropType, name);
+    public Sapling(String texture, double health, double hardness, int id, int dropId, ItemType dropType, String name, String placeSound, String breakSound, int woodId, int leavesId) {
+        super(texture, health, hardness, id, dropId, dropType, name, placeSound, breakSound);
         progress = 0;
         this.woodId = woodId;
         this.leavesId = leavesId;

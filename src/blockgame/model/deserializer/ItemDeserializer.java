@@ -9,6 +9,7 @@ import blockgame.model.Block;
 import blockgame.model.Item;
 import blockgame.model.ItemType;
 import blockgame.model.Material;
+import blockgame.model.Sapling;
 import blockgame.model.Tool;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -47,6 +48,8 @@ public class ItemDeserializer implements JsonDeserializer<Item>{
         JsonElement jDropType = jObject.get("dropType");
         ItemType dropType = context.deserialize(jDropType, ItemType.class);
         Boolean visible = jObject.get("visible").getAsBoolean();
+        String placeSound = jObject.get("placeSound").getAsString();
+        String breakSound = jObject.get("breakSound").getAsString();
         
         // Sapling (block)
         int woodId = jObject.get("woodId").getAsInt();
@@ -57,9 +60,17 @@ public class ItemDeserializer implements JsonDeserializer<Item>{
 
         
         if (type == ItemType.block) {
-            Block b = new Block(texture, health, hardness, id, dropId, dropType, name);
-            b.setVisible(visible);
-            return b;
+            if(jObject.get("woodId") == null){
+                Block b = new Block(texture, health, hardness, id, dropId, dropType, name, placeSound, breakSound);
+                b.setVisible(visible);
+                return b;
+            }
+            else{
+                Sapling s = new Sapling(texture, health, hardness, id, dropId, dropType, name, placeSound, breakSound, woodId, leavesId);
+                s.setVisible(visible);
+                return s;
+            }
+            
         }
         else if (type == ItemType.material) {
             Material m = new Material(id, name, texture);
