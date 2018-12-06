@@ -46,7 +46,12 @@ public class WorldInterface {
         }
     }
 
-    Person getPerson(String name) {
+    /**
+     * 
+     * @param name The name of the world that the person is in.
+     * @return The person connected to the name. Returns null if it doesn't exist.
+     */
+    public Person getPerson(String name) {
         try {
             GsonBuilder gsonBouwer = new GsonBuilder();
             gsonBouwer.registerTypeAdapter(Person.class, new PersonDeserializer());

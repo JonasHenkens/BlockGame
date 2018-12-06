@@ -5,7 +5,6 @@
  */
 package blockgame.model;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -271,7 +270,7 @@ public class World {
     }
     
     /**
-     * Updates the visibility of all blocks
+     * Updates the visibility of all blocks.
      */
     public void updateVisibilityAll(){
         for(int i = 0; i<sizeX; i++){
@@ -281,14 +280,14 @@ public class World {
         }
     }
     /**
-     * TODO
+     * Adds a second to the time.
      */
     public void secPlusEen() {
         time.secPlusEen();
     }
     
     /**
-     * Grows saplings and turns them into trees they are mature.
+     * Grows saplings and turns them into trees if they are mature.
      * @return True if a tree has been placed.
      */
     public boolean updateSaplings(){
@@ -412,24 +411,21 @@ public class World {
     }
     
     /**
-     * TODO
-     * @return hour
+     * @return The current hour.
      */
     public int getHour(){
         return time.getHour();
     }
     
-    /**
-     *TODO
-     * @return min
+    /*
+     * @return The current minute.
      */
     public int getMin(){
         return time.getMin();
     }
     
     /**
-     * TODO
-     * @return sec
+     * @return The current second.
      */
     public int getSec(){
         return time.getSec();

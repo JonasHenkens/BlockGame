@@ -13,16 +13,16 @@ import javafx.scene.paint.Color;
  * @author Souhaib
  */
 public class DayNight implements Runnable{
-    private FXMLBlockGameController c;
+    private FXMLBlockGameController controller;
     private boolean day;
 
     /**
-     * The constructor of the treadclass DayNight
-     * @param c: the controller
-     * @param day: true if it's day and false if it's night
+     * The constructor of the threadclass DayNight
+     * @param c The current controller.
+     * @param day True if it's day and false if it's night.
      */
-    public DayNight(FXMLBlockGameController c, boolean day) {
-        this.c = c;
+    public DayNight(FXMLBlockGameController controller, boolean day) {
+        this.controller = controller;
         this.day = day;
     }
 
@@ -31,7 +31,7 @@ public class DayNight implements Runnable{
         while(true){
             if(day==true){
                 for(int i=0;i<200;i=i+2){
-                    c.setBackground(Color.rgb(0, i, 255));
+                    controller.setBackground(Color.rgb(0, i, 255));
                     try{
                         Thread.sleep(2500);
                     }
@@ -39,7 +39,7 @@ public class DayNight implements Runnable{
                     }
                 }
                 for(int i=200;i>0;i=i-2){
-                    c.setBackground(Color.rgb(0, i, 255));
+                    controller.setBackground(Color.rgb(0, i, 255));
                     try{
                         Thread.sleep(2500);
                     }
@@ -50,7 +50,7 @@ public class DayNight implements Runnable{
             }
             else{
                 for(int i=255;i>75;i=i-2){
-                    c.setBackground(Color.rgb(0, 0, i));
+                    controller.setBackground(Color.rgb(0, 0, i));
                     try{
                         Thread.sleep(2500);
                     }
@@ -58,7 +58,7 @@ public class DayNight implements Runnable{
                     }
                 }
                 for(int i=75;i<255;i=i+2){
-                    c.setBackground(Color.rgb(0, 0, i));
+                    controller.setBackground(Color.rgb(0, 0, i));
                     try{
                         Thread.sleep(2500);
                     }

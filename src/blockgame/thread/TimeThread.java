@@ -18,9 +18,9 @@ private BlockGame model;
 private FXMLBlockGameController controller;
 
     /**
-     * The constructor of the Treadclass TimeTread
-     * @param model: the model of the BlockGame
-     * @param controller: the controller
+     * The constructor of the Threadclass TimeThread
+     * @param model The current blockgame.
+     * @param controller The current controller.
      */
     public TimeThread(BlockGame model, FXMLBlockGameController controller) {
         this.model = model;

@@ -15,13 +15,10 @@ public class Ticker implements Runnable{
     private BlockGame model;
     
     /**
-     * 
-     * @param model The blackgame used.
+     * @param model The current blockgame.
      */
     public Ticker(BlockGame model) {
         this.model = model;
-        
-        
     }
     
     

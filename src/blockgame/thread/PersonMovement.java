@@ -25,6 +25,13 @@ public class PersonMovement implements Runnable{
     private World world;
     private BlockGame blockgame;
 
+    /**
+     * 
+     * @param person The person that needs movement.
+     * @param view The current view of the game.
+     * @param world The world the person is in.
+     * @param blockgame The current blockgame.
+     */
     public PersonMovement(Person person, BlockGameView view, World world, BlockGame blockgame) {
         this.person = person;
         this.view = view;
@@ -37,9 +44,6 @@ public class PersonMovement implements Runnable{
     @Override
     public void run() {
         while(true){
-            
-            
-            
             
             // t = 20ms = 0.02s
             double t = 0.02;
@@ -60,7 +64,6 @@ public class PersonMovement implements Runnable{
             double personWidth = person.getWidth()/world.getTextureResolution();
             
             
-           
             // new x coordinate of top left corner
             double xNew = x + vx*t;
             // new y coordinate of top left corner
@@ -103,7 +106,6 @@ public class PersonMovement implements Runnable{
                     person.setVy(-7);
                 }
             }
-            
             
             
             /*
@@ -172,12 +174,6 @@ public class PersonMovement implements Runnable{
                     
                 }
             }
-            
-            
-            
-            
-            
-            
             
             
             /*
@@ -307,7 +303,5 @@ public class PersonMovement implements Runnable{
                 
             }
         }
-        
     }
-    
 }
