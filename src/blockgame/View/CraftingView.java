@@ -100,7 +100,7 @@ public class CraftingView extends Region{
         Button pw = new Button("WOOD");
         pw.setTranslateX(735);
         pw.setTranslateY(145);
-        pw.setOnMouseClicked(e->model.makeWoodPickaxe());
+        pw.setOnMouseClicked(e->model.makePickaxe(0));
         
         Button ps = new Button("STONE");
         ps.setTranslateX(820);
