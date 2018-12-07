@@ -39,6 +39,7 @@ public class Recipes {
     }
 
     /**
+     * @param place
      * @return the product
      */
     public Item getProduct(int place) {
@@ -46,6 +47,7 @@ public class Recipes {
     }
 
     /**
+     * @param place
      * @return the ingredients
      */
     public Item getIngredients(int place) {
