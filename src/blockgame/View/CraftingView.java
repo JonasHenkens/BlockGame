@@ -6,8 +6,11 @@
 package blockgame.View;
 
 import blockgame.model.Crafting;
+import blockgame.model.ImageInterface;
+import blockgame.model.ItemType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -34,7 +37,7 @@ public class CraftingView extends Region{
         getChildren().addAll(ck);
         
         //ImageInterface imi = new ImageInterface();
-        //int item = gt.getSelectedItem();
+        //Image item = imi.getImage(0, ItemType.tool);
         //ItemView iv = new ItemView(gt.getItemId(item), gt.getItemType(item), imi);
         //iv.setTranslateY(210);
         //iv.setTranslateX(656);
