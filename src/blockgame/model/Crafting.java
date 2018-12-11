@@ -24,7 +24,7 @@ public class Crafting {
         geopend = !geopend;
     }
     
-    public void makeMaterial(int id){
+    public String makeMaterial(int id){
         int aantalc=person.getInventoryAmount(3, ItemType.material);      
         switch (id) {
             case 0:
@@ -33,7 +33,9 @@ public class Crafting {
                     person.removeInventoryItem(5, ItemType.block, 1);
                     person.removeInventoryItem(3, ItemType.material, 1);
                     person.addItem(id, ItemType.material, 1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 1 iron ore and 1 coal";
                 }
                 break;
             case 1:
@@ -42,7 +44,9 @@ public class Crafting {
                     person.removeInventoryItem(7, ItemType.block, 1);
                     person.removeInventoryItem(3, ItemType.material, 2);
                     person.addItem(id, ItemType.material,1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 1 gold ore and 2 coals";
                 }
                 break;
             case 2:
@@ -51,21 +55,26 @@ public class Crafting {
                     person.removeInventoryItem(6, ItemType.block, 1);
                     person.removeInventoryItem(3, ItemType.material, 3);
                     person.addItem(id, ItemType.material,1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 1 diamond ore and 3 coals";
                 }
                 break;
         }
         blockGame.getView().update();
+        return "";
     }
     
-    public void makePickaxe(int id){
+    public String makePickaxe(int id){
         int amountW=person.getInventoryAmount(8, ItemType.block);
         switch (id) {
             case 0:
                 if(amountW>=5){
                     person.removeInventoryItem(8, ItemType.block, 5);
                     person.addItem(id, ItemType.tool, 1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 5 wood";
                 }
                 break;
             case 1:
@@ -74,7 +83,9 @@ public class Crafting {
                     person.removeInventoryItem(8, ItemType.block, 2);
                     person.removeInventoryItem(3, ItemType.block, 3);
                     person.addItem(id, ItemType.tool, 1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 3 stones and 2 wood";
                 }
                 break;
             case 2:
@@ -83,7 +94,9 @@ public class Crafting {
                     person.removeInventoryItem(8, ItemType.block, 2);
                     person.removeInventoryItem(2, ItemType.material, 3);
                     person.addItem(id, ItemType.tool, 1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 3 diamond ingots and 2 wood";
                 }
                 break;
             case 3:
@@ -92,7 +105,9 @@ public class Crafting {
                     person.removeInventoryItem(8, ItemType.block, 2);
                     person.removeInventoryItem(0, ItemType.material, 3);
                     person.addItem(id, ItemType.tool, 1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 3 iron ingots and 2 wood";
                 }
                 break;
             case 4:
@@ -101,11 +116,14 @@ public class Crafting {
                     person.removeInventoryItem(8, ItemType.block, 2);
                     person.removeInventoryItem(1, ItemType.material, 3);
                     person.addItem(id, ItemType.tool, 1);
-                    System.out.println("Gelukt!!");
+                }
+                else{
+                    return "You need 3 gold ingots and 2 wood";
                 }
                 break;
         }   
         blockGame.getView().update();
+        return "";
     }
 
     //GETTERS

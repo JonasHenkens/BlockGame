@@ -6,11 +6,8 @@
 package blockgame.View;
 
 import blockgame.model.Crafting;
-import blockgame.model.ImageInterface;
-import blockgame.model.ItemType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -22,9 +19,11 @@ import javafx.scene.text.Font;
  */
 public class CraftingView extends Region{
     private Crafting model;
+    private Label[] labelIngredient;
     
     public CraftingView(Crafting model) {
         this.model = model;
+        labelIngredient = new Label[1]; 
         update();
     }
     
@@ -67,7 +66,7 @@ public class CraftingView extends Region{
         Button mi = new Button("IRON INGOT");
         mi.setFocusTraversable(false);
         mi.setTranslateX(750);
-        mi.setTranslateY(100);
+        mi.setTranslateY(100);     
         mi.setOnMouseClicked(e->makeMaterial(0));
         
         Button mg = new Button("GOLD INGOT");
@@ -122,11 +121,27 @@ public class CraftingView extends Region{
     }   
     
     public void makePickaxe(int id){
-        model.makePickaxe(id);
+        String make = model.makePickaxe(id);
+        getChildren().remove(labelIngredient[0]);
+        Label mm = new Label(make);
+        Font mfi = new Font(20);
+        mm.setFont(mfi);
+        mm.setTranslateX(750);
+        mm.setTranslateY(220);
+        labelIngredient[0] = mm;
+        getChildren().add(mm);
     }
     
     public void makeMaterial(int id){
-        model.makePickaxe(id);
+        String make = model.makeMaterial(id);
+        getChildren().remove(labelIngredient[0]);
+        Label mm = new Label(make);
+        Font mfi = new Font(20);
+        mm.setFont(mfi);
+        mm.setTranslateX(750);
+        mm.setTranslateY(220);
+        labelIngredient[0] = mm;
+        getChildren().add(mm);
     }
     
 }
