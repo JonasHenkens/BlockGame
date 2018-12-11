@@ -122,7 +122,7 @@ public class Crafting {
      * @return the height: this is always 240 pixels high 
      */
     public double getHeight() {
-        double height = 240;
+        double height = 164;
         return height;
     }
 

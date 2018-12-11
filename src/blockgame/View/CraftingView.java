@@ -28,30 +28,17 @@ public class CraftingView extends Region{
         update();
     }
     
-    public void craftKader(){
+    public void craftMenu(){
+        Rectangle r = new Rectangle(model.getWidth(), model.getHeight(), Color.rgb(134,136,138));
+        r.setTranslateX(646);
+        r.setTranslateY(35);
+        
         Rectangle ck = new Rectangle(500, 80, Color.rgb(0,200,100));
         ck.setStroke(Color.rgb(255,0,0));
         ck.setStrokeWidth(3);
         ck.setTranslateX(646);
         ck.setTranslateY(200);
-        getChildren().addAll(ck);
         
-        //ImageInterface imi = new ImageInterface();
-        //Image item = imi.getImage(0, ItemType.tool);
-        //ItemView iv = new ItemView(gt.getItemId(item), gt.getItemType(item), imi);
-        //iv.setTranslateY(210);
-        //iv.setTranslateX(656);
-        //getChildren().add(iv);
-    }
-    
-    public void update(){
-        getChildren().clear();
-        // Crafting menu-screen
-        Rectangle r = new Rectangle(model.getWidth(), model.getHeight(), Color.rgb(134,136,138));
-        r.setTranslateX(646);
-        r.setTranslateY(35);
-        
-        // Titel menu
         Label l = new Label("CRAFTING MENU");
         Font f = new Font(35);
         l.setFont(f);
@@ -59,7 +46,14 @@ public class CraftingView extends Region{
         l.setTranslateX(780);
         l.setTranslateY(40);
         
-        getChildren().addAll(r, l);
+        getChildren().addAll(r, ck, l);
+    }
+    
+    public void update(){
+        getChildren().clear();
+        
+        // Crafting menu-screen
+        craftMenu();
 
         // Ingot-label
         Label li = new Label("1) MATERIAL");
@@ -74,20 +68,19 @@ public class CraftingView extends Region{
         mi.setFocusTraversable(false);
         mi.setTranslateX(750);
         mi.setTranslateY(100);
-        mi.setOnMouseClicked(e->model.makeMaterial(0));
-        mi.setOnMouseClicked(e->craftKader());
+        mi.setOnMouseClicked(e->makeMaterial(0));
         
         Button mg = new Button("GOLD INGOT");
         mg.setFocusTraversable(false);
         mg.setTranslateX(900);
         mg.setTranslateY(100);
-        mg.setOnMouseClicked(e->model.makeMaterial(1));
+        mg.setOnMouseClicked(e->makeMaterial(1));
         
         Button md = new Button("DIAMOND");
         md.setFocusTraversable(false);
         md.setTranslateX(1050);
         md.setTranslateY(100);
-        md.setOnMouseClicked(e->model.makeMaterial(2));
+        md.setOnMouseClicked(e->makeMaterial(2));
         
         getChildren().addAll(li, md, mi, mg);
         
@@ -103,28 +96,37 @@ public class CraftingView extends Region{
         Button pw = new Button("WOOD");
         pw.setTranslateX(735);
         pw.setTranslateY(145);
-        pw.setOnMouseClicked(e->model.makePickaxe(0));
+        pw.setOnMouseClicked(e->makePickaxe(0));
         
         Button ps = new Button("STONE");
         ps.setTranslateX(820);
         ps.setTranslateY(145);
-        ps.setOnMouseClicked(e->model.makePickaxe(1));
+        ps.setOnMouseClicked(e->makePickaxe(1));
         
         Button pi = new Button("IRON");
         pi.setTranslateX(905);
         pi.setTranslateY(145);
-        pi.setOnMouseClicked(e->model.makePickaxe(3));
+        pi.setOnMouseClicked(e->makePickaxe(3));
         
         Button pg = new Button("GOLD");
         pg.setTranslateX(980);
         pg.setTranslateY(145);
-        pg.setOnMouseClicked(e->model.makePickaxe(4));
+        pg.setOnMouseClicked(e->makePickaxe(4));
         
         Button pd = new Button("DIAMOND");
         pd.setTranslateX(1050);
         pd.setTranslateY(145);
-        pd.setOnMouseClicked(e->model.makePickaxe(2));
+        pd.setOnMouseClicked(e->makePickaxe(2));
         
         getChildren().addAll(lp, pw, ps, pi, pg, pd);
     }   
+    
+    public void makePickaxe(int id){
+        model.makePickaxe(id);
+    }
+    
+    public void makeMaterial(int id){
+        model.makePickaxe(id);
+    }
+    
 }
