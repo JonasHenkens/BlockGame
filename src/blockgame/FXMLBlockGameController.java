@@ -180,6 +180,9 @@ public class FXMLBlockGameController {
      */
     public void resetWorld(){
         model.resetWorld();
+        if(model.getCraft().isGeopend()){
+            craftmenu();
+        }
     }
     
     /**
