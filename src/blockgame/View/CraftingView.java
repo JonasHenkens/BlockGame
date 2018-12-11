@@ -28,7 +28,7 @@ public class CraftingView extends Region{
     }
     
     public void craftMenu(){
-        Rectangle r = new Rectangle(model.getWidth(), model.getHeight(), Color.rgb(134,136,138));
+        Rectangle r = new Rectangle(500, 164, Color.rgb(134,136,138));
         r.setTranslateX(646);
         r.setTranslateY(35);
         

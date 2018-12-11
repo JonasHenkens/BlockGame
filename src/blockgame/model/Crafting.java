@@ -14,16 +14,31 @@ public class Crafting {
     private Person person;
     private BlockGame blockGame;
     
+    /**
+     * Constructor of Crafting.
+     * @param person: The person that the Crafting is linked to.
+     * @param blockGame: the blockgame where the Crafting makes part 
+     * of (only used for updating the blockgameView).
+     */
     public Crafting(Person person, BlockGame blockGame) {
         geopend = false;
         this.person = person;
         this.blockGame = blockGame;
     }
     
+    /**
+     *  Changing geopend to open or close the crafting window.
+     */
     public void setGeopend() {
         geopend = !geopend;
     }
     
+    /**
+     * To make materials with
+     * @param id the id of the to make material
+     * @return a String: Tells you which elements you need 
+     * to make that material
+     */
     public String makeMaterial(int id){
         int aantalc=person.getInventoryAmount(3, ItemType.material);      
         switch (id) {
@@ -65,6 +80,12 @@ public class Crafting {
         return "";
     }
     
+    /**
+     * To make a Pickaxe
+     * @param id: the id of the to make pickaxe
+     * @return a String: Tells you which elements you need 
+     * to make that pickaxe
+     */
     public String makePickaxe(int id){
         int amountW=person.getInventoryAmount(8, ItemType.block);
         switch (id) {
@@ -129,27 +150,10 @@ public class Crafting {
     //GETTERS
     
     /**
-     * @return the geopend: TRUE, if the crafting menu is open
+     * @return geopend: TRUE, if the crafting menu is open
      * FALSE, if the crafting menu is closed
      */
     public boolean isGeopend() {
         return geopend;
     }
-
-    /**
-     * @return the height: this is always 240 pixels high 
-     */
-    public double getHeight() {
-        double height = 164;
-        return height;
-    }
-
-    /**
-     * @return the width: this is always 500 pixels long 
-     */
-    public double getWidth() {
-        double width = 500;
-        return width;
-    }
-    
 }
