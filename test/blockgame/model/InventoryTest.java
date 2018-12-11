@@ -47,44 +47,45 @@ public class InventoryTest {
      */
     @Test
     public void testAddItemInInventory() {
-        System.out.println("Making a itemstack with a random amount of a random id of pickaxe");
+        System.out.println("Making an itemstack with a random amount of a random id of pickaxe");
         int id = (int) (Math.random()*4);
         int amount = (int) (Math.random()*1)+1;
         i = new ItemStack(id, ItemType.tool, amount);
         
-        System.out.println("Making a itemstack with a random amount of a random type of block");
+        System.out.println("Making an itemstack with a random amount of a random type of block");
         id = (int) (Math.random()*10);
         amount = (int) (Math.random()*40)+1;
-        i = new ItemStack(id, ItemType.block, amount);
+        is = new ItemStack(id, ItemType.block, amount);
         
-        System.out.println("Making a itemstack with a random amount of a random type of material");
+        System.out.println("Making an itemstack with a random amount of a random type of material");
         id = (int) (Math.random()*3);
         amount = (int) (Math.random()*40)+1;
-        i = new ItemStack(id, ItemType.material, amount);
+        isi = new ItemStack(id, ItemType.material, amount);
         
-        
-        System.out.println("addItemInInventory");
-        
-        Inventory instance = null;
-        boolean expResult = false;
-        boolean result = instance.addItemInInventory(id, ItemType.material, amount);
+        System.out.println("Add first itemstack in inventory");   
+        boolean expResult = true;
+        boolean result = inv.addItemInInventory(i.getId(), i.getType(), i.getAmount());
         assertEquals(expResult, result);
+        
+        System.out.println("Add second itemstack in inventory");
+        boolean expResult2 = true;
+        boolean result2 = inv.addItemInInventory(is.getId(), is.getType(), is.getAmount());
+        assertEquals(expResult2, result2);
     }
 
     /**
-     * Test of removeItemInInventory method, of class Inventory.
-     */
-    @Test
-    public void testRemoveItemInInventory() {
-        System.out.println("removeItemInInventory");
-        int id = 0;
-        ItemType type = null;
-        int amount = 0;
-        Inventory instance = null;
-        boolean expResult = false;
-        boolean result = instance.removeItemInInventory(id, type, amount);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        @Test
+        public void testRemoveItemInInventory() {
+            System.out.println("removeItemInInventory");
+            int id = 0;
+            ItemType type = null;
+            int amount = 0;
+            Inventory instance = null;
+            boolean expResult = false;
+            boolean result = instance.removeItemInInventory(id, type, amount);
+            assertEquals(expResult, result);
+            // TODO review the generated test code and remove the default call to fail.
+            fail("The test case is a prototype.");
+        }
+    */
 }

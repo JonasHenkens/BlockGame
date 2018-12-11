@@ -18,7 +18,7 @@ public class DayNight implements Runnable{
 
     /**
      * The constructor of the threadclass DayNight
-     * @param c The current controller.
+     * @param controller The current controller.
      * @param day True if it's day and false if it's night.
      */
     public DayNight(FXMLBlockGameController controller, boolean day) {
