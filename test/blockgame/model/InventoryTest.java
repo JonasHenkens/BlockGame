@@ -49,7 +49,7 @@ public class InventoryTest {
     public void testAddItemInInventory() {
         System.out.println("Making an itemstack with a random amount of a random id of pickaxe");
         int id = (int) (Math.random()*4);
-        int amount = (int) (Math.random()*1)+1;
+        int amount = (int) (Math.random()*1)+2;
         i = new ItemStack(id, ItemType.tool, amount);
         
         System.out.println("Making an itemstack with a random amount of a random type of block");
@@ -71,6 +71,12 @@ public class InventoryTest {
         boolean expResult2 = true;
         boolean result2 = inv.addItemInInventory(is.getId(), is.getType(), is.getAmount());
         assertEquals(expResult2, result2);
+        
+        System.out.println("Add last itemstack in inventory");
+        boolean expResult3 = true;
+        boolean result3 = inv.addItemInInventory(isi.getId(), isi.getType(), isi.getAmount());
+        assertEquals(expResult2, result2);
+        
     }
 
     /**

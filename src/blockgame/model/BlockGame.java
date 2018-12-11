@@ -108,7 +108,8 @@ public class BlockGame {
      */
     public void rightClick(double x, double y){
         if(x <= guiTop.getWidth() && y <= guiTop.getHeight()){
-            
+            // clicked on GUITop
+            guiTop.rightClick(x, y);
         }
         else if(x <= world.getSizeX()*world.getTextureResolution() && (y - guiTop.getHeight()) <= world.getSizeY()*world.getTextureResolution()){
             // clicked on world

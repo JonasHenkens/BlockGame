@@ -53,6 +53,17 @@ public class GUITop{
         }
     }
     
+    public void rightClick(double x, double y) {
+        boolean done = false;
+        for(int i=0; i<size && !done; i++){
+            if(x >= (8+24*i) && x <= (8 + 24*i+16) && y>= 8 && y<= 22){
+                selectedItem = i;
+                person.removeInventoryItem(getItemId(selectedItem), getItemType(selectedItem), getAmount(selectedItem));
+                done = true;
+            }
+        }
+    }
+    
     /**
      * Updates the items in each slot.
      */
