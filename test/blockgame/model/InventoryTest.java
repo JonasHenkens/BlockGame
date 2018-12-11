@@ -47,21 +47,27 @@ public class InventoryTest {
      */
     @Test
     public void testAddItemInInventory() {
-        System.out.println("Making an itemStack of 2 wood pickaxes");
-        i = new ItemStack(0, ItemType.tool, 2);
-        System.out.println("Making an itemStack of 2 wood pickaxes");
+        System.out.println("Making a itemstack with a random amount of a random id of pickaxe");
+        int id = (int) (Math.random()*4);
+        int amount = (int) (Math.random()*1)+1;
+        i = new ItemStack(id, ItemType.tool, amount);
         
-        System.out.println("Making an itemStack of 2 wood pickaxes");
+        System.out.println("Making a itemstack with a random amount of a random type of block");
+        id = (int) (Math.random()*10);
+        amount = (int) (Math.random()*40)+1;
+        i = new ItemStack(id, ItemType.block, amount);
         
+        System.out.println("Making a itemstack with a random amount of a random type of material");
+        id = (int) (Math.random()*3);
+        amount = (int) (Math.random()*40)+1;
+        i = new ItemStack(id, ItemType.material, amount);
         
         
         System.out.println("addItemInInventory");
-        int id = 0;
-        ItemType type = null;
-        int amount = 0;
+        
         Inventory instance = null;
         boolean expResult = false;
-        boolean result = instance.addItemInInventory(id, type, amount);
+        boolean result = instance.addItemInInventory(id, ItemType.material, amount);
         assertEquals(expResult, result);
     }
 

@@ -21,12 +21,19 @@ public class CraftingView extends Region{
     private Crafting model;
     private Label[] labelIngredient;
     
+    /**
+     * Constructor of CraftingView
+     * @param model: the model which the view is linked to 
+     */
     public CraftingView(Crafting model) {
         this.model = model;
         labelIngredient = new Label[1]; 
         update();
     }
     
+    /**
+     *  This methode makes the crafting window and the titel
+     */
     public void craftMenu(){
         Rectangle r = new Rectangle(500, 164, Color.rgb(134,136,138));
         r.setTranslateX(646);
@@ -48,6 +55,9 @@ public class CraftingView extends Region{
         getChildren().addAll(r, ck, l);
     }
     
+    /**
+     *  Updates the CraftingView
+     */
     public void update(){
         getChildren().clear();
         
@@ -120,6 +130,10 @@ public class CraftingView extends Region{
         getChildren().addAll(lp, pw, ps, pi, pg, pd);
     }   
     
+    /**
+     *  Methode that makes a pickaxe
+     * @param id: The id of the tool to be made.
+     */
     public void makePickaxe(int id){
         String make = model.makePickaxe(id);
         getChildren().remove(labelIngredient[0]);
@@ -132,6 +146,10 @@ public class CraftingView extends Region{
         getChildren().add(mm);
     }
     
+    /**
+     * Methode that makes a material
+     * @param id: The id of the material to be made.
+     */
     public void makeMaterial(int id){
         String make = model.makeMaterial(id);
         getChildren().remove(labelIngredient[0]);
