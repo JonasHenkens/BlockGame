@@ -30,6 +30,7 @@ public class ItemInterface {
         addBlock(new Block("blockgame/textures/blocks/log_oak.png",     4, 2, 8, 8, ItemType.block, "wood",         "src/blockgame/audio/wood_place.wav", "src/blockgame/audio/wood_break.wav"));
         addBlock(new Block("blockgame/textures/blocks/leaves_oak.png",  1, 1, 9, 10, ItemType.block, "leaves",      "src/blockgame/audio/leaves_place.wav", "src/blockgame/audio/leaves_break.wav"));
         addBlock(new Sapling("blockgame/textures/blocks/sapling_oak.png", 1, 1, 10, 10, ItemType.block, "sapling",  "src/blockgame/audio/sapling_place.wav", "src/blockgame/audio/sapling_break.wav", 8, 9));
+        addBlock(new Block("blockgame/textures/blocks/bedrock.png",  32000, 32000, 11, 11, ItemType.block, "bedrock",      "", ""));
 
         
         materials = new Material[1024];

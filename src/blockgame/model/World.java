@@ -181,9 +181,9 @@ public class World {
         rarity[2] = 2; // gold
         rarity[3] = 0.5; // diamond
         
-        // underground: mostly stune with random ores
+        // underground: mostly stone with random ores
         for(int i = 0;i<sizeX;i++){
-            for(int j = 20;j<sizeY;j++){
+            for(int j = 20;j<sizeY-1;j++){
                int k = 0;
                boolean placedBlock = false;
                for(double per : rarity){
@@ -198,6 +198,11 @@ public class World {
                    blocks[i][j] = ii.getBlock(3);
                }
             } 
+        }
+        // bedrock layer
+        for(int i = 0;i<sizeX;i++){
+            int j = sizeY-1;
+            blocks[i][j] = ii.getBlock(11);
         }
     }
     
