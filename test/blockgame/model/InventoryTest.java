@@ -17,8 +17,13 @@ import static org.junit.Assert.*;
  * @author Souhaib El Habti
  */
 public class InventoryTest {
+    private Inventory inv;
+    private ItemStack i;
+    private ItemStack is;
+    private ItemStack isi;
     
     public InventoryTest() {
+        inv = new Inventory(3);
     }
     
     @BeforeClass
@@ -42,6 +47,14 @@ public class InventoryTest {
      */
     @Test
     public void testAddItemInInventory() {
+        System.out.println("Making an itemStack of 2 wood pickaxes");
+        i = new ItemStack(0, ItemType.tool, 2);
+        System.out.println("Making an itemStack of 2 wood pickaxes");
+        
+        System.out.println("Making an itemStack of 2 wood pickaxes");
+        
+        
+        
         System.out.println("addItemInInventory");
         int id = 0;
         ItemType type = null;
@@ -50,8 +63,6 @@ public class InventoryTest {
         boolean expResult = false;
         boolean result = instance.addItemInInventory(id, type, amount);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**

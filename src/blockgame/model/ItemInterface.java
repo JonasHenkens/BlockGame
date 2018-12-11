@@ -40,11 +40,11 @@ public class ItemInterface {
         addMaterial(new Material(3, "coal", "blockgame/textures/materials/coal.png"));
         
         tools = new Tool[1024];
-        addTool(new Tool(0, 2, "wood pickaxe", "blockgame/textures/tools/wood_pickaxe.png"));
-        addTool(new Tool(1, 3,"stone pickaxe", "blockgame/textures/tools/stone_pickaxe.png"));
+        addTool(new Tool(0, 1.5, "wood pickaxe", "blockgame/textures/tools/wood_pickaxe.png"));
+        addTool(new Tool(1, 2.5,"stone pickaxe", "blockgame/textures/tools/stone_pickaxe.png"));
         addTool(new Tool(2, 20,"diamond pickaxe", "blockgame/textures/tools/diamond_pickaxe.png"));
-        addTool(new Tool(3, 4,"iron pickaxe", "blockgame/textures/tools/iron_pickaxe.png"));
-        addTool(new Tool(4, 5,"gold pickaxe", "blockgame/textures/tools/gold_pickaxe.png"));
+        addTool(new Tool(3, 6,"iron pickaxe", "blockgame/textures/tools/iron_pickaxe.png"));
+        addTool(new Tool(4, 10,"gold pickaxe", "blockgame/textures/tools/gold_pickaxe.png"));
     }
     
     /**
