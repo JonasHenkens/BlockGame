@@ -37,8 +37,6 @@ public class WorldTest {
     public void setUp() {
         world.makeWorldEmpty();
         
-        
-        
     }
     
     @After
@@ -49,50 +47,44 @@ public class WorldTest {
      * Test of hitBlock method, of class World.
      */
     @Test
-    public void testHitBlock() {
+    public void testPlaceHitBlock() {
         
+        // wooden pickaxe, stone: 10 hits, dirt/grass 1 hit
+        Tool tool1 = ii.getTool(0);
         // diamond pickaxe, breaks everything but ores in one hit
-        Tool tool = ii.getTool(2);
+        Tool tool2 = ii.getTool(2);
         
-        // place some blocks to hit
         
-        for(int i = 0; i<=1000; i++){
-            double x = Math.random()*world.getSizeX();
-            double y = Math.random()*world.getSizeY();
+        for(int i = 0; i<=2000; i++){
+            int x = (int)Math.random()*world.getSizeX();
+            int y = (int)Math.random()*world.getSizeY();
             
             // dirt:1, grass:2 or stone:3
             int id = (int)(Math.random()*3+1);
             ItemType type = ItemType.block;
-            
             world.placeBlock(x, y, id, type);
-            Item droppedItem = world.hitBlock(x, y, tool.getId(), tool.getItemType());
+            
+            assertEquals("block not correctly placed", id, world.getBlock(x, y).getId());
+            
+            // first hit with wooden pick, if stone then shouldn't break and hit with diamond pick, else should drop the block
+            Item droppedItem = world.hitBlock(x, y, tool1.getId(), tool1.getItemType());
+            if(id == 3){
+                assertEquals("dropped item but shouldn't have",null, droppedItem);
+                droppedItem = world.hitBlock(x, y, tool2.getId(), tool2.getItemType());
+            }
+            else{
+            }
+            
             int id2 = droppedItem.getId();
             assertEquals(id + "   " + id2,id, id2);
             assertEquals("block not removed",world.getBlock(x, y), null);
         }
     }
-
-    /**
-     * Test of placeBlock method, of class World.
-     */
-    @Test
-    public void testPlaceBlock() {
-        System.out.println("placeBlock");
-        double x = 0.0;
-        double y = 0.0;
-        int id = 0;
-        ItemType type = null;
-        World instance = null;
-        boolean expResult = false;
-        boolean result = instance.placeBlock(x, y, id, type);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
     
     
     /**
-     * Test of hitBlock method, of class World.
+     * Test of makeWorldEmpty method, of class World.
      */
     @Test
     public void testMakeWorldEmpty() {
@@ -104,5 +96,4 @@ public class WorldTest {
         }
     }
 
-    
 }
