@@ -55,7 +55,7 @@ public class WorldTest {
         Tool tool2 = ii.getTool(2);
         
         
-        for(int i = 0; i<=2000; i++){
+        for(int i = 0; i<=500; i++){
             int x = (int)Math.random()*world.getSizeX();
             int y = (int)Math.random()*world.getSizeY();
             
