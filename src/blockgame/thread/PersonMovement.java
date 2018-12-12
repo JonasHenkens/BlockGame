@@ -101,7 +101,7 @@ public class PersonMovement implements Runnable{
                 // eerst controleren of persoon op blok staat, anders kan je niet springen
                 Block b1 = world.getBlock(x, y+personHeigth);
                 Block b2 = world.getBlock(x + personWidth/2, y + personHeigth);
-                Block b3 = world.getBlock(x + personWidth, y + personHeigth);
+                Block b3 = world.getBlock(x + (person.getWidth() - 1)/16, y + personHeigth);
                 
                 if(b1 != null || b2 != null || b3 != null){
                     person.setVy(-7);

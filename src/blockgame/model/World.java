@@ -275,6 +275,17 @@ public class World {
     }
     
     /**
+     * Removes all blocks in the world.
+     */
+    public void makeWorldEmpty(){
+        for(int i = 0;i<sizeX;i++){
+            for(int j = 0;j<sizeY;j++){
+               blocks[i][j] = null;
+            } 
+        }
+    }
+    
+    /**
      * Updates the visibility of all blocks.
      */
     public void updateVisibilityAll(){
