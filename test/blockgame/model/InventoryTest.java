@@ -18,9 +18,6 @@ import static org.junit.Assert.*;
  */
 public class InventoryTest {
     private Inventory inv;
-    private ItemStack i;
-    private ItemStack is;
-    private ItemStack isi;
     
     public InventoryTest() {
         inv = new Inventory(3);
@@ -47,35 +44,26 @@ public class InventoryTest {
      */
     @Test
     public void testAddItemInInventory() {
-        System.out.println("Making an itemstack with a random amount of a random id of pickaxe");
         int id = (int) (Math.random()*4);
-        int amount = (int) (Math.random()*1)+2;
-        i = new ItemStack(id, ItemType.tool, amount);
-        
-        System.out.println("Making an itemstack with a random amount of a random type of block");
-        id = (int) (Math.random()*10);
-        amount = (int) (Math.random()*40)+1;
-        is = new ItemStack(id, ItemType.block, amount);
-        
-        System.out.println("Making an itemstack with a random amount of a random type of material");
-        id = (int) (Math.random()*3);
-        amount = (int) (Math.random()*40)+1;
-        isi = new ItemStack(id, ItemType.material, amount);
-        
-        System.out.println("Add first itemstack in inventory");   
+        int amount = (int) (Math.random()*2)+1;
         boolean expResult = true;
-        boolean result = inv.addItemInInventory(i.getId(), i.getType(), i.getAmount());
+        boolean result = inv.addItemInInventory(id, ItemType.tool , amount);
         assertEquals(expResult, result);
         
-        System.out.println("Add second itemstack in inventory");
+        id = (int) (Math.random()*10);
+        amount = (int) (Math.random()*40)+1;
         boolean expResult2 = true;
-        boolean result2 = inv.addItemInInventory(is.getId(), is.getType(), is.getAmount());
+        boolean result2 = inv.addItemInInventory(id, ItemType.material , amount);
         assertEquals(expResult2, result2);
         
-        System.out.println("Add last itemstack in inventory");
-        boolean expResult3 = true;
-        boolean result3 = inv.addItemInInventory(isi.getId(), isi.getType(), isi.getAmount());
-        assertEquals(expResult2, result2);
+        id = (int) (Math.random()*3);
+        amount = (int) (Math.random()*40)+1;
+        boolean expResult3 = false;
+        if(inv.getAmountInItemStack(2)<=0){
+            expResult3 = true;
+        }
+        boolean result3 = inv.addItemInInventory(id, ItemType.block, amount);
+        assertEquals(expResult3, result3);
         
     }
 
