@@ -156,7 +156,12 @@ public class Inventory {
      * @return The amount in this ItemStack.
      */
     public int getAmountInItemStack(int i) {
-        return inventory[i].getAmount();
+        try{
+            return inventory[i].getAmount();
+        }
+        catch(NullPointerException e){  
+        }
+        return -1;
     }
     
     /**

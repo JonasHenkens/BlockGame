@@ -69,7 +69,8 @@ public class InventoryTest {
         id = (int) (Math.random()*10);
         amount = (int) (Math.random()*40)+1;
         
-        // If Inventory has 1 place left, then the expectation is true
+        // If inventory has 1 place left, then the expectation is true
+        
         // Else the expectation becomes false
         boolean expResult3 = true;
         if(inv.getAmountInItemStack(2)>0){
@@ -77,6 +78,7 @@ public class InventoryTest {
         }
         boolean result3 = inv.addItemInInventory(id, ItemType.block, amount);
         assertEquals("Didn't work",expResult3, result3); 
+             
     }
 
         @Test
