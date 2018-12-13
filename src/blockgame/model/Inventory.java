@@ -51,7 +51,7 @@ public class Inventory {
                 } 
             }
             catch(NullPointerException e){
-                inventory[i]=new ItemStack(id, type, 0);
+                inventory[i] = new ItemStack(id, type, 0);
                 int in=0;
                 if (amount>=ii.getMaxStacksize(id, type)){
                     in= ii.getMaxStacksize(id, type);
