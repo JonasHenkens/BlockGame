@@ -111,7 +111,7 @@ public class InventoryTest {
         inv.addItemInInventory(3, ItemType.tool, 2);
         inv.addItemInInventory(4, ItemType.tool, 2);
         
-        for(int i=0; i<500; i++){
+        for(int i=0; i<300; i++){
             int typeNum = (int)(Math.random()*3);
             ItemType type = ItemType.nothing;
             int id =0;
