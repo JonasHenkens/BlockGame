@@ -88,8 +88,8 @@ public class InventoryTest {
 
     @Test
     public void testRemoveItemInInventory() {
-        // Big inventory with 10 items of every block and every material
-        // and 2 items of each tool
+        // Big inventory with 10 items of every block and
+        // every material and 2 items of each tool
         inv = new Inventory(24);
         inv.addItemInInventory(1, ItemType.block, 10);
         inv.addItemInInventory(2, ItemType.block, 10);
@@ -111,42 +111,38 @@ public class InventoryTest {
         inv.addItemInInventory(3, ItemType.tool, 2);
         inv.addItemInInventory(4, ItemType.tool, 2);
         
-        for(int i=0; i<100; i++){
-            // Random id: from 0 to 4 and amount: 1
-            int id = (int)(Math.random()*5);
-            int amount = 1;
+        for(int i=0; i<500; i++){
+            int typeNum = (int)(Math.random()*3);
+            ItemType type = ItemType.nothing;
+            int id =0;
+            
+            switch (typeNum) {
+                case 0:
+                    type = ItemType.tool;
+                    
+                    // Random id: from 0 to 4
+                    id = (int)(Math.random()*5);
+                    break;
+                case 1:
+                    type = ItemType.material;
+
+                    // Random id: from 0 to 3
+                    id = (int)(Math.random()*4);
+                    break;
+                case 2:
+                    type = ItemType.block;
+
+                    // Random id: from 1 to 9
+                    id = (int)(Math.random()*9)+1;
+                    break;
+            }
             
             boolean expResult = true;
-            boolean result = inv.addItemInInventory(id, ItemType.tool , amount);
-            assertEquals("Didn't add the tool(s)",expResult, result);
-
-            // Random id: from 0 to 3
-            // Random amount: from 1 to 40
-            id = (int) (Math.random()*4);
-            amount = (int) (Math.random()*40)+1;
-            
-            // Inventory has 1 or 2 places left, so every material can be placed in it 
-            boolean expResult2 = true;
-            boolean result2 = inv.addItemInInventory(id, ItemType.material , amount);
-            assertEquals("Didn't add the materials",expResult2, result2);
-
-            // Random id: from 1 to 9
-            // Random amount: from 1 to 40
-            id = (int) (Math.random()*9)+1;
-            amount = (int) (Math.random()*40)+1;
-
-            // The expectation is true,
-            // except if the inventory is filled
-            // (Last itemstack must have less then 0 items)
-            // Then the expectation is false
-            boolean expResult3 = true;
-            if(inv.getAmountInItemStack(2)>0){
-                expResult3 = false;
+            if (inv.getAantal(id, type) == 0){
+                expResult = false;
             }
-            boolean result3 = inv.addItemInInventory(id, ItemType.block, amount);
-            assertEquals("Didn't work",expResult3, result3);
+            boolean result = inv.removeItemInInventory(id, type, 1);
+            assertEquals("Didn't remove item, while it is possible",expResult, result);
         }
-        
     }
-    
 }
