@@ -6,7 +6,7 @@
 package blockgame.model;
 
 /**
- *
+ * With the Crafting, you can craft materials and tools
  * @author Souhaib El Habti
  */
 public class Crafting {
@@ -34,7 +34,7 @@ public class Crafting {
     }
     
     /**
-     * To make materials with
+     * To make materials
      * @param id the id of the to make material
      * @return a String: Tells you which elements you need 
      * to make that material
