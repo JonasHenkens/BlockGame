@@ -6,7 +6,6 @@
 package blockgame;
 
 import blockgame.model.BlockGame;
-import blockgame.model.ItemType;
 import blockgame.model.Person;
 import blockgame.model.World;
 import javafx.application.Application;

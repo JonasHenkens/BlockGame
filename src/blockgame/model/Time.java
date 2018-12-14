@@ -6,7 +6,7 @@
 package blockgame.model;
 
 /**
- *
+ * Gives the played time
  * @author Souhaib El Habti
  */
 public class Time {

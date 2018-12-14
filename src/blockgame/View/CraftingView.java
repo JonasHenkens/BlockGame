@@ -14,7 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
 /**
- *
+ * View of the Craftmenu
  * @author Souhaib
  */
 public class CraftingView extends Region{
