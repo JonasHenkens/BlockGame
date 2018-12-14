@@ -111,8 +111,17 @@ public class InventoryTest {
         inv.addItemInInventory(3, ItemType.tool, 2);
         inv.addItemInInventory(4, ItemType.tool, 2);
         
+        // This test is tested 300 times
         for(int i=0; i<300; i++){
             int typeNum = (int)(Math.random()*3);
+            // There are only 10 tools => if percentage is 
+            // bigger than 10%, then we switch of type
+            if (typeNum==0){
+                int percentage = (int)(Math.random()*100);
+                if(percentage>=10){
+                    typeNum = (int)(Math.random()*2)+1;
+                }
+            }
             ItemType type = ItemType.nothing;
             int id =0;
             
