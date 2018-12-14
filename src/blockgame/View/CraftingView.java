@@ -137,13 +137,13 @@ public class CraftingView extends Region{
     public void makePickaxe(int id){
         String make = model.makePickaxe(id);
         getChildren().remove(labelIngredient[0]);
-        Label mm = new Label(make);
-        Font mfi = new Font(20);
-        mm.setFont(mfi);
-        mm.setTranslateX(750);
-        mm.setTranslateY(220);
-        labelIngredient[0] = mm;
-        getChildren().add(mm);
+        Label mp = new Label(make);
+        Font mf = new Font(20);
+        mp.setFont(mf);
+        mp.setTranslateX(750);
+        mp.setTranslateY(220);
+        labelIngredient[0] = mp;
+        getChildren().add(mp);
     }
     
     /**
@@ -154,8 +154,8 @@ public class CraftingView extends Region{
         String make = model.makeMaterial(id);
         getChildren().remove(labelIngredient[0]);
         Label mm = new Label(make);
-        Font mfi = new Font(20);
-        mm.setFont(mfi);
+        Font mf = new Font(20);
+        mm.setFont(mf);
         mm.setTranslateX(750);
         mm.setTranslateY(220);
         labelIngredient[0] = mm;
