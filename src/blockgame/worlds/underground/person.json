@@ -1,0 +1,90 @@
+{
+  "inventory": {
+    "inventory": [
+      {
+        "id": 8,
+        "type": "block",
+        "amount": 9,
+        "maxStackSize": 50
+      },
+      {
+        "id": 10,
+        "type": "block",
+        "amount": 5,
+        "maxStackSize": 50
+      },
+      {
+        "id": 3,
+        "type": "block",
+        "amount": 2,
+        "maxStackSize": 50
+      },
+      null,
+      {
+        "id": 1,
+        "type": "block",
+        "amount": 7,
+        "maxStackSize": 50
+      },
+      null,
+      {
+        "id": 3,
+        "type": "material",
+        "amount": 7,
+        "maxStackSize": 50
+      },
+      null,
+      null,
+      {
+        "id": 4,
+        "type": "tool",
+        "amount": 1,
+        "maxStackSize": 1
+      },
+      {
+        "id": 7,
+        "type": "block",
+        "amount": 4,
+        "maxStackSize": 50
+      },
+      {
+        "id": 2,
+        "type": "tool",
+        "amount": 1,
+        "maxStackSize": 1
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  },
+  "x": 47.53500000000002,
+  "y": 44.125,
+  "spawnX": 0.0,
+  "spawnY": 0.0,
+  "health": 20.0,
+  "maxHealth": 20.0,
+  "width": 26.0,
+  "height": 46.0,
+  "texture": "blockgame/textures/person.png",
+  "experience": 0,
+  "vx": 0.0,
+  "vy": 0.0,
+  "maxVX": 20.0,
+  "maxVY": 20.0
+}
