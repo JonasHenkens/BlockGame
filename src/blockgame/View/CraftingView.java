@@ -23,7 +23,7 @@ public class CraftingView extends Region{
     
     /**
      * Constructor of CraftingView
-     * @param model: the model which the view is linked to 
+     * @param model The model which the view is linked to
      */
     public CraftingView(Crafting model) {
         this.model = model;
@@ -32,7 +32,7 @@ public class CraftingView extends Region{
     }
     
     /**
-     *  This methode makes the crafting window and the titel
+     *  This methode makes the crafting window and the title
      */
     public void craftMenu(){
         Rectangle r = new Rectangle(500, 164, Color.rgb(134,136,138));

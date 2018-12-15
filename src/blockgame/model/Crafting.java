@@ -16,9 +16,8 @@ public class Crafting {
     
     /**
      * Constructor of Crafting.
-     * @param person: The person that the Crafting is linked to.
-     * @param blockGame: the blockgame where the Crafting makes part 
-     * of (only used for updating the blockgameView).
+     * @param person The person that the Crafting is linked to.
+     * @param blockGame The blockgame where the Crafting takes place.
      */
     public Crafting(Person person, BlockGame blockGame) {
         geopend = false;
@@ -35,9 +34,8 @@ public class Crafting {
     
     /**
      * To make materials
-     * @param id the id of the to make material
-     * @return a String: Tells you which elements you need 
-     * to make that material
+     * @param id The id of the material to be made.
+     * @return The items required to craft the material.
      */
     public String makeMaterial(int id){
         int aantalc=person.getInventoryAmount(3, ItemType.material);      
@@ -82,9 +80,8 @@ public class Crafting {
     
     /**
      * To make a Pickaxe
-     * @param id: the id of the to make pickaxe
-     * @return a String: Tells you which elements you need 
-     * to make that pickaxe
+     * @param id The id of the pickaxe to be made.
+     * @return The items required to craft the pickaxe.
      */
     public String makePickaxe(int id){
         int amountW=person.getInventoryAmount(8, ItemType.block);
@@ -150,8 +147,7 @@ public class Crafting {
     //GETTERS
     
     /**
-     * @return geopend: TRUE, if the crafting menu is open
-     * FALSE, if the crafting menu is closed
+     * @return TRUE, if the crafting menu is open. FALSE, if the crafting menu is closed.
      */
     public boolean isGeopend() {
         return geopend;
