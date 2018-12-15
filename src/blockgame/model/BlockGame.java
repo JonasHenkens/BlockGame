@@ -95,7 +95,7 @@ public class BlockGame {
             }
         }
         else{
-            System.out.println("Clicked out of bounds.");
+            //Clicked out of bounds."
         }
         
         updateGui();
@@ -145,7 +145,7 @@ public class BlockGame {
             }
         }
         else{
-            System.out.println("Clicked out of bounds.");
+            //Clicked out of bounds.
         }
         updateGui();
     }
@@ -193,7 +193,7 @@ public class BlockGame {
             person.renew(newPerson);
         } 
         catch (NullPointerException e) {
-            System.out.println("ERROR: BlockGame.loadWorld NullPointer");
+            // world does not exist
         }
         updateGui();
         view.update();

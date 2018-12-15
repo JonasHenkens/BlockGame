@@ -106,7 +106,7 @@ public class Inventory {
             }
         }
         else{
-            System.out.println("ERROR: Inventory doesn't has so much of this item.");
+            //Inventory doesn't has so much of this item.
         }
     return false;
     }
