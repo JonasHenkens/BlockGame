@@ -147,7 +147,8 @@ public class Crafting {
     //GETTERS
     
     /**
-     * @return TRUE, if the crafting menu is open. FALSE, if the crafting menu is closed.
+     * @return TRUE, if the crafting menu is open.
+     * FALSE, if the crafting menu is closed.
      */
     public boolean isGeopend() {
         return geopend;
