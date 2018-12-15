@@ -176,10 +176,10 @@ public class World {
         
         double[] rarity = new double[4];
         // percentage
-        rarity[0] = 10; // coal
-        rarity[1] = 5; // iron
-        rarity[2] = 2; // gold
-        rarity[3] = 0.5; // diamond
+        rarity[0] = 7; // coal
+        rarity[1] = 3.5; // iron
+        rarity[2] = 1.5; // gold
+        rarity[3] = 1; // diamond
         
         // underground: mostly stone with random ores
         for(int i = 0;i<sizeX;i++){

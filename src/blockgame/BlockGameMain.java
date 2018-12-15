@@ -15,8 +15,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Jonas
+ * @author Jonas en Souhaib
+ * tijdsverdeling: ieder 50%
+ * bronnen:
+ * play audio: https://alvinalexander.com/java/java-audio-example-java-au-play-sound
+ * deserialize nested objects: http://www.javacreed.com/gson-deserialiser-example/
+ * textures and sounds: minecraft: http://minecraft.net
  */
 public class BlockGameMain extends Application {
     
