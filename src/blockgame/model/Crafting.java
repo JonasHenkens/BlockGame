@@ -27,7 +27,7 @@ public class Crafting {
     }
     
     /**
-     *  Changing geopend to open or close the crafting window.
+     *  Changing geopend: To open/close the crafting window.
      */
     public void setGeopend() {
         geopend = !geopend;

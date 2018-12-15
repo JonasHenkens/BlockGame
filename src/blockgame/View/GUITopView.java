@@ -38,7 +38,6 @@ public class GUITopView extends Region{
         Rectangle rh = new Rectangle(model.getWidth(), model.getHeight(), Color.GREY);
         getChildren().add(rh);
         
-        ItemInterface ii = new ItemInterface();
         ImageInterface imi = new ImageInterface();
         
         for(int i=0; i<model.getSize(); i++){

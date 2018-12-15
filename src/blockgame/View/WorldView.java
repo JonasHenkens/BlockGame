@@ -39,7 +39,6 @@ public class WorldView extends Region{
      * Updates the WorldView.
      */
     public void update(){
-        
         // gaat elke blok af
         for(int i=0; i<model.getSizeX(); i++){
             for(int j=0; j<model.getSizeY(); j++){

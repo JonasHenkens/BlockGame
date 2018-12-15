@@ -18,6 +18,7 @@ public class Block extends Item{
     private boolean visible;
     private String placeSound;
     private String breakSound;
+    
     /**
      * Constructor of the Block.
      * @param texture Path to the texture of the block.

@@ -50,7 +50,7 @@ public class BlockGameView extends Region{
         personView = new PersonView(person);
         // Make crafting view
         cv = new CraftingView(craft);
-        // add all views
+        // Add all views
         getChildren().addAll(worldView, topView, personView, cv);
         
         update();

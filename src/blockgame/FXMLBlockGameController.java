@@ -243,6 +243,9 @@ public class FXMLBlockGameController {
         view.updatePerson();
     }
     
+    /**
+     *  Opens/closes the crafting window
+     */
     public void craftmenu(){
         model.getCraft().setGeopend();
         if(model.getCraft().isGeopend()){
@@ -269,6 +272,9 @@ public class FXMLBlockGameController {
         grafischPaneel.setBackground(new Background(new BackgroundFill(c, CornerRadii.EMPTY, Insets.EMPTY)));
     }
     
+    /**
+     *  Gives the person a amount of all items
+     */
     public void spawnItems(){
         Person person = model.getPerson();
         person.addItem(1, ItemType.block, 25);

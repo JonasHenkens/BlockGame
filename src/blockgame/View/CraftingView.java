@@ -131,7 +131,7 @@ public class CraftingView extends Region{
     }   
     
     /**
-     *  Methode that makes a pickaxe
+     * Methode that makes a pickaxe
      * @param id: The id of the tool to be made.
      */
     public void makePickaxe(int id){

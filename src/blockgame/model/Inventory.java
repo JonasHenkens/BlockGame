@@ -30,7 +30,7 @@ public class Inventory {
      * @param id The id of the item to be added.
      * @param type The type of the item to be added.
      * @param amount The amount of the item to be added.
-     * @return  True if items have been added.
+     * @return True if items have been added.
      */
     public boolean addItemInInventory(int id, ItemType type,int amount) {
         ItemInterface ii= new ItemInterface();
@@ -54,7 +54,7 @@ public class Inventory {
                 inventory[i] = new ItemStack(id, type, 0);
                 int in=0;
                 if (amount>=ii.getMaxStacksize(id, type)){
-                    in= ii.getMaxStacksize(id, type);
+                    in=ii.getMaxStacksize(id, type);
                 }
                 else{
                     in=amount;
@@ -73,7 +73,7 @@ public class Inventory {
      * @param id The id of the item to be removed.
      * @param type The type of the item to be removed.
      * @param amount The amount of the item to be removed.
-     * @return  True if items have been removed.
+     * @return True if items have been removed.
      */
     public boolean removeItemInInventory(int id, ItemType type, int amount){
         int n = 0;

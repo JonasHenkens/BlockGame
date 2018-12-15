@@ -8,7 +8,7 @@ package blockgame.model;
 
 /**
  * The GUI at the top of the screen.
- * @author Jonas
+ * @author Jonas and Souhaib
  */
 public class GUITop{
     private int height;
@@ -33,9 +33,6 @@ public class GUITop{
         
         updateItems();
         selectedItem = 0;
-        
-        ItemInterface ii = new ItemInterface();
-        
     }
     
     /**
@@ -53,6 +50,11 @@ public class GUITop{
         }
     }
     
+    /**
+     *Removes block if clicked on one
+     * @param x The x coordinate of the click.
+     * @param y The y coordinate of the click.
+     */
     public void rightClick(double x, double y) {
         boolean done = false;
         try{
