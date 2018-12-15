@@ -103,26 +103,31 @@ public class CraftingView extends Region{
         
         // Pickaxe-craftButton: WOOD, STONE, IRON, GOLD, DIAMOND
         Button pw = new Button("WOOD");
+        pw.setFocusTraversable(false);
         pw.setTranslateX(735);
         pw.setTranslateY(145);
         pw.setOnMouseClicked(e->makePickaxe(0));
         
         Button ps = new Button("STONE");
+        ps.setFocusTraversable(false);
         ps.setTranslateX(820);
         ps.setTranslateY(145);
         ps.setOnMouseClicked(e->makePickaxe(1));
         
         Button pi = new Button("IRON");
+        pi.setFocusTraversable(false);
         pi.setTranslateX(905);
         pi.setTranslateY(145);
         pi.setOnMouseClicked(e->makePickaxe(3));
         
         Button pg = new Button("GOLD");
+        pg.setFocusTraversable(false);
         pg.setTranslateX(980);
         pg.setTranslateY(145);
         pg.setOnMouseClicked(e->makePickaxe(4));
         
         Button pd = new Button("DIAMOND");
+        pd.setFocusTraversable(false);
         pd.setTranslateX(1050);
         pd.setTranslateY(145);
         pd.setOnMouseClicked(e->makePickaxe(2));
