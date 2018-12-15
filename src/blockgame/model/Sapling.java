@@ -32,8 +32,6 @@ public class Sapling extends Block{
         this.woodId = woodId;
         this.leavesId = leavesId;
     }
-
-    
     
     /**
      * Adds random amount of progress.

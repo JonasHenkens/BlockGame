@@ -44,13 +44,12 @@ public class Time {
         sec=0;
         min=0;
     }
-
-    
+  
     // setters
     
     /**
-     *  If there is 60 sec: change it to 
-     *  1 min and 0 sec
+     *  If there is 60 sec: change it
+     *  to 1 min and 0 sec
      */
     public void setMin() {
         if(sec==60){
@@ -60,8 +59,8 @@ public class Time {
     }
 
     /**
-     *  If there is 60 min: change it to 
-     *  1 uren and 0 min
+     *  If there is 60 min: change it 
+     *  to 1 uren and 0 min
      */
     public void setHour() {
         if(min==60){

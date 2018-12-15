@@ -12,8 +12,6 @@ import javafx.scene.image.Image;
  * @author Jonas
  */
 public class Person {
-
-    
     private Inventory inventory;
     private double x;
     private double y;
@@ -325,7 +323,6 @@ public class Person {
     }
 
     /**
-     * 
      * @param index The place of the itemstack in the inventory.
      * @return The amount in the itemstack.
      */
@@ -333,6 +330,9 @@ public class Person {
         return inventory.getAmountInItemStack(index);
     }
 
+    /**
+     * @return The lenght of the inventory.
+     */
     public int getInventorySize() {
         return inventory.getLenghtInventory();
     }
