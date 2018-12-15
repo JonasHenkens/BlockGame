@@ -18,7 +18,6 @@ import javafx.scene.layout.Region;
  */
 public class BlockGameView extends Region{
     private BlockGame model;
-    private World world;
     private GUITop guiTop;
     private Crafting craft;
     
@@ -38,7 +37,6 @@ public class BlockGameView extends Region{
      */
     public BlockGameView(BlockGame model, World world, GUITop guiTop, Person person, Crafting craft) {
         this.model = model;
-        this.world = world;
         this.guiTop = guiTop;
         this.craft = craft;
         // Make world view

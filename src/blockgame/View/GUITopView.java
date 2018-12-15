@@ -7,7 +7,6 @@ package blockgame.View;
 
 import blockgame.model.ImageInterface;
 import blockgame.model.GUITop;
-import blockgame.model.ItemInterface;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;

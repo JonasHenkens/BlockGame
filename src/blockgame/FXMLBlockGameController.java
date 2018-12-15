@@ -273,7 +273,7 @@ public class FXMLBlockGameController {
     }
     
     /**
-     *  Gives the person a amount of all items
+     *  Gives the person a amount of all items.
      */
     public void spawnItems(){
         Person person = model.getPerson();

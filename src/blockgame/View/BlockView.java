@@ -12,7 +12,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
 /**
- * View of a single item.
+ * View of a single block.
  * @author Jonas
  */
 public class BlockView extends Region{

@@ -23,6 +23,8 @@ public class Sapling extends Block{
      * @param dropId Id of the item that will be dropped when broken.
      * @param dropType Type of the item that will be dropped when broken.
      * @param name Name of the block.
+     * @param placeSound The path to the sound file to play when placed.
+     * @param breakSound The path to the sound file to play when broken.
      * @param woodId The id of the block used to make the trunk of the tree.
      * @param leavesId The id of the block used to make the leaves of the tree.
      */
@@ -58,10 +60,7 @@ public class Sapling extends Block{
      * @return True if sapling mature.
      */
     public boolean isDone(){
-        if(progress >= 100.0){
-            return true;
-        }
-        return false;
+        return progress >= 100.0;
     }
     
     /**
